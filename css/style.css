@@ -163,12 +163,179 @@ html.theme-pink-sorbet ::-webkit-scrollbar-thumb {
   background: #EE9DBD;
 }
 
-/* UTS Blank Inputs */
+/* ========================================================
+   CODE INTERACTIVE ROWS & TEXT STYLING
+   ======================================================== */
+.uts-code-row {
+  transition: background-color 0.15s ease;
+}
+.uts-code-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.uts-code-lineno {
+  color: #64748B;
+}
+.uts-code-text {
+  color: #F1F5F9; /* Crisp bright text in default dark mode */
+}
+.uts-code-comment {
+  color: #94A3B8; /* Clear readable comment */
+  font-style: italic;
+}
+
+/* UTS Blank Inputs (Base / Dark Mode) */
 .uts-blank-input {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+  color: #FEF08A !important;
+  border: 2px dashed #F59E0B !important;
+  font-weight: 700 !important;
   box-shadow: 0 0 8px rgba(251, 191, 36, 0.2);
 }
+.uts-blank-input::placeholder {
+  color: #FCD34D !important;
+  opacity: 0.85;
+}
 .uts-blank-input:focus {
+  background-color: rgba(245, 158, 11, 0.3) !important;
+  color: #FFFFFF !important;
+  border-color: #FDE047 !important;
   box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+.uts-blank-input.uts-blank-correct {
+  background-color: rgba(16, 185, 129, 0.25) !important;
+  color: #34D399 !important;
+  border: 2px solid #10B981 !important;
+}
+.uts-blank-input.uts-blank-wrong {
+  background-color: rgba(244, 63, 94, 0.25) !important;
+  color: #FB7185 !important;
+  border: 2px solid #F43F5E !important;
+}
+
+/* Terminal Consoles Base */
+#uts-terminal-output, #sim-terminal-output {
+  color: #4ADE80;
+}
+#uts-terminal-output .text-slate-500, #sim-terminal-output .text-slate-500 {
+  color: #94A3B8 !important;
+}
+
+/* ========================================================
+   HIGH-CONTRAST OVERRIDES FOR THEME PINK & SORBET
+   ======================================================== */
+/* Code Editor in Pink & Sorbet - Ultra sharp & visible */
+html.theme-pink-sorbet .uts-code-row:hover {
+  background-color: #FFE6EE !important;
+}
+
+html.theme-pink-sorbet .uts-code-lineno {
+  color: #9F5870 !important;
+  font-weight: 700 !important;
+}
+
+/* The code text in Pink theme: Solid Dark Slate, 100% visible on light pink */
+html.theme-pink-sorbet .uts-code-text {
+  color: #18181B !important;
+  font-weight: 600 !important;
+}
+
+html.theme-pink-sorbet .uts-code-comment {
+  color: #52525B !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+}
+
+/* Blank inputs in Pink & Sorbet - bright warm badge with bold dark text */
+html.theme-pink-sorbet .uts-blank-input {
+  background-color: #FEF3C7 !important;
+  color: #78350F !important;
+  border: 2px dashed #D97706 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 6px rgba(217, 119, 6, 0.25) !important;
+}
+html.theme-pink-sorbet .uts-blank-input::placeholder {
+  color: #92400E !important;
+  opacity: 0.85 !important;
+  font-weight: 700 !important;
+}
+html.theme-pink-sorbet .uts-blank-input:focus {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border-color: #B45309 !important;
+  box-shadow: 0 0 10px rgba(180, 83, 9, 0.4) !important;
+}
+
+/* Correct answers & wrong answers in Pink theme */
+html.theme-pink-sorbet .uts-blank-input.uts-blank-correct,
+html.theme-pink-sorbet .uts-blank-input.bg-emerald-500\/30 {
+  background-color: #DCFCE7 !important;
+  color: #14532D !important;
+  border: 2px solid #16A34A !important;
+}
+html.theme-pink-sorbet .uts-blank-input.uts-blank-wrong,
+html.theme-pink-sorbet .uts-blank-input.bg-rose-500\/30 {
+  background-color: #FFE4E6 !important;
+  color: #881337 !important;
+  border: 2px solid #E11D48 !important;
+}
+
+/* Playground Code Textarea in Pink & Sorbet */
+html.theme-pink-sorbet #sim-code-editor {
+  background-color: #FFFFFF !important;
+  color: #18181B !important;
+  border: 1px solid #EE9DBD !important;
+  font-weight: 600 !important;
+}
+
+/* Text sky-200 in Pink & Sorbet (fallback for any code container) */
+html.theme-pink-sorbet .text-sky-200 {
+  color: #18181B !important;
+  font-weight: 600 !important;
+}
+
+/* Terminal Console in Pink & Sorbet */
+html.theme-pink-sorbet #uts-terminal-output,
+html.theme-pink-sorbet #sim-terminal-output {
+  color: #4ADE80 !important;
+  font-weight: 500 !important;
+}
+html.theme-pink-sorbet #uts-terminal-output .text-slate-500,
+html.theme-pink-sorbet #sim-terminal-output .text-slate-500 {
+  color: #E2E8F0 !important;
+}
+
+/* Amber text & badges high-contrast in Pink & Sorbet */
+html.theme-pink-sorbet .text-amber-400,
+html.theme-pink-sorbet .text-amber-300 {
+  color: #9A3412 !important;
+  font-weight: 700 !important;
+}
+html.theme-pink-sorbet .bg-amber-500\/10,
+html.theme-pink-sorbet .bg-amber-400\/20 {
+  background-color: #FEF3C7 !important;
+  border-color: #FCD34D !important;
+}
+html.theme-pink-sorbet #uts-timer-display {
+  color: #EA580C !important;
+  font-weight: 800 !important;
+}
+html.theme-pink-sorbet #uts-covered-modules {
+  color: #9A3412 !important;
+  background-color: #FEF3C7 !important;
+  border-color: #FCD34D !important;
+  font-weight: 700 !important;
+}
+
+/* Pre & Code blocks in Pink & Sorbet */
+html.theme-pink-sorbet pre {
+  background-color: #FFF2F6 !important;
+  color: #18181B !important;
+  border: 1px solid #FFCAD6 !important;
+}
+html.theme-pink-sorbet pre code,
+html.theme-pink-sorbet code {
+  color: #881337 !important;
+  font-weight: 600 !important;
 }
 
 /* Terminal Console Styling */

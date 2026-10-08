@@ -94,18 +94,27 @@ const UTSEngine = {
     let codeHtml = pkg.rawCode;
     pkg.blanks.forEach(b => {
       const placeholder = b.hint;
-      const blankInputHtml = `<input type="text" id="uts_input_${b.id}" data-blank-id="${b.id}" class="uts-blank-input bg-amber-400/20 text-amber-300 border-2 border-dashed border-amber-400 focus:border-amber-300 focus:bg-amber-400/30 px-2 py-0.5 rounded font-mono font-bold text-xs outline-none transition-all duration-200" style="min-width: 110px;" placeholder="[ ${b.label} ]" title="${placeholder}">`;
+      const blankInputHtml = `<input type="text" id="uts_input_${b.id}" data-blank-id="${b.id}" class="uts-blank-input px-2.5 py-0.5 rounded-md font-mono font-bold text-xs outline-none transition-all duration-200" style="min-width: 120px;" placeholder="[ ${b.label} ]" title="${placeholder}">`;
       codeHtml = codeHtml.replace(`___${b.id}___`, blankInputHtml);
     });
 
-    // Format into line numbered blocks
+    // Format into line numbered blocks with syntax styling
     const lines = codeHtml.split('\n');
     let finalHtml = "";
     lines.forEach((line, idx) => {
+      // Split and style inline comments
+      let formattedLine = line;
+      const commentIdx = formattedLine.indexOf("//");
+      if (commentIdx !== -1) {
+        const codePart = formattedLine.substring(0, commentIdx);
+        const commentPart = formattedLine.substring(commentIdx);
+        formattedLine = `${codePart}<span class="uts-code-comment">${commentPart}</span>`;
+      }
+
       finalHtml += `
-        <div class="flex items-center hover:bg-slate-800/30 px-3 py-0.5 rounded">
-          <span class="w-8 text-right pr-3 text-slate-600 font-mono text-[11px] select-none">${idx + 1}</span>
-          <span class="font-mono text-xs text-sky-200 whitespace-pre">${line}</span>
+        <div class="uts-code-row flex items-center px-3 py-0.5 rounded">
+          <span class="uts-code-lineno w-8 text-right pr-3 font-mono text-[11px] select-none">${idx + 1}</span>
+          <span class="uts-code-text font-mono text-xs whitespace-pre">${formattedLine}</span>
         </div>
       `;
     });
@@ -190,9 +199,9 @@ const UTSEngine = {
 
       if (isCorrect) {
         correctCount++;
-        inputEl.className = "uts-blank-input bg-emerald-500/30 text-emerald-300 border-2 border-emerald-400 px-2 py-0.5 rounded font-mono font-bold text-xs";
+        inputEl.className = "uts-blank-input uts-blank-correct px-2.5 py-0.5 rounded-md font-mono font-bold text-xs";
       } else {
-        inputEl.className = "uts-blank-input bg-rose-500/30 text-rose-300 border-2 border-rose-500 px-2 py-0.5 rounded font-mono font-bold text-xs";
+        inputEl.className = "uts-blank-input uts-blank-wrong px-2.5 py-0.5 rounded-md font-mono font-bold text-xs";
         feedbackList.push({
           label: b.label,
           userAns: userVal || "(Dikosongkan)",
