@@ -1,0 +1,213 @@
+/* ALPRO-LAB CUSTOM STYLES & DUAL THEMES */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-cute: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ========================================================
+   TEMA 2: PINK & SORBET PALETTE (@cattobiens)
+   Warna: #FFCAD6, #E9CBE5, #F44F83, #EE9DBD
+   ======================================================== */
+html.theme-pink-sorbet body {
+  background-color: #FFF2F6;
+  color: #38101E;
+  font-family: var(--font-cute);
+}
+
+/* Header in Pink & Sorbet */
+html.theme-pink-sorbet header {
+  background-color: rgba(255, 245, 248, 0.95);
+  border-bottom: 2px solid #FFCAD6;
+}
+
+html.theme-pink-sorbet header .text-white {
+  color: #881337 !important;
+}
+
+/* Surfaces and Cards */
+html.theme-pink-sorbet .bg-slate-900,
+html.theme-pink-sorbet .bg-slate-850,
+html.theme-pink-sorbet .bg-slate-800,
+html.theme-pink-sorbet .bg-slate-800\/80,
+html.theme-pink-sorbet .bg-slate-800\/60,
+html.theme-pink-sorbet .bg-slate-800\/40,
+html.theme-pink-sorbet .bg-slate-900\/90,
+html.theme-pink-sorbet .bg-slate-900\/80,
+html.theme-pink-sorbet .bg-slate-900\/70,
+html.theme-pink-sorbet .bg-slate-900\/60 {
+  background-color: #FFFFFF !important;
+  border-color: #FFCAD6 !important;
+  color: #4C0519 !important;
+  box-shadow: 0 4px 20px -2px rgba(244, 79, 131, 0.08);
+}
+
+html.theme-pink-sorbet .bg-slate-950,
+html.theme-pink-sorbet .bg-slate-950\/70 {
+  background-color: #FFF8FA !important;
+  border-color: #EE9DBD !important;
+}
+
+/* Text colors in Pink & Sorbet */
+html.theme-pink-sorbet .text-slate-400,
+html.theme-pink-sorbet .text-slate-500 {
+  color: #9F5870 !important;
+}
+
+html.theme-pink-sorbet .text-slate-300,
+html.theme-pink-sorbet .text-slate-200,
+html.theme-pink-sorbet .text-white {
+  color: #4C0519 !important;
+}
+
+html.theme-pink-sorbet .border-slate-800,
+html.theme-pink-sorbet .border-slate-700,
+html.theme-pink-sorbet .border-slate-700\/60,
+html.theme-pink-sorbet .border-slate-700\/70,
+html.theme-pink-sorbet .border-slate-700\/80 {
+  border-color: #FFCAD6 !important;
+}
+
+/* Accent Buttons */
+html.theme-pink-sorbet .bg-sky-500,
+html.theme-pink-sorbet .bg-sky-600 {
+  background-color: #F44F83 !important;
+  color: #FFFFFF !important;
+}
+
+html.theme-pink-sorbet .text-sky-400,
+html.theme-pink-sorbet .text-sky-300 {
+  color: #F44F83 !important;
+}
+
+html.theme-pink-sorbet .bg-sky-500\/10,
+html.theme-pink-sorbet .bg-sky-500\/20 {
+  background-color: #FFE6EE !important;
+  color: #F44F83 !important;
+  border-color: #EE9DBD !important;
+}
+
+html.theme-pink-sorbet .bg-purple-600 {
+  background-color: #D28BB5 !important;
+}
+
+html.theme-pink-sorbet .bg-purple-500\/20 {
+  background-color: #E9CBE5 !important;
+  color: #70265B !important;
+}
+
+/* Terminal Window in Pink & Sorbet */
+html.theme-pink-sorbet .terminal-window {
+  background-color: #2A1725 !important;
+  border: 2px solid #EE9DBD !important;
+}
+
+html.theme-pink-sorbet .terminal-header {
+  background-color: #3D2235 !important;
+  border-bottom: 1px solid #5C3250 !important;
+}
+
+/* Hero gradient in Pink & Sorbet */
+html.theme-pink-sorbet .bg-gradient-to-br.from-slate-900 {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF0F5 50%, #FFE4ED 100%) !important;
+  border: 2px solid #FFCAD6 !important;
+}
+
+/* ========================================================
+   CANVAS ANIMATOR STYLING ("Bioskop Simulasi")
+   ======================================================== */
+.canvas-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 800 / 420;
+  max-height: 480px;
+  background: #000;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+#anim-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+html.theme-pink-sorbet ::-webkit-scrollbar-track {
+  background: #FFF2F6;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+html.theme-pink-sorbet ::-webkit-scrollbar-thumb {
+  background: #EE9DBD;
+}
+
+/* UTS Blank Inputs */
+.uts-blank-input {
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.2);
+}
+.uts-blank-input:focus {
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Terminal Console Styling */
+.terminal-window {
+  background: #0b0f19;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+  background: #111827;
+  border-bottom: 1px solid #1f2937;
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Certificate Print Optimization */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #certificate-box, #certificate-box *,
+  #uts-result-box, #uts-result-box * {
+    visibility: visible;
+  }
+  #certificate-box, #uts-result-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    border: 3px solid #d97706 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+}
