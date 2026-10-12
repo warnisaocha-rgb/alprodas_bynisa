@@ -45,6 +45,8 @@ const App = {
     if (typeof UTSEngine !== "undefined") {
       UTSEngine.init();
     }
+
+    this.initCheatSheet();
   },
 
   setupNavigation: function() {
@@ -438,5 +440,147 @@ const App = {
         </div>
       </div>
     `;
+  },
+
+  // ==========================================
+  // SONTEKAN PINTASAN SINTAKS C++ CONTROLLER
+  // ==========================================
+  initCheatSheet: function() {
+    const drawer = document.getElementById("cheatsheet-drawer");
+    const openBtn = document.getElementById("btn-open-cheatsheet");
+    const closeBtn = document.getElementById("btn-close-cheatsheet");
+    const backdrop = document.getElementById("cheatsheet-backdrop");
+    const searchInput = document.getElementById("cheatsheet-search-input");
+    const container = document.getElementById("cheatsheet-cards-container");
+    const filterBtns = document.querySelectorAll(".cs-filter-btn");
+
+    if (!drawer || !container || typeof ALPRO_DATA === "undefined" || !ALPRO_DATA.syntaxCheatSheet) return;
+
+    let activeFilter = "all";
+    let searchQuery = "";
+
+    const openDrawer = () => {
+      drawer.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+      if (searchInput) searchInput.focus();
+    };
+
+    const closeDrawer = () => {
+      drawer.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    };
+
+    if (openBtn) openBtn.addEventListener("click", openDrawer);
+    if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+    if (backdrop) backdrop.addEventListener("click", closeDrawer);
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !drawer.classList.contains("hidden")) {
+        closeDrawer();
+      }
+    });
+
+    // Render Cards
+    const renderCards = () => {
+      const items = ALPRO_DATA.syntaxCheatSheet.filter(item => {
+        const matchesFilter = (activeFilter === "all") || (item.module === activeFilter);
+        const matchesSearch = !searchQuery || 
+          item.title.toLowerCase().includes(searchQuery) ||
+          item.keywords.toLowerCase().includes(searchQuery) ||
+          item.code.toLowerCase().includes(searchQuery);
+        return matchesFilter && matchesSearch;
+      });
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div class="p-8 text-center text-slate-500 font-mono text-xs">
+            <span class="text-2xl block mb-2">🔍</span>
+            Tidak ditemukan sintaks yang cocok dengan kata kunci "${searchQuery}".<br>
+            Coba ketik kata lain seperti: <em>cout, getline, switch, struct, atau bitwise</em>.
+          </div>
+        `;
+        return;
+      }
+
+      let html = "";
+      items.forEach(item => {
+        let badgeColor = "bg-slate-800 text-slate-300 border-slate-700";
+        if (item.module === "mod1") badgeColor = "bg-sky-500/10 text-sky-400 border-sky-500/20";
+        else if (item.module === "mod2") badgeColor = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+        else if (item.module === "mod3") badgeColor = "bg-purple-500/10 text-purple-400 border-purple-500/20";
+        else if (item.module === "mod4") badgeColor = "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
+        else if (item.module === "mod5") badgeColor = "bg-orange-500/10 text-orange-400 border-orange-500/20";
+
+        const encodedCode = encodeURIComponent(item.code);
+
+        html += `
+          <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition-all space-y-2.5">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${badgeColor}">
+                  ${item.moduleLabel}
+                </span>
+                <h4 class="text-xs sm:text-sm font-bold text-white">${item.title}</h4>
+              </div>
+              <button onclick="App.copySyntax('${encodedCode}', this)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-amber-500 active:text-slate-950 text-slate-300 text-[11px] font-semibold transition-all flex items-center gap-1 shrink-0 cursor-pointer" title="Salin kode">
+                <span>📋</span>
+                <span>Salin</span>
+              </button>
+            </div>
+
+            <!-- Code block -->
+            <pre class="bg-slate-900/90 p-3 rounded-xl border border-slate-850 font-mono text-[11px] text-emerald-300 overflow-x-auto whitespace-pre leading-relaxed">${item.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>
+
+            <!-- Tip Asdos -->
+            <div class="text-[11px] text-slate-400 flex items-start gap-1.5 pt-1">
+              <span class="text-amber-400 shrink-0">💡</span>
+              <span class="leading-relaxed">${item.tip}</span>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    };
+
+    // Filter pills click
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => {
+          b.className = "cs-filter-btn px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white whitespace-nowrap transition-colors";
+        });
+        btn.className = "cs-filter-btn px-2.5 py-1 rounded-lg bg-amber-500 text-slate-950 font-bold whitespace-nowrap transition-colors";
+        activeFilter = btn.getAttribute("data-filter") || "all";
+        renderCards();
+      });
+    });
+
+    // Search input
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        renderCards();
+      });
+    }
+
+    renderCards();
+  },
+
+  copySyntax: function(encodedCode, btnElement) {
+    const code = decodeURIComponent(encodedCode);
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(code).then(() => {
+        if (btnElement) {
+          const original = btnElement.innerHTML;
+          btnElement.innerHTML = `<span>✅</span> <span>Tersalin!</span>`;
+          btnElement.className = "px-2.5 py-1 rounded-lg bg-emerald-500 text-slate-950 text-[11px] font-bold transition-all flex items-center gap-1 shrink-0";
+          setTimeout(() => {
+            btnElement.innerHTML = original;
+            btnElement.className = "px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] font-semibold transition-all flex items-center gap-1 shrink-0 cursor-pointer";
+          }, 1500);
+        }
+      });
+    }
   }
 };

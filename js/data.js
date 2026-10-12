@@ -2229,7 +2229,303 @@ Process returned 0 (0x0)   execution time : 0.017 s`
         { time: 20, title: "4. Enum & Typedef: Simbol Terindeks & Nama Alias", desc: "Enum memberi nama simbolik berurutan mulai dari 0 (Laprak 3.3 Presiden RI), dan Typedef memberi nama panggilan baru yang mudah dibaca (Laprak 3.5 typedef float angkaPecahan)." }
       ]
     }
+  ],
+
+  // ========================================================
+  // SONTEKAN PINTASAN SINTAKS C++ (CHEATSHEET ASDOS)
+  // ========================================================
+  syntaxCheatSheet: [
+    // --- MODUL 1 ---
+    {
+      id: "cs-1-1",
+      module: "mod1",
+      moduleLabel: "Modul 1 (I/O & Tipe Data)",
+      title: "Kerangka Dasar Program C++",
+      keywords: "iostream using namespace std main return 0 boilerplate kerangka",
+      code: `#include <iostream>
+using namespace std;
+
+int main() {
+    // Tulis kodemu di sini
+    return 0;
+}`,
+      tip: "Jangan lupa tanda kurung kurawal buka-tutup {} dan return 0; di akhir fungsi main!"
+    },
+    {
+      id: "cs-1-2",
+      module: "mod1",
+      moduleLabel: "Modul 1 (I/O & Tipe Data)",
+      title: "Input & Output Konsol (cin >> & cout <<)",
+      keywords: "cin cout endl input output panah cetak",
+      code: `int angka;
+cout << "Masukkan angka: "; // Panah mengalir KE LAYAR (<<)
+cin >> angka;               // Panah mengalir DARI KEYBOARD (>>)
+cout << "Angka kamu: " << angka << endl;`,
+      tip: "Jembatan Keledai: cout << (panah ke kiri / keluar layar), cin >> (panah ke kanan / masuk variabel)."
+    },
+    {
+      id: "cs-1-3",
+      module: "mod1",
+      moduleLabel: "Modul 1 (I/O & Tipe Data)",
+      title: "Format Koma Desimal (iomanip & setprecision)",
+      keywords: "iomanip setprecision fixed float double pecahan desimal koma",
+      code: `#include <iomanip> // Wajib include ini!
+
+double nilai = 3.141592;
+cout << fixed << setprecision(2) << nilai; // Hasil: 3.14`,
+      tip: "Gunakan 'fixed << setprecision(N)' agar angka desimal dibulatkan rapi tepat N digit di belakang koma."
+    },
+    {
+      id: "cs-1-4",
+      module: "mod1",
+      moduleLabel: "Modul 1 (I/O & Tipe Data)",
+      title: "Konstanta Read-Only (const)",
+      keywords: "const konstanta tetapan read only phi",
+      code: `const float PHI = 3.14f;
+const int MAX_SISWA = 40;
+// PHI = 3.15; // ERROR! Nilai const dikunci mati`,
+      tip: "Nama konstanta biasanya ditulis HURUF_KAPITAL untuk memudahkan pembacaan kode."
+    },
+
+    // --- MODUL 2 ---
+    {
+      id: "cs-2-1",
+      module: "mod2",
+      moduleLabel: "Modul 2 (Operator)",
+      title: "Operator Penugasan Gabungan (Compound Assignment)",
+      keywords: "compound assignment += -= *= /= %= operator",
+      code: `x += 5;  // Sama dengan: x = x + 5
+x -= 2;  // Sama dengan: x = x - 2
+x *= 3;  // Sama dengan: x = x * 3
+x /= 2;  // Sama dengan: x = x / 2
+x %= 4;  // Sama dengan: x = x % 4 (sisa bagi)`,
+      tip: "Compound assignment lebih ringkas dan langsung memodifikasi variabel di tempat yang sama."
+    },
+    {
+      id: "cs-2-2",
+      module: "mod2",
+      moduleLabel: "Modul 2 (Operator)",
+      title: "Operator Ternary (? :) (if-else 1 Baris)",
+      keywords: "ternary conditional if else singkat tanda tanya titik dua",
+      code: `// Format: (kondisi) ? nilai_jika_true : nilai_jika_false;
+int nilai = 75;
+string status = (nilai >= 70) ? "LULUS" : "REMIDI";
+cout << "Status: " << status << endl;`,
+      tip: "Sangat cocok untuk menentukan label teks singkat tanpa harus membuat blok if-else panjang."
+    },
+    {
+      id: "cs-2-3",
+      module: "mod2",
+      moduleLabel: "Modul 2 (Operator)",
+      title: "Operator Bitwise Pergeseran Bit (<< & >>)",
+      keywords: "bitwise shift left right geser bit kali bagi biner",
+      code: `int a = 1;
+int hasilKiri = a << 3;  // Geser kiri 3 bit: 1 * (2^3) = 8
+int b = 64;
+int hasilKanan = b >> 2; // Geser kanan 2 bit: 64 / (2^2) = 16`,
+      tip: "'<< N' setara dengan dikali 2 pangkat N. '>> N' setara dengan dibagi 2 pangkat N."
+    },
+    {
+      id: "cs-2-4",
+      module: "mod2",
+      moduleLabel: "Modul 2 (Operator)",
+      title: "Logika Boolean vs Bitwise",
+      keywords: "and or xor not boolean logika bitwise && || & | ^ ~",
+      code: `// Logika Boolean (Hasil: true / false):
+bool cek = (x > 5) && (y < 10); // Logika AND
+bool opsi = (x == 1) || (y == 2); // Logika OR
+
+// Bitwise (Dioperasikan per bit biner):
+int c = a & b; // Bitwise AND
+int d = a | b; // Bitwise OR
+int e = a ^ b; // Bitwise XOR`,
+      tip: "Hati-hati tertukar! '&&' adalah logika boolean untuk if, sedangkan '&' adalah bitwise untuk angka biner."
+    },
+
+    // --- MODUL 3 ---
+    {
+      id: "cs-3-1",
+      module: "mod3",
+      moduleLabel: "Modul 3 (Struct & Union)",
+      title: "Deklarasi Struct & Titik Koma Wajib (;)",
+      keywords: "struct struktur tipe bentukan objek member titik",
+      code: `struct Mahasiswa {
+    string nama;
+    int nim;
+    float ipk;
+}; // <-- WAJIB TITIK KOMA DI SINI!
+
+// Cara pakai:
+Mahasiswa m1;
+m1.nama = "Warnisyah";
+m1.nim = 2502105;
+m1.ipk = 3.95f;`,
+      tip: "Jebakan Batman: 90% maba lupa tanda titik koma ';' di akhir penutup struct. Jangan sampai lupa!"
+    },
+    {
+      id: "cs-3-2",
+      module: "mod3",
+      moduleLabel: "Modul 3 (Struct & Union)",
+      title: "Union: Memori Bersama (Shared Memory)",
+      keywords: "union shared memory hemat ram timpa overwrite",
+      code: `union Data {
+    char huruf;  // 1 Byte
+    int angka;   // 4 Byte
+};
+
+Data d;
+d.huruf = 'A';
+d.angka = 100; // NILAI 'A' AKAN KETIMPA OLEH 100!
+// Ukuran sizeof(d) HANYA 4 Byte (sebesar member terbesarnya)`,
+      tip: "Union digunakan untuk menghemat RAM di mikrokontroler. Nilai member terakhir selalu menimpa nilai sebelumnya."
+    },
+    {
+      id: "cs-3-3",
+      module: "mod3",
+      moduleLabel: "Modul 3 (Struct & Union)",
+      title: "Enum: Konstanta Otomatis Mulai dari 0",
+      keywords: "enum enumerasi daftar konstanta urut indeks",
+      code: `enum Hari { SENIN, SELASA, RABU, KAMIS, JUMAT };
+// SENIN=0, SELASA=1, RABU=2, dst.
+
+Hari ini = RABU;
+cout << "Index hari: " << ini; // Mencetak angka 2`,
+      tip: "Untuk urutan ke-n manusia, tambahkan 1: (namaEnum + 1), contoh urutan presiden di Laprak 3.3."
+    },
+    {
+      id: "cs-3-4",
+      module: "mod3",
+      moduleLabel: "Modul 3 (Struct & Union)",
+      title: "Typedef: Nama Panggilan Alias Tipe Data",
+      keywords: "typedef alias nama panggilan tipe data baru",
+      code: `typedef float angkaPecahan;
+typedef string kata;
+
+angkaPecahan luas = 50.5;
+kata nama = "Teknik Komputer";`,
+      tip: "Sintaks: 'typedef tipe_asli nama_panggilan;'. Bermanfaat menyederhanakan penulisan kode panjang."
+    },
+
+    // --- MODUL 4 ---
+    {
+      id: "cs-4-1",
+      module: "mod4",
+      moduleLabel: "Modul 4 (String C++)",
+      title: "Membaca Kalimat Berspasi (getline)",
+      keywords: "getline spasi kalimat string cin input teks",
+      code: `#include <string>
+
+string namaLengkap;
+cout << "Ketik nama lengkap: ";
+getline(cin, namaLengkap); // Membaca spasi dengan aman!
+// cin >> namaLengkap;    // JANGAN! Ini terpotong di spasi pertama`,
+      tip: "Gunakan 'getline(cin, str)' untuk string C++, atau 'cin.get(str, 50)' jika menggunakan char array kuno."
+    },
+    {
+      id: "cs-4-2",
+      module: "mod4",
+      moduleLabel: "Modul 4 (String C++)",
+      title: "Penyelamat Hantu Enter (cin.ignore)",
+      keywords: "cin.ignore buffer keyboard enter lewati input terlewati",
+      code: `int umur;
+string nama;
+
+cin >> umur;
+cin.ignore(); // <-- WAJIB: Membuang sisa tombol Enter!
+getline(cin, nama);`,
+      tip: "Jika getline terlewati tanpa bisa diketik, itu karena sisa '\\n' dari cin >> sebelumnya. Solusinya: cin.ignore();!"
+    },
+    {
+      id: "cs-4-3",
+      module: "mod4",
+      moduleLabel: "Modul 4 (String C++)",
+      title: "Method Bawaan String (.length, .at, swap)",
+      keywords: "length size at swap panjang karakter tukar",
+      code: `string teks = "Makassar";
+
+int len = teks.length(); // 8 karakter
+char huruf = teks.at(0); // 'M' (Aman dengan bounds-check)
+
+string a = "Kopi", b = "Teh";
+swap(a, b); // Isi ditukar seketika! a jadi "Teh", b jadi "Kopi"`,
+      tip: "Gunakan .at(idx) daripada teks[idx] saat ujian responsi karena .at() memiliki pengaman jika indeks di luar batas."
+    },
+    {
+      id: "cs-4-4",
+      module: "mod4",
+      moduleLabel: "Modul 4 (String C++)",
+      title: "Pencarian & Penggantian Teks (.find & .replace)",
+      keywords: "find replace string npos cari ganti sensor kata",
+      code: `string pesan = "Saya benci error";
+size_t pos = pesan.find("benci");
+
+if (pos != string::npos) { // Jika ditemukan
+    pesan.replace(pos, 5, "suka"); // Ganti 5 huruf di pos
+}
+// Hasil: "Saya suka error"`,
+      tip: "Jika kata tidak ditemukan, .find() mengembalikan nilai spesial 'string::npos'."
+    },
+
+    // --- MODUL 5 ---
+    {
+      id: "cs-5-1",
+      module: "mod5",
+      moduleLabel: "Modul 5 (Percabangan)",
+      title: "Percabangan if - else if - else Bertingkat",
+      keywords: "if else if bertingkat majemuk kondisi percabangan",
+      code: `if (nilai >= 85) {
+    cout << "Grade A";
+} else if (nilai >= 70) {
+    cout << "Grade B";
+} else if (nilai >= 55) {
+    cout << "Grade C";
+} else {
+    cout << "Mengulang";
+}`,
+      tip: "Jebakan Batman: Jangan pernah menulis 'if (syarat);' dengan titik koma di belakang kurung!"
+    },
+    {
+      id: "cs-5-2",
+      module: "mod5",
+      moduleLabel: "Modul 5 (Percabangan)",
+      title: "Percabangan switch - case & Wajib break",
+      keywords: "switch case break default menu pilihan",
+      code: `char menu = 'B';
+
+switch (menu) {
+    case 'A':
+        cout << "Pilihan Paket A";
+        break; // <-- WAJIB: Mencegah terjun bebas (fall-through)!
+    case 'B':
+        cout << "Pilihan Paket B";
+        break;
+    default:
+        cout << "Pilihan Tidak Valid";
+        break;
+}`,
+      tip: "switch hanya menerima nilai diskrit bilangan bulat atau karakter (char/int/enum), TIDAK BISA untuk float atau string!"
+    },
+    {
+      id: "cs-5-3",
+      module: "mod5",
+      moduleLabel: "Modul 5 (Percabangan)",
+      title: "Logika Kasir Diskon Mandiri (Praktikum 5.5)",
+      keywords: "kasir diskon belanja toko baju celana laprak 5.5",
+      code: `// Evaluasi diskon baju mandiri:
+if (totalBaju > 100000) {
+    diskonBaju = 0.20 * totalBaju; // 20%
+}
+
+// Evaluasi diskon celana mandiri:
+if (totalCelana > 70000) {
+    diskonCelana = 0.25 * totalCelana; // 25%
+}
+
+double totalBayar = (totalBaju - diskonBaju) + (totalCelana - diskonCelana);`,
+      tip: "Dua diskon dievaluasi secara terpisah (independen). Diskon baju tidak mempengaruhi diskon celana."
+    }
   ]
 };
+
 
 

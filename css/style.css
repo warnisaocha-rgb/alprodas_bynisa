@@ -151,6 +151,33 @@ html.theme-pink-sorbet .bg-amber-500\/5 {
   border-color: #FCD34D !important;
 }
 
+/* Cheat Sheet Drawer in Pink & Sorbet */
+html.theme-pink-sorbet #cheatsheet-drawer .bg-slate-900 {
+  background-color: #FFF2F6 !important;
+  color: #38101E !important;
+  border-left-color: #EE9DBD !important;
+}
+
+html.theme-pink-sorbet #cheatsheet-drawer .bg-slate-950,
+html.theme-pink-sorbet #cheatsheet-drawer .bg-slate-950\/90,
+html.theme-pink-sorbet #cheatsheet-drawer .bg-slate-950\/80 {
+  background-color: #FFFFFF !important;
+  border-color: #FFCAD6 !important;
+}
+
+html.theme-pink-sorbet #cheatsheet-drawer .bg-slate-900\/95,
+html.theme-pink-sorbet #cheatsheet-drawer .bg-slate-900\/90 {
+  background-color: #FFF8FA !important;
+  border-color: #FFCAD6 !important;
+}
+
+html.theme-pink-sorbet #cheatsheet-drawer pre {
+  background-color: #2A1725 !important;
+  color: #4ADE80 !important;
+  border-color: #EE9DBD !important;
+}
+
+
 
 /* ========================================================
    CANVAS ANIMATOR STYLING ("Bioskop Simulasi")
