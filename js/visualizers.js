@@ -731,30 +731,31 @@ const Visualizers = {
 
           <div class="space-y-1.5 text-slate-300">
             <div class="flex justify-between">
-              <span>Beli Baju (\${qtyBaju} pcs x Rp \${fmt(hargaBaju)})</span>
-              <span class="text-white">Rp \${fmt(totalBaju)}</span>
+              <span>Beli Baju (${qtyBaju} pcs x Rp ${fmt(hargaBaju)})</span>
+              <span class="text-white">Rp ${fmt(totalBaju)}</span>
             </div>
-            <div class="flex justify-between items-center text-[11px] \${dapetDiskonBaju ? 'text-emerald-400 font-bold' : 'text-slate-500'}">
-              <span>&gt; Syarat if (totalBaju &gt; 100000): \${dapetDiskonBaju ? 'TRUE (Diskon 20%)' : 'FALSE (Tanpa Diskon)'}</span>
-              <span>- Rp \${fmt(diskonBaju)}</span>
+            <div class="flex justify-between items-center text-[11px] ${dapetDiskonBaju ? 'text-emerald-400 font-bold' : 'text-slate-500'}">
+              <span>&gt; Syarat if (totalBaju &gt; 100000): ${dapetDiskonBaju ? 'TRUE (Diskon 20%)' : 'FALSE (Tanpa Diskon)'}</span>
+              <span>- Rp ${fmt(diskonBaju)}</span>
             </div>
 
             <div class="flex justify-between pt-1 border-t border-slate-900">
-              <span>Beli Celana (\${qtyCelana} pcs x Rp \${fmt(hargaCelana)})</span>
-              <span class="text-white">Rp \${fmt(totalCelana)}</span>
+              <span>Beli Celana (${qtyCelana} pcs x Rp ${fmt(hargaCelana)})</span>
+              <span class="text-white">Rp ${fmt(totalCelana)}</span>
             </div>
-            <div class="flex justify-between items-center text-[11px] \${dapetDiskonCelana ? 'text-emerald-400 font-bold' : 'text-slate-500'}">
-              <span>&gt; Syarat if (totalCelana &gt; 70000): \${dapetDiskonCelana ? 'TRUE (Diskon 25%)' : 'FALSE (Tanpa Diskon)'}</span>
-              <span>- Rp \${fmt(diskonCelana)}</span>
+            <div class="flex justify-between items-center text-[11px] ${dapetDiskonCelana ? 'text-emerald-400 font-bold' : 'text-slate-500'}">
+              <span>&gt; Syarat if (totalCelana &gt; 70000): ${dapetDiskonCelana ? 'TRUE (Diskon 25%)' : 'FALSE (Tanpa Diskon)'}</span>
+              <span>- Rp ${fmt(diskonCelana)}</span>
             </div>
           </div>
 
           <div class="pt-3 border-t-2 border-dashed border-slate-700 flex justify-between items-center text-sm font-bold">
             <span class="text-amber-400">Total Yang Harus Dibayar:</span>
-            <span class="text-emerald-400 text-base">Rp \${fmt(totalBayar)}</span>
+            <span class="text-emerald-400 text-base">Rp ${fmt(totalBayar)}</span>
           </div>
         </div>
       `;
+
     };
 
     if (qtyBajuInp && qtyCelanaInp) {
