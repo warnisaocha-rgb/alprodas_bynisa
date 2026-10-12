@@ -183,6 +183,55 @@ const Simulator = {
           </select>
         </div>
       `;
+    } else if (caseId === "case-5-1" || caseId === "case-5-2") {
+      html = `
+        <div class="grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="block text-slate-400 mb-1">Nilai x:</label>
+            <input type="number" id="p_x" value="${caseId === 'case-5-1' ? '10' : '7'}" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white font-mono">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Nilai y:</label>
+            <input type="number" id="p_y" value="10" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white font-mono">
+          </div>
+        </div>
+      `;
+    } else if (caseId === "case-5-3") {
+      html = `
+        <div class="text-xs">
+          <label class="block text-slate-400 mb-1">Nilai Usia (0 - 100 tahun):</label>
+          <input type="number" id="p_usia" value="20" min="0" max="120" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white font-mono">
+          <div class="text-[10px] text-slate-500 mt-1">Coba angka: 1 (bayi), 7 (anak), 17 (remaja), 25 (dewasa), 70 (lansia)</div>
+        </div>
+      `;
+    } else if (caseId === "case-5-4") {
+      html = `
+        <div class="text-xs">
+          <label class="block text-slate-400 mb-1">Huruf Mutu Nilai MK:</label>
+          <select id="p_nilai_mk" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white font-mono">
+            <option value="A" selected>A (Sangat Memuaskan)</option>
+            <option value="B">B (Memuaskan)</option>
+            <option value="C">C (Cukup)</option>
+            <option value="D">D (Kurang)</option>
+            <option value="E">E (Gagal)</option>
+            <option value="X">X (Karakter salah - default)</option>
+          </select>
+        </div>
+      `;
+    } else if (caseId === "case-5-5") {
+      html = `
+        <div class="grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="block text-slate-400 mb-1">Jumlah Beli Baju (@Rp 60.000):</label>
+            <input type="number" id="p_baju_qty" value="3" min="0" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white font-mono">
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Jumlah Beli Celana (@Rp 40.000):</label>
+            <input type="number" id="p_celana_qty" value="2" min="0" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white font-mono">
+          </div>
+        </div>
+        <div class="text-[11px] text-slate-500 mt-1">Syarat diskon: Baju &gt; 100rb (20%), Celana &gt; 70rb (25%)</div>
+      `;
     } else {
       html = `<div class="text-xs text-slate-400 italic">Gunakan tombol "Jalankan Program (g++)" di atas untuk mengeksekusi kode ini.</div>`;
     }
@@ -287,6 +336,50 @@ Volume : 0 cm^3
 ===== Si Hijau =====
 Panjang: 2, Lebar: 1.5, Tinggi: 1
 Volume : 3 cm^3`;
+      } else if (caseId === "case-5-1") {
+        const x = parseInt(document.getElementById("p_x")?.value) || 10;
+        const y = parseInt(document.getElementById("p_y")?.value) || 10;
+        let branchOut = "";
+        if (x >= y) {
+          branchOut = "x lebih besar atau sama dengan y\n";
+        }
+        output = `${branchOut}Nilai x: ${x}\nNilai y: ${y}`;
+      } else if (caseId === "case-5-2") {
+        const x = parseInt(document.getElementById("p_x")?.value) || 7;
+        const y = parseInt(document.getElementById("p_y")?.value) || 10;
+        let branchOut = (x >= y) ? "x lebih besar atau sama dengan y\n" : "x lebih kecil daripada y\n";
+        output = `${branchOut}Nilai x: ${x}\nNilai y: ${y}`;
+      } else if (caseId === "case-5-3") {
+        const usia = parseInt(document.getElementById("p_usia")?.value) || 20;
+        let kategori = "";
+        if (usia <= 1) kategori = "Usia bayi (0-1 tahun)";
+        else if (usia <= 10) kategori = "Usia anak-anak (2-10 tahun)";
+        else if (usia <= 19) kategori = "Usia remaja (11-19 tahun)";
+        else if (usia <= 60) kategori = "Usia dewasa (20-60 tahun)";
+        else kategori = "Usia tua / Lansia (Lebih dari 60 tahun)";
+        output = `${kategori}\nUsia yang dimasukkan adalah ${usia} tahun`;
+      } else if (caseId === "case-5-4") {
+        const mk = document.getElementById("p_nilai_mk")?.value || "A";
+        let ket = "";
+        switch (mk) {
+          case 'A': ket = "Nilai anda adalah A (Sangat Memuaskan)"; break;
+          case 'B': ket = "Nilai anda adalah B (Memuaskan)"; break;
+          case 'C': ket = "Nilai anda adalah C (Cukup)"; break;
+          case 'D': ket = "Nilai anda adalah D (Kurang)"; break;
+          case 'E': ket = "Nilai anda adalah E (Gagal)"; break;
+          default: ket = "Anda keliru menginput data!"; break;
+        }
+        output = `Input nilai Mata Kuliah Anda: (A, B, C, D, E)\n${mk}\n${ket}`;
+      } else if (caseId === "case-5-5") {
+        const qtyBaju = parseInt(document.getElementById("p_baju_qty")?.value) || 3;
+        const qtyCelana = parseInt(document.getElementById("p_celana_qty")?.value) || 2;
+        const totalBaju = qtyBaju * 60000;
+        const totalCelana = qtyCelana * 40000;
+        const diskonBaju = totalBaju > 100000 ? 0.2 * totalBaju : 0;
+        const diskonCelana = totalCelana > 70000 ? 0.25 * totalCelana : 0;
+        const totalBayar = (totalBaju - diskonBaju) + (totalCelana - diskonCelana);
+
+        output = `=== RINCIAN PEMBAYARAN ===\nTotal harga baju   : Rp ${totalBaju}\nDiskon baju        : Rp ${diskonBaju}\nTotal harga celana : Rp ${totalCelana}\nDiskon celana      : Rp ${diskonCelana}\n---------------------------------\nTotal yang harus dibayar: Rp ${totalBayar}`;
       } else {
         const currentCase = this.getCaseById(caseId);
         output = currentCase ? currentCase.expectedOutput : "Program selesai dijalankan.";

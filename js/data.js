@@ -7,11 +7,11 @@
 
 const ALPRO_DATA = {
   meta: {
-    title: "ALPRO-LAB: Pembelajaran Alpro C++ Modul 1 - 4",
-    subtitle: "Media Belajar Teori & Sintaks Interaktif Khusus Praktikan Alprodas",
-    author: "Asisten Dosen Alprodas UNM",
-    pedoman: "Laporan Praktikum 1, 2, 3, dan 4 (Warnisyah Armin - Teknik Komputer UNM)",
-    version: "2.5 - Extended String & Struct Edition"
+    title: "ALPRO-LAB: Pembelajaran Alpro C++ Modul 1 - 5",
+    subtitle: "Media Belajar Teori, Analogi Pemula & Sintaks Interaktif Khusus Praktikan Alprodas",
+    author: "Kakak Asisten Dosen Alprodas UNM",
+    pedoman: "Laporan Praktikum 1 s.d. 5 (Warnisyah Armin - Teknik Komputer UNM)",
+    version: "3.0 - Seleksi Kondisi & Control Flow Edition"
   },
 
   modules: [
@@ -775,6 +775,226 @@ Karakter kedua  : u (indeks 1)
 Nama hewan ke-3 : Macan
 Panjang karakter: 5 karakter
 Karakter kedua  : a (indeks 1)`
+        }
+      ]
+    },
+    {
+      id: "modul-5",
+      number: 5,
+      title: "Seleksi Kondisi & Percabangan",
+      badge: "Alur Logika",
+      icon: "branch",
+      color: "amber",
+      summary: "Kendalikan jalan pikiran program menggunakan if, if-else, if-else-if usia 5 tingkat, serta switch-case dan studi kasus kasir diskon bertingkat.",
+      objectives: [
+        "Memahami konsep dasar seleksi kondisi sebagai otak pengambil keputusan di program komputer",
+        "Mengimplementasikan if tunggal dan if-else ganda untuk menentukan tindakan alternatif",
+        "Mengimplementasikan percabangan if-else-if majemuk untuk mengelompokkan rentang nilai dan usia",
+        "Mengimplementasikan struktur switch-case dengan keyword break dan default untuk menu pilihan",
+        "Menyelesaikan kasus perhitungan kasir diskon bertingkat toko pakaian (Praktikum 5.5)"
+      ],
+      theory: {
+        intro: `Dalam pemrograman C++, <strong>Seleksi Kondisi (Percabangan / Control Flow)</strong> adalah instruksi yang mengarahkan alur jalannya program ke cabang yang berbeda berdasarkan terpenuhinya suatu syarat (ekspresi kondisi bernilai <code>true</code> atau <code>false</code>). Menurut Suryam (2018), percabangan memungkinkan program beradaptasi secara dinamis terhadap data yang dimasukkan pengguna.`,
+        analogy: `Bayangkan kamu sedang berada di persimpangan jalan atau di depan vending machine minuman. Kalau kamu punya uang pas dan pencet tombol A, keluar Cola. Kalau pencet tombol B, keluar Susu. Kalau pencet tombol lain yang tidak ada di menu, uangmu dikembalikan (itu fungsi <em>default</em>!). Tanpa percabangan, program komputermu cuma bisa jalan lurus tanpa bisa berpikir fleksibel.`,
+        branchesComparison: [
+          {
+            aspect: "Bentuk Sintaks",
+            ifElse: "if (kondisi) { ... } else if (kondisi) { ... } else { ... }",
+            switchCase: "switch (variabel) { case nilai: ... break; default: ... }"
+          },
+          {
+            aspect: "Jenis Pengecekan",
+            ifElse: "Sangat fleksibel: rentang angka (>, <, >=, <=) & gabungan logika (&&, ||)",
+            switchCase: "Hanya untuk pengecekan nilai persis / mutlak (equality ==)"
+          },
+          {
+            aspect: "Tipe Data Variabel",
+            ifElse: "Bisa semua tipe data: int, float, double, char, string, boolean",
+            switchCase: "Hanya tipe bilangan bulat (int, short, long) dan karakter tunggal (char)"
+          },
+          {
+            aspect: "Keluarnya Alur",
+            ifElse: "Otomatis keluar blok kurung kurawal begitu kondisi terpenuhi",
+            switchCase: "Wajib pakai 'break;' di setiap akhir case agar tidak bablas ke bawah (fall-through)"
+          },
+          {
+            aspect: "Contoh Kasus Pas",
+            ifElse: "Kategori rentang usia (bayi, anak, remaja, dewasa) atau syarat diskon belanja",
+            switchCase: "Pilihan huruf nilai matakuliah (A, B, C, D, E) atau menu angka 1, 2, 3"
+          }
+        ]
+      },
+      cases: [
+        {
+          id: "case-5-1",
+          title: "Studi Kasus 1: Percabangan if Tunggal (Praktikum 5.1)",
+          description: "Mengecek apakah nilai x (10) lebih besar atau sama dengan y (10). Jika kondisi terpenuhi, teks di dalam blok dieksekusi.",
+          code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 10;
+    int y = 10;
+
+    // Percabangan if tunggal: hanya bereaksi jika kondisi TRUE
+    if (x >= y) {
+        cout << "x lebih besar atau sama dengan y" << endl;
+    }
+
+    cout << "Nilai x: " << x << endl;
+    cout << "Nilai y: " << y << endl;
+
+    return 0;
+}`,
+          expectedOutput: `x lebih besar atau sama dengan y
+Nilai x: 10
+Nilai y: 10`
+        },
+        {
+          id: "case-5-2",
+          title: "Studi Kasus 2: Percabangan if-else Ganda (Praktikum 5.2)",
+          description: "Mengecek nilai x (7) dan y (10). Karena kondisi x >= y bernilai false, alur berpindah otomatis ke blok else.",
+          code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int x = 7;
+    int y = 10;
+
+    // Percabangan if-else: ada jalan cadangan jika kondisi FALSE
+    if (x >= y) {
+        cout << "x lebih besar atau sama dengan y" << endl;
+    } else {
+        cout << "x lebih kecil daripada y" << endl;
+    }
+
+    cout << "Nilai x: " << x << endl;
+    cout << "Nilai y: " << y << endl;
+
+    return 0;
+}`,
+          expectedOutput: `x lebih kecil daripada y
+Nilai x: 7
+Nilai y: 10`
+        },
+        {
+          id: "case-5-3",
+          title: "Studi Kasus 3: Seleksi if-else if Kategori Usia (Praktikum 5.3)",
+          description: "Mengelompokkan usia manusia ke dalam 5 tingkatan rentang: bayi (<= 1), anak-anak (<= 10), remaja (<= 19), dewasa (<= 60), dan lansia (> 60).",
+          code: `#include <iostream>
+using namespace std;
+
+int main() {
+    unsigned short int usia = 20;
+
+    // Evaluasi berurutan dari atas ke bawah
+    if (usia <= 1) {
+        cout << "Usia bayi (0-1 tahun)" << endl;
+    } else if (usia <= 10) {
+        cout << "Usia anak-anak (2-10 tahun)" << endl;
+    } else if (usia <= 19) {
+        cout << "Usia remaja (11-19 tahun)" << endl;
+    } else if (usia <= 60) {
+        cout << "Usia dewasa (20-60 tahun)" << endl;
+    } else {
+        cout << "Usia tua / Lansia (Lebih dari 60 tahun)" << endl;
+    }
+
+    cout << "Usia yang dimasukkan adalah " << usia << " tahun" << endl;
+
+    return 0;
+}`,
+          expectedOutput: `Usia dewasa (20-60 tahun)
+Usia yang dimasukkan adalah 20 tahun`
+        },
+        {
+          id: "case-5-4",
+          title: "Studi Kasus 4: Seleksi Kondisi switch-case Nilai MK (Praktikum 5.4)",
+          description: "Membaca huruf mutu nilai matakuliah (A, B, C, D, E) dan mencocokkannya ke case yang sesuai dengan perintah break.",
+          code: `#include <iostream>
+using namespace std;
+
+int main() {
+    char nilaiMK = 'A';
+
+    cout << "Input nilai Mata Kuliah Anda: (A, B, C, D, E)" << endl;
+    cout << nilaiMK << endl;
+
+    switch (nilaiMK) {
+        case 'A':
+            cout << "Nilai anda adalah A" << endl;
+            break;
+        case 'B':
+            cout << "Nilai anda adalah B" << endl;
+            break;
+        case 'C':
+            cout << "Nilai anda adalah C" << endl;
+            break;
+        case 'D':
+            cout << "Nilai anda adalah D" << endl;
+            break;
+        case 'E':
+            cout << "Nilai anda adalah E" << endl;
+            break;
+        default:
+            cout << "Anda keliru menginput data!" << endl;
+            break;
+    }
+
+    return 0;
+}`,
+          expectedOutput: `Input nilai Mata Kuliah Anda: (A, B, C, D, E)
+A
+Nilai anda adalah A`
+        },
+        {
+          id: "case-5-5",
+          title: "Studi Kasus 5: Program Kasir Diskon Pakaian (Praktikum 5.5)",
+          description: "Menghitung total pembelian baju (Rp 60.000) dan celana (Rp 40.000), memberi diskon 20% jika baju > 100.000 dan diskon 25% jika celana > 70.000.",
+          code: `#include <iostream>
+using namespace std;
+
+int main() {
+    int jumlahBaju = 3, jumlahCelana = 2;
+    int hargaBaju = 60000, hargaCelana = 40000;
+    float totalBaju, totalCelana, diskonBaju, diskonCelana, totalBayar;
+
+    totalBaju = jumlahBaju * hargaBaju;
+    totalCelana = jumlahCelana * hargaCelana;
+
+    // Diskon baju 20% jika total harga baju > 100.000
+    if (totalBaju > 100000) {
+        diskonBaju = 0.2 * totalBaju;
+    } else {
+        diskonBaju = 0;
+    }
+
+    // Diskon celana 25% jika total harga celana > 70.000
+    if (totalCelana > 70000) {
+        diskonCelana = 0.25 * totalCelana;
+    } else {
+        diskonCelana = 0;
+    }
+
+    totalBayar = (totalBaju - diskonBaju) + (totalCelana - diskonCelana);
+
+    cout << "\n=== RINCIAN PEMBAYARAN ===" << endl;
+    cout << "Total harga baju   : Rp " << totalBaju << endl;
+    cout << "Diskon baju        : Rp " << diskonBaju << endl;
+    cout << "Total harga celana : Rp " << totalCelana << endl;
+    cout << "Diskon celana      : Rp " << diskonCelana << endl;
+    cout << "---------------------------------" << endl;
+    cout << "Total yang harus dibayar: Rp " << totalBayar << endl;
+
+    return 0;
+}`,
+          expectedOutput: `=== RINCIAN PEMBAYARAN ===
+Total harga baju   : Rp 180000
+Diskon baju        : Rp 36000
+Total harga celana : Rp 80000
+Diskon celana      : Rp 20000
+---------------------------------
+Total yang harus dibayar: Rp 204000`
         }
       ]
     }

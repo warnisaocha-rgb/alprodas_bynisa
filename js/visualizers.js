@@ -616,5 +616,151 @@ const Visualizers = {
     });
 
     render();
+  },
+
+  // ==========================================
+  // MODUL 5: SELEKSI KONDISI & KASIR DISKON
+  // ==========================================
+  initModul5DecisionLab: function() {
+    // 1. Simulator Jalur Usia (if - else if)
+    const ageInput = document.getElementById("dec-age-input");
+    const ageOutputBox = document.getElementById("dec-age-result-box");
+    const ageBranches = {
+      bayi: document.getElementById("dec-branch-bayi"),
+      anak: document.getElementById("dec-branch-anak"),
+      remaja: document.getElementById("dec-branch-remaja"),
+      dewasa: document.getElementById("dec-branch-dewasa"),
+      lansia: document.getElementById("dec-branch-lansia")
+    };
+
+    const renderAgeBranch = () => {
+      if (!ageInput) return;
+      const age = parseInt(ageInput.value);
+      if (isNaN(age) || age < 0) return;
+
+      let matched = "";
+      let categoryText = "";
+      let whyText = "";
+
+      if (age <= 1) {
+        matched = "bayi";
+        categoryText = "Usia bayi (0-1 tahun)";
+        whyText = "Kondisi pertama <code>if (usia <= 1)</code> langsung bernilai <strong>TRUE</strong>! Program langsung mengeksekusi blok ini dan mengabaikan seluruh else-if di bawahnya.";
+      } else if (age <= 10) {
+        matched = "anak";
+        categoryText = "Usia anak-anak (2-10 tahun)";
+        whyText = "Kondisi pertama (<= 1) bernilai FALSE, lalu diuji kondisi kedua <code>else if (usia <= 10)</code> dan menghasilkan <strong>TRUE</strong>!";
+      } else if (age <= 19) {
+        matched = "remaja";
+        categoryText = "Usia remaja (11-19 tahun)";
+        whyText = "Kondisi bayi dan anak FALSE, masuk ke cabang ketiga <code>else if (usia <= 19)</code> bernilai <strong>TRUE</strong>!";
+      } else if (age <= 60) {
+        matched = "dewasa";
+        categoryText = "Usia dewasa (20-60 tahun)";
+        whyText = "Melewati pemeriksaan <= 1, <= 10, <= 19 (semuanya false), lalu cocok di cabang <code>else if (usia <= 60)</code> bernilai <strong>TRUE</strong>!";
+      } else {
+        matched = "lansia";
+        categoryText = "Usia tua / Lansia (Lebih dari 60 tahun)";
+        whyText = "Semua kondisi di atas bernilai FALSE. Program otomatis lari ke pelabuhan terakhir yaitu blok <code>else</code>!";
+      }
+
+      // Highlight active card
+      Object.keys(ageBranches).forEach(k => {
+        const el = ageBranches[k];
+        if (!el) return;
+        if (k === matched) {
+          el.className = "p-3.5 rounded-xl border-2 border-emerald-400 bg-emerald-500/20 shadow-lg shadow-emerald-500/10 transition-all";
+          const badge = el.querySelector(".branch-badge");
+          if (badge) badge.className = "branch-badge px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500 text-slate-950 animate-pulse";
+        } else {
+          el.className = "p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 opacity-60 transition-all";
+          const badge = el.querySelector(".branch-badge");
+          if (badge) badge.className = "branch-badge px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-400";
+        }
+      });
+
+      if (ageOutputBox) {
+        ageOutputBox.innerHTML = `
+          <div class="text-xs font-mono text-emerald-300 font-bold mb-1">
+            Output Layar: "${categoryText}"
+          </div>
+          <div class="text-xs text-slate-300 leading-relaxed">
+            ${whyText}
+          </div>
+        `;
+      }
+    };
+
+    if (ageInput) {
+      ageInput.addEventListener("input", renderAgeBranch);
+      renderAgeBranch();
+    }
+
+    // 2. Simulator Kasir Diskon Pakaian (Praktikum 5.5)
+    const qtyBajuInp = document.getElementById("dec-baju-qty");
+    const qtyCelanaInp = document.getElementById("dec-celana-qty");
+    const kasirStrukBox = document.getElementById("dec-kasir-struk");
+
+    const renderKasir = () => {
+      if (!qtyBajuInp || !qtyCelanaInp || !kasirStrukBox) return;
+
+      const qtyBaju = Math.max(0, parseInt(qtyBajuInp.value) || 0);
+      const qtyCelana = Math.max(0, parseInt(qtyCelanaInp.value) || 0);
+
+      const hargaBaju = 60000;
+      const hargaCelana = 40000;
+
+      const totalBaju = qtyBaju * hargaBaju;
+      const totalCelana = qtyCelana * hargaCelana;
+
+      const dapetDiskonBaju = totalBaju > 100000;
+      const diskonBaju = dapetDiskonBaju ? 0.2 * totalBaju : 0;
+
+      const dapetDiskonCelana = totalCelana > 70000;
+      const diskonCelana = dapetDiskonCelana ? 0.25 * totalCelana : 0;
+
+      const totalBayar = (totalBaju - diskonBaju) + (totalCelana - diskonCelana);
+
+      const fmt = (num) => num.toLocaleString("id-ID");
+
+      kasirStrukBox.innerHTML = `
+        <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 font-mono text-xs space-y-3">
+          <div class="text-center font-bold text-amber-300 pb-2 border-b border-slate-800">
+            === RINCIAN PEMBAYARAN KASIR ===
+          </div>
+
+          <div class="space-y-1.5 text-slate-300">
+            <div class="flex justify-between">
+              <span>Beli Baju (\${qtyBaju} pcs x Rp \${fmt(hargaBaju)})</span>
+              <span class="text-white">Rp \${fmt(totalBaju)}</span>
+            </div>
+            <div class="flex justify-between items-center text-[11px] \${dapetDiskonBaju ? 'text-emerald-400 font-bold' : 'text-slate-500'}">
+              <span>&gt; Syarat if (totalBaju &gt; 100000): \${dapetDiskonBaju ? 'TRUE (Diskon 20%)' : 'FALSE (Tanpa Diskon)'}</span>
+              <span>- Rp \${fmt(diskonBaju)}</span>
+            </div>
+
+            <div class="flex justify-between pt-1 border-t border-slate-900">
+              <span>Beli Celana (\${qtyCelana} pcs x Rp \${fmt(hargaCelana)})</span>
+              <span class="text-white">Rp \${fmt(totalCelana)}</span>
+            </div>
+            <div class="flex justify-between items-center text-[11px] \${dapetDiskonCelana ? 'text-emerald-400 font-bold' : 'text-slate-500'}">
+              <span>&gt; Syarat if (totalCelana &gt; 70000): \${dapetDiskonCelana ? 'TRUE (Diskon 25%)' : 'FALSE (Tanpa Diskon)'}</span>
+              <span>- Rp \${fmt(diskonCelana)}</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t-2 border-dashed border-slate-700 flex justify-between items-center text-sm font-bold">
+            <span class="text-amber-400">Total Yang Harus Dibayar:</span>
+            <span class="text-emerald-400 text-base">Rp \${fmt(totalBayar)}</span>
+          </div>
+        </div>
+      `;
+    };
+
+    if (qtyBajuInp && qtyCelanaInp) {
+      qtyBajuInp.addEventListener("input", renderKasir);
+      qtyCelanaInp.addEventListener("input", renderKasir);
+      renderKasir();
+    }
   }
 };

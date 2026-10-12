@@ -77,6 +77,9 @@
           <button data-target-tab="tab-modul-4" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 border border-transparent hover:text-white hover:bg-slate-800 transition-all">
             4. String &amp; Fungsi
           </button>
+          <button data-target-tab="tab-modul-5" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 border border-transparent hover:text-white hover:bg-slate-800 transition-all">
+            5. Percabangan
+          </button>
           <button data-target-tab="tab-playground" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 border border-transparent hover:text-white hover:bg-slate-800 transition-all">
             💻 Playground
           </button>
@@ -109,6 +112,7 @@
         <button data-target-tab="tab-modul-2" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 2</button>
         <button data-target-tab="tab-modul-3" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 3</button>
         <button data-target-tab="tab-modul-4" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 4</button>
+        <button data-target-tab="tab-modul-5" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 5</button>
         <button data-target-tab="tab-playground" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Playground</button>
         <button data-target-tab="tab-flowchart" class="px-2.5 py-1 rounded text-sky-300 bg-sky-500/10 shrink-0 font-medium">📐 Flowchart</button>
       </div>
@@ -156,17 +160,17 @@
         <div class="flex items-center justify-between mb-6">
           <div>
             <h2 class="text-xl font-bold text-white">Modul Pembelajaran Praktikum</h2>
-            <p class="text-xs text-slate-400">Kurikulum resmi terintegrasi dengan Laporan Praktikum 1 - 4 UNM</p>
+            <p class="text-xs text-slate-400">Kurikulum resmi terintegrasi dengan Laporan Praktikum 1 - 5 UNM</p>
           </div>
-          <span class="text-xs font-mono text-slate-500">4 Modul Inti</span>
+          <span class="text-xs font-mono text-slate-500">5 Modul Inti</span>
         </div>
-        <div id="home-modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div id="home-modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
           <!-- Populated by App.renderModuleOverview() -->
         </div>
       </div>
 
       <!-- Quick Feature Highlights -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 pt-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4 pt-4">
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-cinema')">
           <div class="text-2xl mb-2">🎬</div>
           <h4 class="font-bold text-sm text-white">Bioskop Animasi</h4>
@@ -180,7 +184,7 @@
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-uts')">
           <div class="text-2xl mb-2">📝</div>
           <h4 class="font-bold text-sm text-white">UTS Live Coding</h4>
-          <p class="text-xs text-slate-400 mt-1">Latihan ujian mengisi titik-titik kode program gabungan Laprak 1-4 lengkap dengan timer.</p>
+          <p class="text-xs text-slate-400 mt-1">Latihan ujian mengisi titik-titik kode program gabungan Laprak 1-5 lengkap dengan timer.</p>
         </div>
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-2')">
           <div class="text-2xl mb-2">⚡</div>
@@ -196,6 +200,11 @@
           <div class="text-2xl mb-2">🔤</div>
           <h4 class="font-bold text-sm text-white">Laboratorium String</h4>
           <p class="text-xs text-slate-400 mt-1">Eksplorasi method .length(), .at(), .replace(), .find(), swap(), dan perbandingan cin &gt;&gt; vs cin.get().</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-5')">
+          <div class="text-2xl mb-2">🔀</div>
+          <h4 class="font-bold text-sm text-white">Percabangan &amp; Kasir</h4>
+          <p class="text-xs text-slate-400 mt-1">Uji alur if, if-else if rentang usia 5 tingkat, switch-case, dan kalkulator kasir diskon toko pakaian (Praktikum 5.5).</p>
         </div>
       </div>
 
@@ -421,6 +430,39 @@
         </p>
       </div>
 
+      <!-- KOTAK ANALOGI SANTAI PEMULA: TOPLES WADAH MEMORI -->
+      <div class="bg-gradient-to-r from-blue-950/40 to-indigo-950/40 border border-blue-500/30 rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-lg">💡</span>
+          <h4 class="text-sm font-bold text-sky-300">Analogi Santai untuk Pemula: Variabel Itu Toples Label di Meja Dapur!</h4>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+          Biar adik-adik yang baru belajar nggak pusing sama istilah teknis, bayangkan RAM komputer itu seperti meja dapur, dan variabel adalah <strong>toples yang ditempeli stiker nama</strong>:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs">
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-sky-400 font-mono block">☕ char (1 Byte)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Cangkir sloki mini. Cuma muat 1 butir permen / 1 huruf (misal: 'A'). Hemat tempat!</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-emerald-400 font-mono block">🍚 int (4 Byte)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Toples beras 1 liter. Muat ribuan bilangan bulat utuh dari minus 2 miliar sampai positif 2 miliar.</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-amber-400 font-mono block">🥛 float (4 Byte)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Gelas ukur berskala garis mililiter. Khusus angka pecahan/koma (presisi 7 digit).</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-purple-400 font-mono block">🛢️ double (8 Byte)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Jerigen laboratorium super akurat. Khusus angka pecahan raksasa presisi tinggi (15 digit).</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-rose-400 font-mono block">🔘 bool (1 Byte)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Saklar cetekan lampu kamar. Cuma punya 2 kondisi pasti: Nyala (true / 1) atau Padam (false / 0).</span>
+          </div>
+        </div>
+      </div>
+
       <!-- INTERACTIVE TOOL: RAM TYPE & OVERFLOW INSPECTOR -->
       <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-slate-700 rounded-3xl p-6 md:p-8 shadow-xl">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -567,6 +609,31 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
         <p class="text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
           Pahami klasifikasi operator berdasarkan jumlah operand, aturan pembagian integer vs modulus, rahasia pre-increment vs post-increment, logika boolean, dan operator geser bit (bitwise shift &lt;&lt; dan &gt;&gt;).
         </p>
+      </div>
+
+      <!-- KOTAK ANALOGI SANTAI PEMULA: OPERATOR LOGIKA & BITWISE -->
+      <div class="bg-gradient-to-r from-emerald-950/40 to-teal-950/40 border border-emerald-500/30 rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-lg">💡</span>
+          <h4 class="text-sm font-bold text-emerald-300">Analogi Santai untuk Pemula: Operator &amp; Logika Sehari-Hari</h4>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+          Jangan ngafal simbol operator secara kaku, pahami logikanya lewat kejadian yang sering kita alami:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-emerald-400 font-mono block">🤝 Operator AND (&amp;&amp;)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Kayak syarat beasiswa: "IPK harus tinggi <strong>DAN</strong> orang tua kurang mampu". Kalau cuma salah satu yang lolos, beasiswa tetap batal! Keduanya wajib TRUE.</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-sky-400 font-mono block">🚪 Operator OR (||)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Kayak pintu masuk konser: "Bawa tiket fisik <strong>ATAU</strong> bawa e-ticket di HP". Cukup salah satu saja yang kamu punya, pintu gerbang langsung dibuka!</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-amber-400 font-mono block">⚙️ Bitwise Shifter (&lt;&lt; / &gt;&gt;)</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Kayak 8 orang berbaris pegang bendera angka 0 dan 1. Instruksi geser kiri (&lt;&lt;) melipatgandakan nilai 2x lipat per geseran, geser kanan (&gt;&gt;) membagi 2!</span>
+          </div>
+        </div>
       </div>
 
       <!-- INTERACTIVE TOOL: 8-BIT BITWISE SHIFTER (LAPRAK 2.2) -->
@@ -730,6 +797,35 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
         <p class="text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
           Mengapa tipe data bentukan diciptakan? C++ menyediakan 4 pilar konstruksi tipe data kustom: <strong>Struct</strong> untuk membungkus banyak variabel ke dalam kapling memori mandiri, <strong>Union</strong> yang menghemat RAM dengan memori bersama, <strong>Enum</strong> untuk daftar konstanta berurutan mulai dari 0, dan <strong>Typedef</strong> untuk menciptakan alias nama tipe data yang ramah dibaca!
         </p>
+      </div>
+
+      <!-- KOTAK ANALOGI SANTAI PEMULA: BENTO BOX VS PAPAN TULIS KOS -->
+      <div class="bg-gradient-to-r from-purple-950/40 to-pink-950/40 border border-purple-500/30 rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-lg">💡</span>
+          <h4 class="text-sm font-bold text-purple-300">Analogi Santai untuk Pemula: Kotak Bento (Struct) vs Papan Tulis Kos (Union)!</h4>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+          Kenapa C++ butuh tipe bentukan? Biar kamu nggak bikin puluhan variabel tercecer sendirian:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-purple-400 font-mono block">🍱 Struct = Kotak Bento</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Ada sekat nasi, sekat lauk, sekat sambal. Masing-masing punya tempat sendiri, sambal pedas nggak bakal ngacak-ngacak nasi putihmu!</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-amber-400 font-mono block">📋 Union = Papan Tulis 1 Kotak</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Cuma punya 1 papan tulis kecil. Kalau kamu nulis nomor HP, terus temanmu nulis daftar belanja di tempat yang sama, nomor HP-mu hilang ketimpa!</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-emerald-400 font-mono block">🔢 Enum = Daftar Antrean Bank</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Nama orang dikasih nomor antrean urut. Komputer otomatis mulai hitung dari angka 0 (Soekarno=0, Soeharto=1, dst.).</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-sky-400 font-mono block">🏷️ Typedef = Nama Panggilan Kontak</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Nama KTP panjang "Warnisyah Armin", tapi di kontak dinamai "Ocha". Orangnya sama persis, cuma manggilnya jadi ringkas dan enak!</span>
+          </div>
+        </div>
       </div>
 
       <!-- 4 PILAR UTAMA TIPE DATA BENTUKAN -->
@@ -1070,6 +1166,31 @@ struct balok {
         </p>
       </div>
 
+      <!-- KOTAK ANALOGI SANTAI PEMULA: GERBONG KERETA STRING -->
+      <div class="bg-gradient-to-r from-emerald-950/40 to-teal-950/40 border border-emerald-500/30 rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-lg">💡</span>
+          <h4 class="text-sm font-bold text-emerald-300">Analogi Santai untuk Pemula: String Itu Gerbong Kereta Huruf!</h4>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed mb-3">
+          String itu bukan satu benda utuh yang padat, melainkan rangkaian karakter yang digandeng berjejer seperti gerbong kereta api:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-emerald-400 font-mono block">🚂 .length() atau .size()</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Kondektur yang jalan menghitung ada berapa gerbong penumpang. Kalau string "Nisa", ada 4 gerbong. Tanda batas akhir (\0) nggak ikut dihitung!</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-sky-400 font-mono block">🎫 .at(index) vs teks[index]</span>
+            <span class="text-slate-300 text-[11px] mt-1 block">Kayak mencari nomor kursi penumpang. Bedanya, <code>.at(idx)</code> punya satpam penjaga: kalau nomor kursinya nggak ada di kereta, dia teriak ngasih peringatan (exception aman), bukannya bikin program crash!</span>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+            <span class="font-bold text-amber-400 font-mono block">🧹 cin &gt;&gt; vs cin.get()</span>
+            <span class="text-slate-300 text-[11px] mt-1 block"><code>cin &gt;&gt;</code> itu kayak anak kecil pemilih: cuma makan satu kata pertama, begitu ketemu spasi langsung mogok. Kalau <code>cin.get()</code> itu vacuum cleaner: sedot satu baris penuh kalimat beserta spasi!</span>
+          </div>
+        </div>
+      </div>
+
       <!-- INTERACTIVE TOOL: LABORATORIUM FUNGSI PUSTAKA STRING -->
       <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-emerald-500/30 rounded-3xl p-6 md:p-8 shadow-xl">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -1403,6 +1524,376 @@ cout &lt;&lt; mamalia.anjing.at(1); // Karakter 'n'</pre>
             </div>
             <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
               💡 Karakteristik: Integrasi Modul 3 (Struct) dengan Modul 4 (String).
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- TAB 6.7: MODUL 5 (SELEKSI KONDISI & PERCABANGAN)              -->
+    <!-- ============================================================= -->
+    <section id="tab-modul-5" class="tab-content-section hidden space-y-10">
+      
+      <!-- Header Modul 5 -->
+      <div class="border-b border-slate-800 pb-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold">PRAKTIKUM 5</span>
+          <span class="text-xs text-slate-400 font-mono">Otak Pengambil Keputusan C++</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Seleksi Kondisi &amp; Percabangan (Control Flow)</h2>
+        <p class="text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
+          Kendalikan alur jalannya program agar tidak kaku! Pelajari cara kerja <strong>if tunggal</strong>, <strong>if-else dua arah</strong>, <strong>if-else-if majemuk</strong> (klasifikasi usia 5 rentang), struktur <strong>switch-case</strong> (nilai mutu MK), hingga studi kasus nyata <strong>program kasir diskon bertingkat</strong> toko pakaian!
+        </p>
+      </div>
+
+      <!-- KOTAK ANALOGI SANTAI PEMULA: BIKIN PROGRAM BISA MIKIR -->
+      <div class="bg-gradient-to-r from-amber-950/40 to-orange-950/40 border border-amber-500/30 rounded-3xl p-6 shadow-sm">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-xl">💡</span>
+          <h3 class="text-base font-bold text-amber-300">Analogi Santai untuk Pemula: Percabangan Itu Cara Komputer Memilih!</h3>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          Tanpa percabangan, program cuma kayak robot buta yang jalan lurus dari atas ke bawah. Dengan percabangan, program punya otak buat nanya: <em>"Syaratnya terpenuhi nggak?"</em>:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          
+          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-amber-400 font-mono text-xs block mb-1">1. if Tunggal (Satu Aksi)</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed">
+                <strong>Analogi Palang Kereta:</strong> Cuma bereaksi kalau kereta beneran lewat (kondisi TRUE). Kalau nggak ada kereta (FALSE), palang diam saja dan mobil lewat seperti biasa tanpa aksi khusus.
+              </p>
+            </div>
+            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-amber-300 border border-slate-850">
+              if (hujan) bawaPayung();
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-sky-400 font-mono text-xs block mb-1">2. if - else (Dua Arah)</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed">
+                <strong>Analogi Lampu Merah:</strong> Pasti ada salah satu yang jalan! Kalau lampu hijau &rarr; maju. Selain itu (else / merah) &rarr; wajib berhenti. Nggak mungkin dua-duanya jalan bareng.
+              </p>
+            </div>
+            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-sky-300 border border-slate-850">
+              if (hijau) jalan(); else stop();
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-emerald-400 font-mono text-xs block mb-1">3. if - else if (Banyak Rentang)</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed">
+                <strong>Analogi Loket Masuk Dufan:</strong> Petugas cek dari atas ke bawah: &le;1m (tiket balita)? Kalau bukan &le;1.4m (tiket anak)? Kalau bukan &le;1.7m (tiket remaja)? Begitu cocok, langsung bayar &amp; selesai!
+              </p>
+            </div>
+            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-emerald-300 border border-slate-850">
+              if (u&lt;=1) .. else if (u&lt;=10) ..
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
+            <div>
+              <span class="font-bold text-purple-400 font-mono text-xs block mb-1">4. switch - case (Pilihan Pasti)</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed">
+                <strong>Analogi Vending Machine:</strong> Masukkan koin lalu pencet tombol nilai pasti: Tombol 'A' keluar Cola, 'B' keluar Susu. Pencet tombol lain sembarang &rarr; masuk tombol 'default' (uang balik)!
+              </p>
+            </div>
+            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-purple-300 border border-slate-850">
+              switch(tombol) { case 'A': .. }
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- INTERACTIVE TOOL 1: VISUALISATOR JALUR PERCABANGAN USIA (PRAKTIKUM 5.3) -->
+      <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🔀</span>
+              <h3 class="text-lg font-bold text-white">Simulator Jalur Logika if-else if (Praktikum 5.3)</h3>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">Ubah usia di bawah ini dan perhatikan cabang mana yang menyala hijau (dieksekusi) oleh komputer!</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-xs font-semibold text-slate-300">Masukkan Usia:</label>
+            <input type="number" id="dec-age-input" value="20" min="0" max="120" class="w-24 bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl p-2 text-white font-mono text-center text-sm font-bold shadow-inner">
+            <span class="text-xs text-slate-400">tahun</span>
+          </div>
+        </div>
+
+        <!-- 5 Branches Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+          
+          <!-- Branch 1: Bayi -->
+          <div id="dec-branch-bayi" class="p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-slate-400">Cabang 1</span>
+                <span class="branch-badge px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-400">Evaluasi 1</span>
+              </div>
+              <div class="font-bold text-white text-xs mb-1">if (usia &lt;= 1)</div>
+              <p class="text-[11px] text-slate-300">Usia bayi (0 - 1 tahun)</p>
+            </div>
+            <div class="mt-2 text-[10px] text-slate-500 font-mono">Syarat: Nilai 0 s.d 1</div>
+          </div>
+
+          <!-- Branch 2: Anak-anak -->
+          <div id="dec-branch-anak" class="p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-slate-400">Cabang 2</span>
+                <span class="branch-badge px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-400">Evaluasi 2</span>
+              </div>
+              <div class="font-bold text-white text-xs mb-1">else if (usia &lt;= 10)</div>
+              <p class="text-[11px] text-slate-300">Usia anak-anak (2 - 10 tahun)</p>
+            </div>
+            <div class="mt-2 text-[10px] text-slate-500 font-mono">Syarat: Nilai 2 s.d 10</div>
+          </div>
+
+          <!-- Branch 3: Remaja -->
+          <div id="dec-branch-remaja" class="p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-slate-400">Cabang 3</span>
+                <span class="branch-badge px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-400">Evaluasi 3</span>
+              </div>
+              <div class="font-bold text-white text-xs mb-1">else if (usia &lt;= 19)</div>
+              <p class="text-[11px] text-slate-300">Usia remaja (11 - 19 tahun)</p>
+            </div>
+            <div class="mt-2 text-[10px] text-slate-500 font-mono">Syarat: Nilai 11 s.d 19</div>
+          </div>
+
+          <!-- Branch 4: Dewasa -->
+          <div id="dec-branch-dewasa" class="p-3.5 rounded-xl border-2 border-emerald-400 bg-emerald-500/20 shadow-lg shadow-emerald-500/10 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-slate-400">Cabang 4</span>
+                <span class="branch-badge px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500 text-slate-950 animate-pulse">AKTIF</span>
+              </div>
+              <div class="font-bold text-white text-xs mb-1">else if (usia &lt;= 60)</div>
+              <p class="text-[11px] text-slate-300">Usia dewasa (20 - 60 tahun)</p>
+            </div>
+            <div class="mt-2 text-[10px] text-slate-500 font-mono">Syarat: Nilai 20 s.d 60</div>
+          </div>
+
+          <!-- Branch 5: Lansia -->
+          <div id="dec-branch-lansia" class="p-3.5 rounded-xl border border-slate-800 bg-slate-900/60 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[11px] font-mono text-slate-400">Cabang 5</span>
+                <span class="branch-badge px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-800 text-slate-400">Cadangan</span>
+              </div>
+              <div class="font-bold text-white text-xs mb-1">else</div>
+              <p class="text-[11px] text-slate-300">Usia tua / Lansia (&gt; 60 th)</p>
+            </div>
+            <div class="mt-2 text-[10px] text-slate-500 font-mono">Syarat: Lebih dari 60</div>
+          </div>
+
+        </div>
+
+        <!-- Penjelasan Alur -->
+        <div id="dec-age-result-box" class="p-4 bg-slate-950 rounded-2xl border border-slate-800">
+          <!-- Rendered by Visualizers.initModul5DecisionLab() -->
+        </div>
+      </div>
+
+      <!-- INTERACTIVE TOOL 2: SIMULATOR MESIN KASIR DISKON PAKAIAN (PRAKTIKUM 5.5) -->
+      <div class="bg-gradient-to-br from-slate-900 to-emerald-950/20 border border-emerald-500/30 rounded-3xl p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🧾</span>
+              <h3 class="text-lg font-bold text-white">Simulator Kasir Diskon Bertingkat Toko Pakaian (Laprak 5.5)</h3>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">Aturan Toko: Baju @Rp 60.000 (Diskon 20% jika belanja baju &gt; Rp 100.000), Celana @Rp 40.000 (Diskon 25% jika belanja celana &gt; Rp 70.000).</p>
+          </div>
+          <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-mono font-bold">
+            Praktikum 5.5 UNM
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          
+          <!-- Input Belanja Kasir -->
+          <div class="space-y-4 bg-slate-950 p-5 rounded-2xl border border-slate-800">
+            <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-2">Keranjang Belanja Pembeli:</h4>
+            
+            <div>
+              <label class="block text-xs text-slate-300 mb-1 font-semibold flex justify-between">
+                <span>1. Jumlah Baju (@Rp 60.000):</span>
+                <span class="text-sky-400 font-mono">Diskon 20% jika &gt; Rp 100rb</span>
+              </label>
+              <input type="number" id="dec-baju-qty" value="3" min="0" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl p-2.5 text-white font-mono text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs text-slate-300 mb-1 font-semibold flex justify-between">
+                <span>2. Jumlah Celana (@Rp 40.000):</span>
+                <span class="text-emerald-400 font-mono">Diskon 25% jika &gt; Rp 70rb</span>
+              </label>
+              <input type="number" id="dec-celana-qty" value="2" min="0" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl p-2.5 text-white font-mono text-sm">
+            </div>
+
+            <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
+              💡 <strong>Kunci Logika Laprak:</strong> Dua kondisi if dievaluasi secara independen! Diskon baju tidak mempengaruhi apakah celana dapat diskon atau tidak.
+            </div>
+          </div>
+
+          <!-- Struk Pembayaran Kasir -->
+          <div id="dec-kasir-struk">
+            <!-- Rendered by Visualizers.initModul5DecisionLab() -->
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TABEL PERBANDINGAN: IF-ELSE IF VS SWITCH-CASE -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6">
+        <h3 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+          <span>⚖️</span>
+          <span>Tabel Perbandingan: if-else if Majemuk vs switch-case</span>
+        </h3>
+        <p class="text-xs text-slate-400 mb-4">Pertanyaan wajib asisten dosen saat responsi: <em>"Kapan harus pakai if-else dan kapan pakai switch?"</em></p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-700 text-[11px] uppercase tracking-wider text-slate-400 font-mono">
+                <th class="p-3">Aspek Karakteristik</th>
+                <th class="p-3 text-sky-400">if - else if Bertingkat</th>
+                <th class="p-3 text-amber-400">switch - case</th>
+              </tr>
+            </thead>
+            <tbody id="mod5-comp-table-body">
+              <!-- Populated by App.renderModule5Content() -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- KATALOG 5 STUDI KASUS PRAKTIKUM 5 -->
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <span>📚</span>
+              <span>Katalog 5 Studi Kasus Modul 5 (Resmi Laporan Praktikum UNM)</span>
+            </h3>
+            <p class="text-xs text-slate-400">Sesuai berkas laporan praktikum Warnisyah Armin (Halaman 53 - 71)</p>
+          </div>
+          <span class="text-xs text-slate-400 font-mono">Kasus 5.1 s.d. 5.5</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          
+          <!-- Kasus 5.1: if Tunggal -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Praktikum 5.1</span>
+                <button onclick="Simulator.loadCase('case-5-1'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Percabangan if Tunggal</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mengecek apakah nilai $x \ge y$ (10 &ge; 10). Karena bernilai benar, teks di dalam kurung kurawal dieksekusi.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-amber-300 mt-2">if (x &gt;= y) {
+    cout &lt;&lt; "x lebih besar atau sama dengan y" &lt;&lt; endl;
+}</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Tanpa blok else, jika salah program tidak melakukan apa-apa.
+            </div>
+          </div>
+
+          <!-- Kasus 5.2: if-else Ganda -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-sky-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded">Praktikum 5.2</span>
+                <button onclick="Simulator.loadCase('case-5-2'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Percabangan if-else Ganda</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mengecek $x = 7$ dan $y = 10$. Karena kondisi $7 \ge 10$ bernilai false, program beralih ke jalan cadangan di blok else.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-sky-300 mt-2">if (x &gt;= y) {
+    cout &lt;&lt; "x lebih besar atau sama";
+} else {
+    cout &lt;&lt; "x lebih kecil daripada y";
+}</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Selalu ada salah satu cabang yang pasti dijalankan.
+            </div>
+          </div>
+
+          <!-- Kasus 5.3: if-else if Kategori Usia -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Praktikum 5.3</span>
+                <button onclick="Simulator.loadCase('case-5-3'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Seleksi if-else if Kategori Usia</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mengelompokkan usia ke 5 rentang: Bayi (&le;1), Anak (&le;10), Remaja (&le;19), Dewasa (&le;60), dan Lansia.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-emerald-300 mt-2">if (usia &lt;= 1) cout &lt;&lt; "Bayi";
+else if (usia &lt;= 10) cout &lt;&lt; "Anak-anak";
+else if (usia &lt;= 19) cout &lt;&lt; "Remaja";
+else if (usia &lt;= 60) cout &lt;&lt; "Dewasa";
+else cout &lt;&lt; "Lansia";</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Pengecekan rentang angka berurutan dari terkecil ke terbesar.
+            </div>
+          </div>
+
+          <!-- Kasus 5.4: switch-case Nilai MK -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">Praktikum 5.4</span>
+                <button onclick="Simulator.loadCase('case-5-4'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">switch-case Nilai Mata Kuliah</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mencocokkan huruf mutu nilai (A, B, C, D, E) ke case yang cocok. Wajib pakai break agar tidak tembus ke bawah!
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-purple-300 mt-2">switch (nilaiMK) {
+    case 'A': cout &lt;&lt; "A"; break;
+    case 'B': cout &lt;&lt; "B"; break;
+    default: cout &lt;&lt; "Salah input!"; break;
+}</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Evaluasi nilai konstan karakter eksak dengan default fallback.
+            </div>
+          </div>
+
+          <!-- Kasus 5.5: Program Kasir Diskon -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-rose-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded">Praktikum 5.5</span>
+                <button onclick="Simulator.loadCase('case-5-5'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Program Kasir Toko Pakaian</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Studi kasus perhitungan diskon bertingkat: diskon 20% untuk baju &gt; 100.000 dan diskon 25% untuk celana &gt; 70.000.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-rose-300 mt-2">if (totalBaju &gt; 100000) diskonBaju = 0.2 * totalBaju;
+if (totalCelana &gt; 70000) diskonCelana = 0.25 * totalCelana;
+totalBayar = (totalBaju - diskonBaju) + (totalCelana - diskonCelana);</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Penerapan seleksi kondisi pada masalah bisnis dunia nyata.
             </div>
           </div>
 

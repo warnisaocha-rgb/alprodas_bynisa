@@ -18,6 +18,7 @@ const App = {
     this.renderModule2Content();
     this.renderModule3Content();
     this.renderModule4Content();
+    this.renderModule5Content();
     this.renderFlowchartContent();
 
     // Inisialisasi sub-sistem interaktif
@@ -29,6 +30,7 @@ const App = {
       Visualizers.initModul3StructUnion();
       Visualizers.initModul3DifferentTypesUnion();
       Visualizers.initModul4StringLab();
+      Visualizers.initModul5DecisionLab();
     }
 
     if (typeof Simulator !== "undefined") {
@@ -278,6 +280,26 @@ const App = {
         `;
       });
       methodsContainer.innerHTML = mHtml;
+    }
+  },
+
+  renderModule5Content: function() {
+    const compTableBody = document.getElementById("mod5-comp-table-body");
+    const mod5 = ALPRO_DATA.modules[4];
+    if (!mod5) return;
+
+    if (compTableBody && mod5.theory.branchesComparison) {
+      let html = "";
+      mod5.theory.branchesComparison.forEach(row => {
+        html += `
+          <tr class="border-b border-slate-700/60 hover:bg-slate-800/40 transition-colors">
+            <td class="p-3 text-xs font-semibold text-slate-200">${row.aspect}</td>
+            <td class="p-3 text-xs text-sky-300 bg-sky-950/10 font-mono">${row.ifElse}</td>
+            <td class="p-3 text-xs text-amber-300 bg-amber-950/10 font-mono">${row.switchCase}</td>
+          </tr>
+        `;
+      });
+      compTableBody.innerHTML = html;
     }
   },
 
