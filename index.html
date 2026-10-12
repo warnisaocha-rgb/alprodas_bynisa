@@ -157,86 +157,69 @@
     <!-- ============================================================= -->
     <!-- TAB 1: BERANDA / HOME                                         -->
     <!-- ============================================================= -->
-    <section id="tab-home" class="tab-content-section space-y-10">
+    <section id="tab-home" class="tab-content-section space-y-12">
       
-      <!-- Hero Banner -->
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-850 to-indigo-950/70 border border-slate-800 p-8 md:p-12 shadow-2xl transition-colors">
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 max-w-3xl space-y-4">
+      <!-- Hero Banner (Tenang, Elegan, Tidak Menyolok) -->
+      <div class="relative overflow-hidden rounded-3xl bg-slate-900/60 border border-slate-800 p-8 sm:p-10 transition-colors">
+        <div class="max-w-3xl space-y-4">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold">
-            <span>👋 Media Ajar Khusus Praktikan Pemula</span>
+            <span>👋 Media Asistensi Praktikan C++ PTIK UNM</span>
           </div>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Belajar C++ Jadi Seru, <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300">Paham Teori & Praktik!</span>
+          <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug">
+            Laboratorium Belajar Algoritma &amp; Pemrograman Dasar
           </h1>
           <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Dilengkapi <strong>Video Animasi Edukasi</strong> untuk orang awam, simulator memori RAM & bitwise shift, laboratorium string & kasir percabangan, serta <strong>Simulasi UTS Live Coding (Isi Titik-Titik Kode)</strong> gabungan materi Laporan Praktikum 1 s.d. 5!
+            Panduan belajar terstruktur dari Modul 1 hingga 5. Dirancang khusus dengan analogi sederhana sehari-hari, catatan penting asisten dosen, dan latihan simulasi langsung tanpa membuat kepala pusing.
           </p>
-          <div class="flex flex-wrap gap-3 pt-2">
-            <button onclick="App.switchTab('tab-cinema')" class="px-5 py-3 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-sky-500/20 transition-all flex items-center gap-2">
-              <span>🎬 Tonton Bioskop Animasi Pemula</span>
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <button onclick="App.switchTab('tab-modul-1')" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-2">
+              <span>📖 Mulai Baca Modul 1</span>
               <span>&rarr;</span>
             </button>
-            <button onclick="App.switchTab('tab-uts')" class="px-5 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
-              <span>📝 Mulai Simulasi UTS (Live Coding)</span>
+            <button onclick="App.switchTab('tab-cinema')" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 font-semibold text-xs rounded-xl transition-all flex items-center gap-2">
+              <span>🎬 Bioskop Animasi</span>
             </button>
-            <button onclick="App.switchTab('tab-modul-1')" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs rounded-xl transition-all flex items-center gap-2">
-              <span>📦 Buka Modul 1</span>
+            <button onclick="App.switchTab('tab-uts')" class="px-5 py-2.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-xs rounded-xl transition-all flex items-center gap-2">
+              <span>📝 Latihan UTS Live</span>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Overview Cards Grid -->
-      <div>
-        <div class="flex items-center justify-between mb-6">
+      <!-- Silabus Modul Praktikum (Daftar Vertikal Bersih & Rapi) -->
+      <div class="max-w-4xl mx-auto space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
           <div>
-            <h2 class="text-xl font-bold text-white">Modul Pembelajaran Praktikum</h2>
-            <p class="text-xs text-slate-400">Kurikulum resmi terintegrasi dengan Laporan Praktikum 1 - 5 UNM</p>
+            <h2 class="text-lg font-bold text-white">Silabus Pembelajaran Praktikum</h2>
+            <p class="text-xs text-slate-400">Pilih modul yang ingin kalian pelajari hari ini:</p>
           </div>
-          <span class="text-xs font-mono text-slate-500">5 Modul Inti</span>
+          <span class="text-xs font-mono text-slate-400 bg-slate-800/60 px-2.5 py-1 rounded-lg border border-slate-700/60">5 Modul Lengkap</span>
         </div>
-        <div id="home-modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        
+        <!-- List Silabus Ramping (Populated by App.renderModuleOverview()) -->
+        <div id="home-modules-grid" class="space-y-3">
           <!-- Populated by App.renderModuleOverview() -->
         </div>
       </div>
 
-      <!-- Quick Feature Highlights -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4 pt-4">
-        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-cinema')">
-          <div class="text-2xl mb-2">🎬</div>
-          <h4 class="font-bold text-sm text-white">Bioskop Animasi</h4>
-          <p class="text-xs text-slate-400 mt-1">Animasi visual ramah pemula: tipe data, brankas operator penugasan, dan arsitektur Struct vs Union.</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-flowchart')">
-          <div class="text-2xl mb-2">📐</div>
-          <h4 class="font-bold text-sm text-white">Panduan Flowchart</h4>
-          <p class="text-xs text-slate-400 mt-1">Standar simbol Oval (Mulai), Persegi Bergaris (Deklarasi), Persegi (Proses), dan Jajargenjang (cout).</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-uts')">
-          <div class="text-2xl mb-2">📝</div>
-          <h4 class="font-bold text-sm text-white">UTS Live Coding</h4>
-          <p class="text-xs text-slate-400 mt-1">Latihan ujian mengisi titik-titik kode program gabungan Laprak 1-5 lengkap dengan timer.</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-2')">
-          <div class="text-2xl mb-2">⚡</div>
-          <h4 class="font-bold text-sm text-white">8-Bit Bitwise Shifter</h4>
-          <p class="text-xs text-slate-400 mt-1">Geser bit biner 0 dan 1 ke kiri (&lt;&lt;) atau kanan (&gt;&gt;) dengan animasi langsung (Praktikum 2.2).</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-3')">
-          <div class="text-2xl mb-2">🧩</div>
-          <h4 class="font-bold text-sm text-white">4 Pilar Tipe Bentukan</h4>
-          <p class="text-xs text-slate-400 mt-1">Struct memori mandiri, Union shared memory, Enum indeks mulai 0, dan Typedef nama alias.</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-4')">
-          <div class="text-2xl mb-2">🔤</div>
-          <h4 class="font-bold text-sm text-white">Laboratorium String</h4>
-          <p class="text-xs text-slate-400 mt-1">Eksplorasi method .length(), .at(), .replace(), .find(), swap(), dan perbandingan cin &gt;&gt; vs cin.get().</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-5')">
-          <div class="text-2xl mb-2">🔀</div>
-          <h4 class="font-bold text-sm text-white">Percabangan &amp; Kasir</h4>
-          <p class="text-xs text-slate-400 mt-1">Uji alur if, if-else if rentang usia 5 tingkat, switch-case, dan kalkulator kasir diskon toko pakaian (Praktikum 5.5).</p>
+      <!-- 3 Pilar Fitur Pendukung Belajar (Tenang & Minimalis) -->
+      <div class="max-w-4xl mx-auto pt-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-cinema')">
+            <span class="text-2xl block mb-2">🎬</span>
+            <h4 class="font-bold text-sm text-white">Animasi &amp; Simulator</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Visualisasi interaktif memori RAM, pergeseran bitwise 8-bit, serta animasi alur struct dan union.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-1')">
+            <span class="text-2xl block mb-2">📖</span>
+            <h4 class="font-bold text-sm text-white">Catatan &amp; Analogi Asdos</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Penjelasan konsep dari nol dengan analogi dapur, kereta api, dan kisi-kisi pertanyaan responsi dosen.</p>
+          </div>
+          <div class="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-uts')">
+            <span class="text-2xl block mb-2">📝</span>
+            <h4 class="font-bold text-sm text-white">Simulasi UTS Live</h4>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">Latihan mengisi titik-titik kode program gabungan Laprak 1 s.d. 5 dengan timer ujian langsung.</p>
+          </div>
         </div>
       </div>
 
@@ -462,35 +445,35 @@
         </p>
       </div>
 
-      <!-- KOTAK ANALOGI SANTAI PEMULA: TOPLES WADAH MEMORI -->
-      <div class="bg-gradient-to-r from-blue-950/40 to-indigo-950/40 border border-blue-500/30 rounded-2xl p-5 shadow-sm">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="text-lg">💡</span>
-          <h4 class="text-sm font-bold text-sky-300">Analogi Santai untuk Pemula: Variabel Itu Toples Label di Meja Dapur!</h4>
+      <!-- ANALOGI SANTAI PEMULA: CALLOUT BERSIH & RAMPING -->
+      <div class="border-l-4 border-sky-500/60 bg-slate-900/40 rounded-r-2xl p-5 my-6 space-y-3">
+        <div class="flex items-center gap-2 text-sky-400 font-bold text-sm">
+          <span>💡</span>
+          <span>Analogi Santai: Variabel Itu Toples Label di Meja Dapur!</span>
         </div>
-        <p class="text-xs text-slate-300 leading-relaxed mb-3">
-          Biar adik-adik yang baru belajar nggak pusing sama istilah teknis, bayangkan RAM komputer itu seperti meja dapur, dan variabel adalah <strong>toples yang ditempeli stiker nama</strong>:
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Biar adik-adik nggak pusing sama istilah teknis, bayangkan RAM komputer itu seperti meja dapur, dan variabel adalah <strong>toples yang ditempeli stiker nama</strong>:
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-xs">
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-sky-400 font-mono block">☕ char (1 Byte)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Cangkir sloki mini. Cuma muat 1 butir permen / 1 huruf (misal: 'A'). Hemat tempat!</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs text-slate-300 pt-1">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-sky-400 font-mono">☕ char (1 Byte):</span>
+            <span class="text-slate-400 block mt-0.5">Cangkir mini, cuma muat 1 huruf (misal: 'A'). Hemat tempat!</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-emerald-400 font-mono block">🍚 int (4 Byte)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Toples beras 1 liter. Muat ribuan bilangan bulat utuh dari minus 2 miliar sampai positif 2 miliar.</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-sky-400 font-mono">🍚 int (4 Byte):</span>
+            <span class="text-slate-400 block mt-0.5">Toples beras 1 liter, muat angka bulat utuh -2 miliar s.d. +2 miliar.</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-amber-400 font-mono block">🥛 float (4 Byte)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Gelas ukur berskala garis mililiter. Khusus angka pecahan/koma (presisi 7 digit).</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-sky-400 font-mono">🥛 float (4 Byte):</span>
+            <span class="text-slate-400 block mt-0.5">Gelas ukur berskala, khusus angka pecahan/koma presisi 7 digit.</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-purple-400 font-mono block">🛢️ double (8 Byte)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Jerigen laboratorium super akurat. Khusus angka pecahan raksasa presisi tinggi (15 digit).</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-sky-400 font-mono">🛢️ double (8 Byte):</span>
+            <span class="text-slate-400 block mt-0.5">Jerigen laboratorium super akurat, pecahan presisi tinggi 15 digit.</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-rose-400 font-mono block">🔘 bool (1 Byte)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Saklar cetekan lampu kamar. Cuma punya 2 kondisi pasti: Nyala (true / 1) atau Padam (false / 0).</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-sky-400 font-mono">🔘 bool (1 Byte):</span>
+            <span class="text-slate-400 block mt-0.5">Saklar lampu: cuma ada 2 kondisi pasti: Nyala (true) atau Padam (false).</span>
           </div>
         </div>
       </div>
@@ -586,100 +569,80 @@
               <span class="px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-400 text-[11px] font-mono font-bold border border-sky-500/30">BUKU SAKU ASDOS</span>
               <span class="text-xs text-slate-400 font-medium">Pegangan Khusus Adik-Adik Praktikan</span>
             </div>
-            <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Variabel, RAM &amp; Tipe Data Dasar</h3>
+      <!-- ================= BUKU SAKU TEORI & CATATAN LENGKAP ASDOS MODUL 1 ================= -->
+      <div class="space-y-6 pt-4 border-t border-slate-800/80">
+        <div class="border-b border-slate-800/80 pb-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 text-[11px] font-mono font-bold border border-sky-500/20">CATATAN ASDOS</span>
+            <span class="text-xs text-slate-400">Pegangan Belajar Teori Praktikan</span>
           </div>
-          <span class="text-xs text-slate-400 font-mono self-start sm:self-auto bg-slate-800/80 px-3 py-1 rounded-xl border border-slate-700">
-            Materi Ujian Responsi Modul 1
-          </span>
+          <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Variabel, RAM &amp; Tipe Data Dasar</h3>
         </div>
 
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          Buat adik-adik yang nggak punya buku teks yang sama atau merasa modul praktikum terlalu ringkas, ini catatan rangkuman lengkap yang wajib kalian pahami sebelum maju asistensi ke dosen pembimbing!
+          Berikut rangkuman konsep penting yang wajib kalian pahami sebelum maju asistensi atau ujian responsi dengan dosen:
         </p>
 
-        <!-- Grid 4 Kartu Penjelasan Teori -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          
-          <!-- Kartu 1: Kenapa C++ Butuh Tipe Data? -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-sky-400 font-bold text-sm">
-              <span>🧠</span>
-              <span>1. Kenapa C++ Butuh Tipe Data? (Arsitektur RAM)</span>
+        <!-- Sub-bab 1.1: Arsitektur Memori -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-sky-400 font-mono">1.1</span>
+            <span>Kenapa C++ Butuh Tipe Data? (Arsitektur Memori RAM)</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Bahasa C++ adalah bahasa <em>statically-typed</em>. Artinya, compiler <strong>wajib tahu ukuran memori yang harus dipesan ke RAM</strong> sebelum program dijalankan:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>Deklarasi (<code>int x;</code>):</strong> Memesan 4 byte kapling memori kosong di RAM (misal beralamat heksadesimal <code>0x7ffee4</code>).</li>
+            <li><strong>Inisialisasi (<code>int x = 10;</code>):</strong> Memesan kapling sekaligus mengisi angka 10 biner ke dalam kotak tersebut.</li>
+            <li><strong>Assignment (<code>x = 25;</code>):</strong> Menimpa isi kapling yang sudah ada dengan nilai baru.</li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 1.2: Signed vs Unsigned & Float vs Double -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-sky-400 font-mono">1.2</span>
+            <span>Signed vs Unsigned &amp; Float vs Double</span>
+          </h4>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>Signed vs Unsigned:</strong> <code>int</code> biasa memakai 1 bit tanda minus (-2 miliar s.d. +2 miliar). Kalau kita tambah <code>unsigned int</code>, angka minus ditiadakan sehingga jangkauan positifnya <strong>melonjak 2x lipat</strong> (0 s.d. 4,2 miliar)! Cocok untuk umur, harga barang, atau ID mahasiswa yang mustahil negatif.</li>
+            <li><strong>Float vs Double:</strong> <code>float</code> memakai 4 byte (presisi 6–7 digit koma), sedangkan <code>double</code> memakai 8 byte (presisi 15–17 digit koma). Untuk kalkulasi ilmiah dan keuangan, selalu pakai <code>double</code> agar komanya tidak meleset.</li>
+            <li><strong>Char &amp; ASCII:</strong> <code>char huruf = 'A';</code> di RAM sebenarnya disimpan sebagai angka integer kode ASCII 65.</li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 1.3: Konstanta -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-sky-400 font-mono">1.3</span>
+            <span>Konstanta: Mengapa Dosen Menyarankan <code>const</code> daripada <code>#define</code>?</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Konstanta adalah variabel yang nilainya <strong>dikunci mati</strong> setelah ditetapkan (read-only). Cara modern adalah <code>const float PHI = 3.14f;</code> karena memiliki tipe data jelas, dicek oleh compiler (*type-safe*), dan terikat aturan scope kurung kurawal. Sedangkan <code>#define PHI 3.14</code> hanyalah penggantian teks buta tanpa pengecekan tipe data.
+          </p>
+        </div>
+
+        <!-- Callout 1.4: ⚠️ Catatan Kritis & 3 Jebakan Batman Pemula -->
+        <div class="border-l-4 border-amber-500/70 bg-amber-500/5 rounded-r-2xl p-4 sm:p-5 my-4 space-y-2">
+          <div class="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+            <span>⚠️</span>
+            <span>Catatan Kritis: 3 Jebakan Batman Pemula &amp; Kisi-Kisi Responsi Modul 1</span>
+          </div>
+          <div class="space-y-2 text-xs sm:text-sm text-slate-300 pl-2">
+            <div>
+              <strong class="text-amber-300">1. Pembagian Bulat (Integer Division):</strong><br>
+              <code>int a = 5, b = 2; float c = a / b;</code> menghasilkan <strong>2.0</strong> (bukan 2.5), karena integer dibagi integer dipotong ke integer. Solusinya: tulis <code>(float)a / b</code> atau <code>5.0 / 2</code>.
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Bahasa C++ adalah bahasa <em>statically-typed</em>. Artinya, compiler <strong>wajib tahu ukuran memori yang harus dipesan ke RAM</strong> sebelum program dijalankan:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>Deklarasi (<code>int x;</code>):</strong> Memesan 4 byte kapling memori kosong di RAM (misal beralamat <code>0x7ffee4</code>).</li>
-              <li><strong>Inisialisasi (<code>int x = 10;</code>):</strong> Memesan kapling sekaligus mengisi angka 10 biner ke dalam kotak tersebut.</li>
-              <li><strong>Assignment (<code>x = 25;</code>):</strong> Menimpa isi kapling yang sudah ada dengan nilai baru.</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-amber-300">
-              💡 <strong>Hati-Hati Garbage Value:</strong> Kalau kamu deklarasi <code>int skor;</code> tanpa diberi nilai awal, lalu langsung dicetak (<code>cout &lt;&lt; skor;</code>), nilainya akan berupa <em>angka sampah acak</em> (misal: <code>-858993460</code>) bekas sisa program lain di RAM!
+            <div>
+              <strong class="text-amber-300">2. Petik Tunggal vs Petik Ganda:</strong><br>
+              <code>'A'</code> adalah karakter tunggal <code>char</code> (1 byte). Sedangkan <code>"A"</code> adalah string (2 byte karena ada null-terminator <code>\0</code>). Jangan terbalik!
+            </div>
+            <div>
+              <strong class="text-amber-300">3. Bahaya Garbage Value:</strong><br>
+              Deklarasi <code>int skor;</code> tanpa nilai awal akan mencetak angka sampah acak sisa program lain di RAM jika langsung dicetak.
             </div>
           </div>
-
-          <!-- Kartu 2: Signed vs Unsigned & Float vs Double -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-              <span>⚖️</span>
-              <span>2. Signed vs Unsigned &amp; Float vs Double</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Memilih tipe data yang pas adalah tanda programmer cerdas yang hemat memori:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>Signed vs Unsigned:</strong> <code>int</code> biasa memakai 1 bit tanda minus (-2 miliar s.d. +2 miliar). Kalau kita tambah <code>unsigned int</code>, angka minus ditiadakan sehingga jangkauan positifnya <strong>melonjak 2x lipat</strong> (0 s.d. 4,2 miliar)! Cocok untuk umur, harga barang, atau ID mahasiswa yang mustahil negatif.</li>
-              <li><strong>Float vs Double:</strong> <code>float</code> memakai 4 byte (presisi 6–7 digit koma), sedangkan <code>double</code> memakai 8 byte (presisi 15–17 digit koma). Untuk kalkulasi ilmiah dan keuangan, selalu pakai <code>double</code> agar komanya tidak meleset.</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-sky-300 font-mono">
-              char huruf = 'A'; // 'A' itu di RAM sebenarnya disimpan sebagai angka ASCII 65!
-            </div>
-          </div>
-
-          <!-- Kartu 3: Konstanta (const vs #define) -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-purple-400 font-bold text-sm">
-              <span>🔒</span>
-              <span>3. Konstanta: Mengapa Dosen Menyarankan <code>const</code>?</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Konstanta adalah variabel yang nilainya <strong>dikunci mati</strong> setelah ditetapkan (read-only):
-            </p>
-            <div class="space-y-2 text-xs text-slate-300">
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <span class="text-purple-300 font-mono font-bold block">Cara Modern (Direkomendasikan):</span>
-                <code>const float PHI = 3.14f;</code> &rarr; Memiliki tipe data jelas, dicek oleh compiler (*type-safe*), dan terikat aturan *scope* blok kurung kurawal.
-              </div>
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <span class="text-slate-400 font-mono font-bold block">Cara Klasik:</span>
-                <code>#define PHI 3.14</code> &rarr; Dikerjakan oleh <em>preprocessor</em> sebelum kompilasi seperti operasi *Find & Replace* buta tanpa pengecekan tipe data.
-              </div>
-            </div>
-          </div>
-
-          <!-- Kartu 4: ⚠️ 3 Jebakan Batman Pemula & Pertanyaan Responsi -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-rose-400 font-bold text-sm">
-              <span>⚠️</span>
-              <span>4. Jebakan Batman Pemula &amp; Kisi-Kisi Responsi Dosen</span>
-            </div>
-            <div class="space-y-2 text-xs">
-              <div class="p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg text-slate-300">
-                <strong class="text-rose-400">1. Jebakan Pembagian Bulat (Integer Division):</strong><br>
-                <code>int a = 5, b = 2; float c = a / b;</code> &rarr; Nilai <code>c</code> adalah <strong>2.0</strong>, BUKAN 2.5! Karena integer dibagi integer hasilnya dipotong ke integer. Solusi: tulis <code>(float)a / b</code> atau <code>5.0 / 2</code>.
-              </div>
-              <div class="p-2.5 bg-amber-950/40 border border-amber-500/30 rounded-lg text-slate-300">
-                <strong class="text-amber-400">2. Petik Tunggal vs Petik Ganda:</strong><br>
-                <code>'A'</code> adalah karakter tunggal <code>char</code> (1 byte). Sedangkan <code>"A"</code> adalah string (2 byte karena ada karakter penutup <code>\0</code>). Jangan terbalik!
-              </div>
-              <div class="p-2.5 bg-sky-950/40 border border-sky-500/30 rounded-lg text-slate-300">
-                <strong class="text-sky-400">3. Pertanyaan Dosen: "Apa itu Integer Overflow?"</strong><br>
-                Jawab: Jika tipe <code>short</code> (maks 32767) ditambah 1, nilainya akan melompat ke angka negatif minimum (-32768) seperti odometer speedometer motor yang berputar balik ke nol!
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -748,27 +711,27 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
         </p>
       </div>
 
-      <!-- KOTAK ANALOGI SANTAI PEMULA: OPERATOR LOGIKA & BITWISE -->
-      <div class="bg-gradient-to-r from-emerald-950/40 to-teal-950/40 border border-emerald-500/30 rounded-2xl p-5 shadow-sm">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="text-lg">💡</span>
-          <h4 class="text-sm font-bold text-emerald-300">Analogi Santai untuk Pemula: Operator &amp; Logika Sehari-Hari</h4>
+      <!-- ANALOGI SANTAI PEMULA: CALLOUT BERSIH & RAMPING -->
+      <div class="border-l-4 border-emerald-500/60 bg-slate-900/40 rounded-r-2xl p-5 my-6 space-y-3">
+        <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+          <span>💡</span>
+          <span>Analogi Santai: Operator &amp; Logika di Kehidupan Nyata</span>
         </div>
-        <p class="text-xs text-slate-300 leading-relaxed mb-3">
-          Jangan ngafal simbol operator secara kaku, pahami logikanya lewat kejadian yang sering kita alami:
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Jangan ngafal simbol operator secara kaku, pahami logikanya lewat kejadian sehari-hari:
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-emerald-400 font-mono block">🤝 Operator AND (&amp;&amp;)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Kayak syarat beasiswa: "IPK harus tinggi <strong>DAN</strong> orang tua kurang mampu". Kalau cuma salah satu yang lolos, beasiswa tetap batal! Keduanya wajib TRUE.</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300 pt-1">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-emerald-400 font-mono block">🤝 Logika AND (&amp;&amp;):</span>
+            <span class="text-slate-400 mt-0.5 block">Kayak syarat beasiswa: "IPK tinggi <strong>DAN</strong> orang tua kurang mampu". Keduanya wajib terpenuhi (TRUE)!</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-sky-400 font-mono block">🚪 Operator OR (||)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Kayak pintu masuk konser: "Bawa tiket fisik <strong>ATAU</strong> bawa e-ticket di HP". Cukup salah satu saja yang kamu punya, pintu gerbang langsung dibuka!</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-emerald-400 font-mono block">🚪 Logika OR (||):</span>
+            <span class="text-slate-400 mt-0.5 block">Kayak pintu konser: "Bawa tiket fisik <strong>ATAU</strong> e-ticket di HP". Cukup salah satu saja yang ada, pintu dibuka!</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-amber-400 font-mono block">⚙️ Bitwise Shifter (&lt;&lt; / &gt;&gt;)</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Kayak 8 orang berbaris pegang bendera angka 0 dan 1. Instruksi geser kiri (&lt;&lt;) melipatgandakan nilai 2x lipat per geseran, geser kanan (&gt;&gt;) membagi 2!</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-emerald-400 font-mono block">⚙️ Bitwise Shifter (&lt;&lt; / &gt;&gt;):</span>
+            <span class="text-slate-400 mt-0.5 block">Geser kiri (&lt;&lt;) melipatgandakan nilai 2x lipat per geser. Geser kanan (&gt;&gt;) membagi 2 secara bulat!</span>
           </div>
         </div>
       </div>
@@ -913,107 +876,81 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
       </div>
 
       <!-- ================= BUKU SAKU TEORI & CATATAN LENGKAP ASDOS MODUL 2 ================= -->
-      <div class="bg-gradient-to-br from-slate-900 via-slate-850 to-emerald-950/60 border border-emerald-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[11px] font-mono font-bold border border-emerald-500/30">BUKU SAKU ASDOS</span>
-              <span class="text-xs text-slate-400 font-medium">Pegangan Khusus Adik-Adik Praktikan</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Operator, Bitwise &amp; Logika C++</h3>
+      <div class="space-y-6 pt-4 border-t border-slate-800/80">
+        <div class="border-b border-slate-800/80 pb-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-mono font-bold border border-emerald-500/20">CATATAN ASDOS</span>
+            <span class="text-xs text-slate-400">Pegangan Belajar Teori Praktikan</span>
           </div>
-          <span class="text-xs text-slate-400 font-mono self-start sm:self-auto bg-slate-800/80 px-3 py-1 rounded-xl border border-slate-700">
-            Materi Ujian Responsi Modul 2
-          </span>
+          <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Operator, Bitwise &amp; Logika C++</h3>
         </div>
 
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
           Jangan cuma menghafal rumus di laprak tanpa tahu cara kerjanya! Berikut konsep logika operator yang paling sering ditanyakan dosen penguji saat kalian ujian praktikum:
         </p>
 
-        <!-- Grid 4 Kartu Penjelasan Teori -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          
-          <!-- Kartu 1: Klasifikasi Operator (Unary, Binary, Ternary) -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-              <span>🔢</span>
-              <span>1. Klasifikasi Operator Menurut Jumlah Operand</span>
+        <!-- Sub-bab 2.1: Klasifikasi Operator -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-emerald-400 font-mono">2.1</span>
+            <span>Klasifikasi Operator Menurut Jumlah Operand (Unary, Binary, Ternary)</span>
+          </h4>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>Unary (1 Operand):</strong> Cuma butuh 1 variabel. Contoh: tanda minus <code>-x</code>, negasi logika <code>!lulus</code>, serta penaikan nilai <code>++x</code> / <code>--x</code>.</li>
+            <li><strong>Binary (2 Operand):</strong> Butuh 2 nilai kiri &amp; kanan. Contoh: penjumlahan <code>a + b</code>, pembanding <code>x &gt;= y</code>, logika <code>a &amp;&amp; b</code>, dan penugasan <code>total = 100</code>.</li>
+            <li><strong>Ternary (3 Operand):</strong> Satu-satunya operator C++ dengan 3 bagian. Singkatan if-else 1 baris yang elegan: <code>(kondisi) ? nilaiJikaTrue : nilaiJikaFalse;</code>.</li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 2.2: Modulo (%) & Pre vs Post Increment -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-emerald-400 font-mono">2.2</span>
+            <span>Modulo (%) &amp; Pre vs Post Increment di Memori</span>
+          </h4>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>Operator Modulo (%):</strong> Menghasilkan <em>sisa bagi bilangan bulat</em>. Hanya bisa untuk integer (TIDAK BISA untuk float)! Paling sering dipakai untuk cek genap/ganjil (<code>x % 2 == 0</code>) dan konversi waktu (misal 130 menit = 130/60 jam dan 130%60 menit).</li>
+            <li><strong>Pre-increment (<code>b = ++a;</code>):</strong> Nilai a di RAM dinaikkan dulu jadi 6, baru disimpan ke b (hasil: a=6, b=6).</li>
+            <li><strong>Post-increment (<code>b = a++;</code>):</strong> Nilai lama 5 disimpan dulu ke b, baru setelah baris perintah selesai nilai a di RAM naik jadi 6 (hasil: a=6, b=5)!</li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 2.3: Bitwise Shift -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-emerald-400 font-mono">2.3</span>
+            <span>Keajaiban Bitwise Shift (&lt;&lt; dan &gt;&gt;) pada Praktikum 2.2</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Kenapa di Praktikum 2.2 nilai <code>a = 1</code> yang di-shift <code>&lt;&lt;= 3</code> tiba-tiba berubah jadi <strong>8</strong>? Dan <code>b = 10</code> yang di-shift <code>&gt;&gt;= 1</code> berubah jadi <strong>5</strong>?
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>Left Shift (<code>&lt;&lt; n</code>):</strong> Menggeser bit biner ke kiri. Setiap 1 geseran sama dengan mengalikan dengan 2! Jadi <code>1 &lt;&lt; 3</code> sama dengan \(1 \times 2^3 = 8\).</li>
+            <li><strong>Right Shift (<code>&gt;&gt; n</code>):</strong> Menggeser bit biner ke kanan. Setiap 1 geseran sama dengan membagi dengan 2! Jadi <code>10 &gt;&gt; 1</code> sama dengan \(10 / 2^1 = 5\).</li>
+            <li>CPU mengeksekusi bitwise dalam 1 siklus clock prosesor, ribuan kali lebih cepat daripada perkalian biasa!</li>
+          </ul>
+        </div>
+
+        <!-- Callout 2.4: ⚠️ Catatan Kritis & 3 Jebakan Batman Pemula -->
+        <div class="border-l-4 border-amber-500/70 bg-amber-500/5 rounded-r-2xl p-4 sm:p-5 my-4 space-y-2">
+          <div class="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+            <span>⚠️</span>
+            <span>Catatan Kritis: 3 Jebakan Batman Pemula &amp; Kisi-Kisi Responsi Modul 2</span>
+          </div>
+          <div class="space-y-2 text-xs sm:text-sm text-slate-300 pl-2">
+            <div>
+              <strong class="text-amber-300">1. Jebakan Fatal: '=' vs '=='</strong><br>
+              <code>=</code> adalah memasukkan nilai (penugasan). Sedangkan <code>==</code> adalah membandingkan kesetaraan. Kalau kamu tulis <code>if (x = 5)</code>, nilai x dipaksa jadi 5 dan selalu dianggap TRUE oleh C++!
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Operand adalah data atau variabel yang dioperasikan:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>Unary (1 Operand):</strong> Cuma butuh 1 variabel. Contoh tanda minus <code>-x</code>, negasi logika <code>!lulus</code>, serta penaikan nilai <code>++x</code> / <code>--x</code>.</li>
-              <li><strong>Binary (2 Operand):</strong> Butuh 2 nilai kiri &amp; kanan. Contoh penjumlahan <code>a + b</code>, pembanding <code>x &gt;= y</code>, logika <code>a &amp;&amp; b</code>, dan penugasan <code>total = 100</code>.</li>
-              <li><strong>Ternary (3 Operand):</strong> Satu-satunya operator C++ dengan 3 bagian. Singkatan if-else 1 baris yang elegan: <code>(kondisi) ? nilaiJikaTrue : nilaiJikaFalse;</code>.</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-emerald-300 font-mono">
-              string hasil = (ipk &gt;= 3.5) ? "Cumlaude" : "Sangat Memuaskan";
+            <div>
+              <strong class="text-amber-300">2. Logika Short-Circuit:</strong><br>
+              Pada <code>A &amp;&amp; B</code>, jika syarat A sudah salah (FALSE), C++ langsung berhenti tanpa mengecek B. Begitu juga pada <code>A || B</code>, jika A sudah benar (TRUE), B diabaikan!
+            </div>
+            <div>
+              <strong class="text-amber-300">3. Urutan Hitung (Presedensi):</strong><br>
+              Perkalian/pembagian/modulo (<code>* / %</code>) selalu dikerjakan lebih dulu daripada tambah/kurang (<code>+ -</code>). Gunakan selalu tanda kurung <code>()</code> untuk mempertegas urutan!
             </div>
           </div>
-
-          <!-- Kartu 2: Modulo (%) & Pre vs Post Increment -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
-              <span>⏱️</span>
-              <span>2. Modulo (%) &amp; Pre vs Post Increment</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Dua konsep yang paling sering bikin nilai kuis maba anjlok:
-            </p>
-            <div class="space-y-2 text-xs text-slate-300">
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <strong class="text-amber-400 font-mono">Operator Modulo (%):</strong> Menghasilkan <em>sisa bagi bilangan bulat</em>. Hanya bisa untuk tipe integer (TIDAK BISA untuk float)! Paling sering dipakai untuk cek genap/ganjil (<code>x % 2 == 0</code>) dan konversi satuan (misal 130 menit = 130/60 jam dan 130%60 menit).
-              </div>
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <strong class="text-emerald-400 font-mono">Pre (++a) vs Post (a++):</strong><br>
-                • <code>b = ++a;</code> &rarr; <em>Tambah dulu</em> nilai a di RAM jadi 6, baru simpan ke b (hasil: a=6, b=6).<br>
-                • <code>b = a++;</code> &rarr; <em>Simpan dulu</em> nilai lama 5 ke b, baru setelah baris selesai a di RAM bertambah jadi 6 (hasil: a=6, b=5)!
-              </div>
-            </div>
-          </div>
-
-          <!-- Kartu 3: Keajaiban Bitwise Shift (<< dan >>) -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-sky-400 font-bold text-sm">
-              <span>⚡</span>
-              <span>3. Keajaiban Bitwise Shift (&lt;&lt; dan &gt;&gt;) di Praktikum 2.2</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Kenapa di Praktikum 2.2 nilai <code>a = 1</code> yang di-shift <code>&lt;&lt;= 3</code> tiba-tiba berubah jadi <strong>8</strong>? Dan <code>b = 10</code> yang di-shift <code>&gt;&gt;= 1</code> berubah jadi <strong>5</strong>?
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>Left Shift (<code>&lt;&lt; n</code>):</strong> Menggeser bit biner ke kiri. Setiap 1 geseran sama dengan <strong>mengalikan dengan 2</strong>! Jadi <code>1 &lt;&lt; 3</code> sama dengan \(1 \times 2^3 = 8\).</li>
-              <li><strong>Right Shift (<code>&gt;&gt; n</code>):</strong> Menggeser bit biner ke kanan. Setiap 1 geseran sama dengan <strong>membagi dengan 2</strong>! Jadi <code>10 &gt;&gt; 1</code> sama dengan \(10 / 2^1 = 5\).</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-sky-300">
-              💡 <strong>Kenapa dipakai?</strong> CPU komputer mengeksekusi bitwise dalam 1 siklus clock prosesor, ribuan kali lebih cepat daripada operasi perkalian/pembagian aritmatika biasa!
-            </div>
-          </div>
-
-          <!-- Kartu 4: ⚠️ Jebakan Batman & Presedensi Operator -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-rose-400 font-bold text-sm">
-              <span>⚠️</span>
-              <span>4. Jebakan Batman &amp; Presedensi Operator</span>
-            </div>
-            <div class="space-y-2 text-xs">
-              <div class="p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg text-slate-300">
-                <strong class="text-rose-400">1. Jebakan Fatal: '=' vs '=='</strong><br>
-                <code>=</code> adalah <strong>memasukkan nilai</strong> (penugasan). Sedangkan <code>==</code> adalah <strong>membandingkan kesetaraan</strong>. Kalau kamu tulis <code>if (x = 5)</code>, nilai x akan dipaksa jadi 5 dan selalu dianggap TRUE oleh C++!
-              </div>
-              <div class="p-2.5 bg-amber-950/40 border border-amber-500/30 rounded-lg text-slate-300">
-                <strong class="text-amber-400">2. Logika Short-Circuit:</strong><br>
-                Pada <code>A &amp;&amp; B</code>, jika syarat A sudah salah (FALSE), C++ langsung berhenti tanpa mengecek B. Begitu juga pada <code>A || B</code>, jika A sudah benar (TRUE), B diabaikan!
-              </div>
-              <div class="p-2.5 bg-emerald-950/40 border border-emerald-500/30 rounded-lg text-slate-300">
-                <strong class="text-emerald-400">3. Urutan Hitung (Presedensi):</strong><br>
-                Perkalian/pembagian/modulo (<code>* / %</code>) selalu dikerjakan lebih dulu daripada tambah/kurang (<code>+ -</code>). Gunakan selalu tanda kurung <code>()</code> jika ingin memprioritaskan hitungan!
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -1041,34 +978,35 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
         </p>
       </div>
 
-      <!-- KOTAK ANALOGI SANTAI PEMULA: BENTO BOX VS PAPAN TULIS KOS -->
-      <div class="bg-gradient-to-r from-purple-950/40 to-pink-950/40 border border-purple-500/30 rounded-2xl p-5 shadow-sm">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="text-lg">💡</span>
-          <h4 class="text-sm font-bold text-purple-300">Analogi Santai untuk Pemula: Kotak Bento (Struct) vs Papan Tulis Kos (Union)!</h4>
+      <!-- ANALOGI SANTAI PEMULA: CALLOUT BERSIH & RAMPING -->
+      <div class="border-l-4 border-purple-500/60 bg-slate-900/40 rounded-r-2xl p-5 my-6 space-y-3">
+        <div class="flex items-center gap-2 text-purple-400 font-bold text-sm">
+          <span>💡</span>
+          <span>Analogi Santai: Kotak Bento (Struct) vs Papan Tulis Kos (Union)!</span>
         </div>
-        <p class="text-xs text-slate-300 leading-relaxed mb-3">
-          Kenapa C++ butuh tipe bentukan? Biar kamu nggak bikin puluhan variabel tercecer sendirian:
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Kenapa C++ butuh tipe bentukan? Supaya adik-adik tidak perlu membuat puluhan variabel yang tercecer sendirian:
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs text-slate-300 pt-1">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
             <span class="font-bold text-purple-400 font-mono block">🍱 Struct = Kotak Bento</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Ada sekat nasi, sekat lauk, sekat sambal. Masing-masing punya tempat sendiri, sambal pedas nggak bakal ngacak-ngacak nasi putihmu!</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5">Ada sekat nasi, sekat lauk, sekat sambal. Masing-masing punya tempat sendiri di RAM tanpa saling mengganggu.</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-amber-400 font-mono block">📋 Union = Papan Tulis 1 Kotak</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Cuma punya 1 papan tulis kecil. Kalau kamu nulis nomor HP, terus temanmu nulis daftar belanja di tempat yang sama, nomor HP-mu hilang ketimpa!</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-amber-400 font-mono block">📋 Union = Papan Tulis Kos</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5">Cuma punya 1 petak whiteboard kecil. Nilai baru yang ditulis langsung menghapus dan menimpa nilai lama!</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-emerald-400 font-mono block">🔢 Enum = Daftar Antrean Bank</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Nama orang dikasih nomor antrean urut. Komputer otomatis mulai hitung dari angka 0 (Soekarno=0, Soeharto=1, dst.).</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-emerald-400 font-mono block">🔢 Enum = Nomor Antrean Bank</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5">Daftar nama otomatis diberi nomor bulat urut mulai dari 0 (Soekarno=0, Soeharto=1, dst.).</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-            <span class="font-bold text-sky-400 font-mono block">🏷️ Typedef = Nama Panggilan Kontak</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Nama KTP panjang "Warnisyah Armin", tapi di kontak dinamai "Ocha". Orangnya sama persis, cuma manggilnya jadi ringkas dan enak!</span>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-sky-400 font-mono block">🏷️ Typedef = Nama Panggilan</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5">Nama asli panjang, tapi dinamai alias pendek agar kode lebih ramah dibaca manusia.</span>
           </div>
         </div>
       </div>
+
 
       <!-- 4 PILAR UTAMA TIPE DATA BENTUKAN -->
       <div>
@@ -1265,105 +1203,83 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
       </div>
 
       <!-- ================= BUKU SAKU TEORI & CATATAN LENGKAP ASDOS MODUL 3 ================= -->
-      <div class="bg-gradient-to-br from-slate-900 via-slate-850 to-purple-950/60 border border-purple-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-400 text-[11px] font-mono font-bold border border-purple-500/30">BUKU SAKU ASDOS</span>
-              <span class="text-xs text-slate-400 font-medium">Pegangan Khusus Adik-Adik Praktikan</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Struct, Union, Enum &amp; Typedef</h3>
+      <div class="space-y-6 pt-4 border-t border-slate-800/80">
+        <div class="border-b border-slate-800/80 pb-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 text-[11px] font-mono font-bold border border-purple-500/20">CATATAN ASDOS</span>
+            <span class="text-xs text-slate-400">Pegangan Belajar Teori Praktikan</span>
           </div>
-          <span class="text-xs text-slate-400 font-mono self-start sm:self-auto bg-slate-800/80 px-3 py-1 rounded-xl border border-slate-700">
-            Materi Ujian Responsi Modul 3
-          </span>
+          <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Struct, Union, Enum &amp; Typedef</h3>
         </div>
 
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-          Modul 3 adalah gerbang awal pembuatan aplikasi dunia nyata. Simak bedah konsep di balik 4 pilar tipe bentukan C++ yang paling sering diuji oleh dosen:
+          Modul 3 adalah gerbang awal pembuatan aplikasi terstruktur di C++. Simak ringkasan konsep di balik 4 pilar tipe bentukan yang paling sering diuji oleh dosen:
         </p>
 
-        <!-- Grid 4 Kartu Penjelasan Teori -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          
-          <!-- Kartu 1: Kenapa Butuh Tipe Bentukan? -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-purple-400 font-bold text-sm">
-              <span>🏛️</span>
-              <span>1. Kenapa Butuh Tipe Bentukan? (User-Defined Types)</span>
+        <!-- Sub-bab 3.1: Kenapa Butuh Tipe Bentukan? -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-purple-400 font-mono">3.1</span>
+            <span>Kenapa Butuh Tipe Bentukan? (User-Defined Types)</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Tipe data bawaan (int, float, char) hanya bisa menyimpan 1 nilai tunggal. Di dunia nyata, satu objek selalu memiliki banyak atribut:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li>Misal data <strong>Mahasiswa</strong> memiliki Nama (string), NIM (int), Jurusan (string), dan IPK (float).</li>
+            <li>Tanpa tipe bentukan, kalian harus membuat 4 array terpisah yang rawan tertukar indeksnya saat dimanipulasi.</li>
+            <li>Dengan <code>struct</code>, kalian menciptakan <strong>tipe data baru rancangan sendiri</strong> yang membungkus semua atribut tersebut ke dalam satu kesatuan nama yang rapi!</li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 3.2: Struct vs Union di RAM -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-purple-400 font-mono">3.2</span>
+            <span>Struct vs Union: Beda 180 Derajat di Memori RAM</span>
+          </h4>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside pl-6">
+            <li>
+              <strong>STRUCT (Kapling Memori Terpisah):</strong> Setiap anggota member memiliki alamat memori RAM mandiri. Total ukuran = penjumlahan seluruh ukuran member (+ padding alinyemen RAM). Semua nilai tersimpan aman tanpa saling ganggu.
+            </li>
+            <li>
+              <strong>UNION (Satu Alamat Bersama / Shared Memory):</strong> Seluruh member <strong>berbagi satu alamat fisik memori yang sama</strong>. Total ukuran HANYA sebesar member terbesarnya! Nilai member terakhir yang diisi akan langsung <strong>menimpa (overwrite)</strong> member sebelumnya. Union sangat vital untuk sistem tertanam (IoT / mikrokontroler) yang kapasitas RAM-nya terbatas.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 3.3: Enum & Typedef -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-purple-400 font-mono">3.3</span>
+            <span>Enum (Auto-Index 0) &amp; Typedef (Nama Panggilan Alias)</span>
+          </h4>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>Enum (Enumerasi):</strong> Memberi nama teks yang mudah diingat pada deretan angka bulat (default mulai dari indeks 0). Berfungsi menghilangkan <em>magic numbers</em> agar program tidak rawan salah ketik logika (misal: <code>enum Status { GAGAL, SUKSES };</code> di mana GAGAL=0, SUKSES=1).</li>
+            <li><strong>Typedef:</strong> Memberi nama panggilan (alias) baru pada tipe data yang sudah ada (sintaks: <code>typedef tipe_lama nama_baru;</code>). Sangat membantu untuk menyingkat penulisan tipe data panjang seperti <code>unsigned long long int</code> menjadi <code>uint64</code>, atau menyederhanakan deklarasi struct.</li>
+          </ul>
+        </div>
+
+        <!-- Callout 3.4: ⚠️ Catatan Kritis & Jebakan Batman -->
+        <div class="border-l-4 border-amber-500/70 bg-amber-500/5 rounded-r-2xl p-4 sm:p-5 my-4 space-y-2">
+          <div class="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+            <span>⚠️</span>
+            <span>Catatan Kritis: 3 Jebakan Batman Pemula &amp; Kisi-Kisi Responsi Modul 3</span>
+          </div>
+          <div class="space-y-2 text-xs sm:text-sm text-slate-300 pl-6">
+            <div>
+              <strong class="text-amber-300">1. Lupa Titik Koma (;) di Akhir Definisi:</strong><br>
+              Hampir 90% praktikan lupa menaruh tanda titik koma setelah kurung kurawal tutup <code>struct Mhs { ... };</code>. Kelalaian ini menyebabkan error compiler puluhan baris ke bawah!
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Tipe data primitif (int, float, char) cuma bisa menampung 1 jenis nilai tunggal:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>Di dunia nyata, satu objek data punya banyak sifat (misal Mahasiswa punya Nama, NIM, Jurusan, IPK).</li>
-              <li>Tanpa struct, kalian harus bikin 4 variabel array terpisah yang rawan tertukar urutannya.</li>
-              <li>Dengan <code>struct</code>, kalian menciptakan <strong>tipe data baru rancangan sendiri</strong> yang membungkus semua atribut tersebut dalam satu kesatuan rapi!</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-purple-300 font-mono">
-              struct Mahasiswa { string nama; int nim; float ipk; };
+            <div>
+              <strong class="text-amber-300">2. Cara Akses Member (Titik vs Panah):</strong><br>
+              Gunakan operator titik <code>.</code> untuk variabel biasa (contoh: <code>mhs.nama</code>). Operator panah <code>-&gt;</code> hanya digunakan jika variabel bertipe pointer (contoh: <code>ptrMhs-&gt;nama</code>).
+            </div>
+            <div>
+              <strong class="text-amber-300">3. Pertanyaan Dosen: "Berapa ukuran sizeof(union)?"</strong><br>
+              Jawab dengan percaya diri: <strong>HANYA sebesar ukuran member terbesarnya!</strong> Jika union berisi <code>int</code> (4B) dan <code>double</code> (8B), maka total ukuran union di RAM tetap 8 byte saja.
             </div>
           </div>
-
-          <!-- Kartu 2: Struct vs Union (Arsitektur Memori) -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
-              <span>🧬</span>
-              <span>2. Struct vs Union: Beda 180 Derajat di Memori RAM</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Kunci utama yang wajib kalian pahami saat responsi:
-            </p>
-            <div class="space-y-2 text-xs text-slate-300">
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <strong class="text-purple-400 font-mono">STRUCT (Kapling Terpisah):</strong> Setiap member punya alamat memori RAM mandiri. Ukuran memori = total seluruh ukuran member (+ padding alinyemen RAM). Semua nilai tersimpan aman tanpa saling ganggu.
-              </div>
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <strong class="text-amber-400 font-mono">UNION (Satu Alamat Bersama):</strong> Semua member <strong>berbagi 1 alamat fisik memori yang sama</strong>. Ukuran memori HANYA sebesar member terbesarnya! Nilai member terakhir yang kalian isi akan langsung <strong>menimpa (overwrite)</strong> member sebelumnya. Digunakan untuk sistem tertanam (IoT / mikrokontroler) yang RAM-nya super hemat!
-              </div>
-            </div>
-          </div>
-
-          <!-- Kartu 3: Enum & Typedef -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-              <span>🏷️</span>
-              <span>3. Enum (Auto-Index) &amp; Typedef (Nama Alias)</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Dua alat bantu yang membuat kodemu bersih dan profesional:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>Enum (Enumerasi):</strong> Memberi nama teks pada deretan angka bulat (default mulai indeks 0). Menghilangkan <em>magic numbers</em> agar program tidak rawan salah ketik logika (misal status <code>GAGAL = 0, SUKSES = 1</code>).</li>
-              <li><strong>Typedef:</strong> Memberi nama panggilan (alias) baru pada tipe data. Sintaks: <code>typedef tipe_lama nama_baru;</code>. Bermanfaat untuk menyingkat penulisan tipe data panjang seperti <code>unsigned long long int</code> jadi <code>uint64</code>.</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-emerald-300 font-mono">
-              enum Arah { UTARA, TIMUR, SELATAN, BARAT }; // UTARA=0, TIMUR=1, dst.
-            </div>
-          </div>
-
-          <!-- Kartu 4: ⚠️ Jebakan Batman & Kisi-Kisi Responsi Modul 3 -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-rose-400 font-bold text-sm">
-              <span>⚠️</span>
-              <span>4. Jebakan Batman &amp; Kisi-Kisi Responsi Dosen</span>
-            </div>
-            <div class="space-y-2 text-xs">
-              <div class="p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg text-slate-300">
-                <strong class="text-rose-400">1. Lupa Titik Koma (;) di Akhir Struct/Union:</strong><br>
-                90% praktikan pemula lupa menaruh tanda <code>;</code> setelah kurung kurawal tutup <code>struct Mhs { ... };</code>. Akibatnya compiler mengeluarkan error puluhan baris!
-              </div>
-              <div class="p-2.5 bg-amber-950/40 border border-amber-500/30 rounded-lg text-slate-300">
-                <strong class="text-amber-400">2. Cara Akses Member (Titik vs Panah):</strong><br>
-                Gunakan operator titik <code>.</code> untuk variabel struct biasa (contoh: <code>mhs.nama</code>). Operator panah <code>-&gt;</code> hanya dipakai jika variabelnya berupa pointer!
-              </div>
-              <div class="p-2.5 bg-sky-950/40 border border-sky-500/30 rounded-lg text-slate-300">
-                <strong class="text-sky-400">3. Pertanyaan Dosen: "Berapa ukuran sizeof(union)?"</strong><br>
-                Jawab: HANYA sebesar ukuran member terbesarnya! Jika ada <code>int</code> (4B) dan <code>double</code> (8B), maka ukuran union adalah 8 byte.
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -1511,30 +1427,31 @@ struct balok {
         </p>
       </div>
 
-      <!-- KOTAK ANALOGI SANTAI PEMULA: GERBONG KERETA STRING -->
-      <div class="bg-gradient-to-r from-emerald-950/40 to-teal-950/40 border border-emerald-500/30 rounded-2xl p-5 shadow-sm">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="text-lg">💡</span>
-          <h4 class="text-sm font-bold text-emerald-300">Analogi Santai untuk Pemula: String Itu Gerbong Kereta Huruf!</h4>
+      <!-- ANALOGI SANTAI PEMULA: CALLOUT BERSIH & RAMPING -->
+      <div class="border-l-4 border-emerald-500/60 bg-slate-900/40 rounded-r-2xl p-5 my-6 space-y-3">
+        <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+          <span>💡</span>
+          <span>Analogi Santai: String Itu Rangkaian Gerbong Kereta Huruf!</span>
         </div>
-        <p class="text-xs text-slate-300 leading-relaxed mb-3">
-          String itu bukan satu benda utuh yang padat, melainkan rangkaian karakter yang digandeng berjejer seperti gerbong kereta api:
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          String itu bukan satu benda padat, melainkan deretan karakter yang digandeng berjejer seperti gerbong kereta api:
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs text-slate-300 pt-1">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
             <span class="font-bold text-emerald-400 font-mono block">🚂 .length() atau .size()</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Kondektur yang jalan menghitung ada berapa gerbong penumpang. Kalau string "Nisa", ada 4 gerbong. Tanda batas akhir (\0) nggak ikut dihitung!</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5">Kondektur yang menghitung total gerbong penumpang. Tanda null terminator <code>\0</code> tidak dihitung.</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
             <span class="font-bold text-sky-400 font-mono block">🎫 .at(index) vs teks[index]</span>
-            <span class="text-slate-300 text-[11px] mt-1 block">Kayak mencari nomor kursi penumpang. Bedanya, <code>.at(idx)</code> punya satpam penjaga: kalau nomor kursinya nggak ada di kereta, dia teriak ngasih peringatan (exception aman), bukannya bikin program crash!</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5">Mencari nomor kursi penumpang. <code>.at()</code> aman dengan pengecekan batas, mencegah program crash!</span>
           </div>
-          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
             <span class="font-bold text-amber-400 font-mono block">🧹 cin &gt;&gt; vs cin.get()</span>
-            <span class="text-slate-300 text-[11px] mt-1 block"><code>cin &gt;&gt;</code> itu kayak anak kecil pemilih: cuma makan satu kata pertama, begitu ketemu spasi langsung mogok. Kalau <code>cin.get()</code> itu vacuum cleaner: sedot satu baris penuh kalimat beserta spasi!</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5"><code>cin &gt;&gt;</code> berhenti di spasi pertama, sedangkan <code>cin.get()</code> dan <code>getline()</code> membaca kalimat utuh berspasi!</span>
           </div>
         </div>
       </div>
+
 
       <!-- INTERACTIVE TOOL: LABORATORIUM FUNGSI PUSTAKA STRING -->
       <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-emerald-500/30 rounded-3xl p-6 md:p-8 shadow-xl">
@@ -1775,107 +1692,85 @@ cout &lt;&lt; "Panjang nama: " &lt;&lt; nama.length() &lt;&lt; " karakter"; // 1
       </div>
 
       <!-- ================= BUKU SAKU TEORI & CATATAN LENGKAP ASDOS MODUL 4 ================= -->
-      <div class="bg-gradient-to-br from-slate-900 via-slate-850 to-emerald-950/60 border border-emerald-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[11px] font-mono font-bold border border-emerald-500/30">BUKU SAKU ASDOS</span>
-              <span class="text-xs text-slate-400 font-medium">Pegangan Khusus Adik-Adik Praktikan</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: String C++, Solusi Spasi &amp; cin.ignore()</h3>
+      <div class="space-y-6 pt-4 border-t border-slate-800/80">
+        <div class="border-b border-slate-800/80 pb-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-mono font-bold border border-emerald-500/20">CATATAN ASDOS</span>
+            <span class="text-xs text-slate-400">Pegangan Belajar Teori Praktikan</span>
           </div>
-          <span class="text-xs text-slate-400 font-mono self-start sm:self-auto bg-slate-800/80 px-3 py-1 rounded-xl border border-slate-700">
-            Materi Ujian Responsi Modul 4
-          </span>
+          <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: String C++, Solusi Spasi &amp; cin.ignore()</h3>
         </div>
 
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
           Tipe data string sering memicu bug aneh pada tugas praktikan karena karakteristik input stream keyboard. Simak bedah tuntas solusinya di bawah ini:
         </p>
 
-        <!-- Grid 4 Kartu Penjelasan Teori -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          
-          <!-- Kartu 1: C-String vs std::string -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-              <span>🧵</span>
-              <span>1. C-String (Array Karakter) vs C++ std::string</span>
+        <!-- Sub-bab 4.1: C-String vs std::string -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-emerald-400 font-mono">4.1</span>
+            <span>C-String (Array Karakter) vs C++ std::string</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Memahami dua generasi tipe data teks di C++:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>C-String (<code>char str[50]</code>):</strong> Cara kuno warisan bahasa C. Kapasitasnya statis dan kaku (*fixed*), rawan <em>buffer overflow</em> jika user menginput melebihi kapasitas memori, dan wajib diakhiri tanda batas null terminator <code>\0</code> (ASCII 0).</li>
+            <li><strong>C++ <code>std::string</code>:</strong> Objek kelas modern dari <code>#include &lt;string&gt;</code>. Kapasitas RAM otomatis membesar secara dinamis sesuai kebutuhan, mendukung operator <code>+</code> untuk menggabungkan teks, dan memiliki puluhan method bawaan siap pakai!</li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 4.2: Masalah cin >> & Solusi getline() -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-emerald-400 font-mono">4.2</span>
+            <span>Mengapa <code>cin &gt;&gt;</code> Memotong Spasi? Solusi <code>getline()</code></span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Operator ekstraksi <code>cin &gt;&gt;</code> memperlakukan spasi, tab, dan enter sebagai pemisah kata (*delimiter*):
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li>Jika kalian mengetik <code>"Warnisyah Armin"</code>, yang masuk ke variabel hanya <code>"Warnisyah"</code>. Kata <code>"Armin"</code> tertinggal di antrean buffer keyboard.</li>
+            <li><strong>Solusi Standar:</strong> Gunakan <code>getline(cin, teks);</code> untuk membaca seluruh baris kalimat beserta spasi sampai tombol Enter ditekan. (Untuk array karakter kuno, gunakan <code>cin.get(str, kapasitas);</code>).</li>
+          </ul>
+        </div>
+
+        <!-- Sub-bab 4.3: Hantu Enter & cin.ignore -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-emerald-400 font-mono">4.3</span>
+            <span>Misteri "Hantu Enter" &amp; Penyelamat <code>cin.ignore()</code></span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Pernahkah program kalian tiba-tiba melompati input nama setelah kalian menginput umur?
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li>Saat kalian mengetik angka umur lalu menekan tombol <strong>Enter</strong>, karakter enter <code>\n</code> tertinggal di dalam buffer keyboard.</li>
+            <li>Ketika eksekusi program berlanjut ke baris <code>getline(cin, nama)</code>, fungsi ini langsung menyedot sisa Enter tersebut dan mengira kalian menekan Enter kosong!</li>
+            <li><strong>Solusi Ampuh Asdos:</strong> Selalu sisipkan <code>cin.ignore();</code> tepat setelah <code>cin &gt;&gt;</code> sebelum baris <code>getline()</code> untuk membuang sisa tombol Enter.</li>
+          </ul>
+        </div>
+
+        <!-- Callout 4.4: ⚠️ Catatan Kritis & Jebakan Batman -->
+        <div class="border-l-4 border-amber-500/70 bg-amber-500/5 rounded-r-2xl p-4 sm:p-5 my-4 space-y-2">
+          <div class="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+            <span>⚠️</span>
+            <span>Catatan Kritis: 3 Jebakan Batman Pemula &amp; Kisi-Kisi Responsi Modul 4</span>
+          </div>
+          <div class="space-y-2 text-xs sm:text-sm text-slate-300 pl-6">
+            <div>
+              <strong class="text-amber-300">1. .length() vs .size():</strong><br>
+              Keduanya adalah <strong>sinonim identik</strong> (hasil perhitungannya sama persis). Karakter batas akhir null <code>\0</code> tidak dihitung. Contoh: string "Nisa" panjangnya adalah 4 karakter.
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Memahami dua generasi tipe data teks di C++:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>C-String (<code>char str[50]</code>):</strong> Cara kuno warisan bahasa C. Kapasitasnya kaku (*fixed*), rawan <em>buffer overflow</em> jika user menginput lebih dari 49 karakter, dan wajib diakhiri tanda batas <code>\0</code> (ASCII null).</li>
-              <li><strong>C++ <code>std::string</code>:</strong> Objek kelas modern dari <code>#include &lt;string&gt;</code>. Kapasitas RAM otomatis membesar sesuai kebutuhan (*dynamic*), mendukung operator <code>+</code> untuk sambung kata, dan punya metode bawaan lengkap!</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-emerald-300 font-mono">
-              string kalimat = "Teknik" + string(" Komputer"); // Mudah dan aman!
+            <div>
+              <strong class="text-amber-300">2. .at(idx) vs teks[idx]:</strong><br>
+              Fungsi <code>.at()</code> jauh lebih aman digunakan karena melakukan <em>bounds checking</em> (melempar peringatan jika indeks melebihi kapasitas teks, bukan membuat program tertutup mendadak).
+            </div>
+            <div>
+              <strong class="text-amber-300">3. Menukar Teks Tanpa Variabel Ketiga:</strong><br>
+              Gunakan fungsi bawaan <code>swap(teksA, teksB);</code>! Eksekusi seketika menukar isi memori dua string tanpa perlu variabel penampung sementara.
             </div>
           </div>
-
-          <!-- Kartu 2: Masalah cin >> & Solusi getline() -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-sky-400 font-bold text-sm">
-              <span>⌨️</span>
-              <span>2. Mengapa <code>cin &gt;&gt;</code> Memotong Spasi? Solusi <code>getline()</code></span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Operator ekstraksi <code>cin &gt;&gt;</code> memperlakukan spasi, tab, dan enter sebagai pemisah kata (*delimiter*):
-            </p>
-            <div class="space-y-2 text-xs text-slate-300">
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <span class="text-rose-400 font-mono font-bold block">Masalah cin &gt;&gt;:</span>
-                Kalau kalian ketik <code>"Warnisyah Armin"</code>, yang masuk ke variabel cuma <code>"Warnisyah"</code>. Kata <code>"Armin"</code> tertinggal di memori buffer keyboard!
-              </div>
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800">
-                <span class="text-emerald-400 font-mono font-bold block">Solusi: getline(cin, teks)</span>
-                Membaca seluruh baris kalimat beserta spasi sampai tombol Enter ditekan! (Untuk C-style char array, pakai <code>cin.get(str, 50)</code>).
-              </div>
-            </div>
-          </div>
-
-          <!-- Kartu 3: Misteri Hantu Enter (cin.ignore) -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
-              <span>👻</span>
-              <span>3. Misteri Hantu Enter &amp; Penyelamat <code>cin.ignore()</code></span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Pernahkah program kalian tiba-tiba melompati input nama setelah kalian menginput umur?
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li>Saat kalian mengetik angka umur lalu menekan <strong>Enter</strong>, karakter <code>\n</code> (Enter) tertinggal di buffer keyboard.</li>
-              <li>Ketika program sampai di baris <code>getline(cin, nama)</code>, fungsi ini langsung menyedot sisa Enter tersebut dan mengira kalian menekan Enter kosong!</li>
-              <li><strong>Solusi Ampuh Asdos:</strong> Selalu tulis <code>cin.ignore();</code> tepat setelah <code>cin &gt;&gt;</code> sebelum baris <code>getline()</code>!</li>
-            </ul>
-            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-amber-300 font-mono">
-              cin &gt;&gt; umur;<br>cin.ignore(); // Membuang sisa tombol Enter!<br>getline(cin, namaLengkap);
-            </div>
-          </div>
-
-          <!-- Kartu 4: ⚠️ Jebakan Batman & Kisi-Kisi Responsi Modul 4 -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-rose-400 font-bold text-sm">
-              <span>⚠️</span>
-              <span>4. Jebakan Batman &amp; Kisi-Kisi Responsi Dosen</span>
-            </div>
-            <div class="space-y-2 text-xs">
-              <div class="p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg text-slate-300">
-                <strong class="text-rose-400">1. .length() vs .size():</strong><br>
-                Keduanya <strong>sinonim identik</strong> (hasilnya sama persis). Karakter null <code>\0</code> tidak dihitung. Jadi string "Nisa" panjangnya adalah 4.
-              </div>
-              <div class="p-2.5 bg-emerald-950/40 border border-emerald-500/30 rounded-lg text-slate-300">
-                <strong class="text-emerald-400">2. .at(idx) vs teks[idx]:</strong><br>
-                <code>.at()</code> jauh lebih aman karena memiliki *bounds checking* (melempar peringatan jika indeks melewati panjang teks, bukannya membuat program crash tertutup sendiri).
-              </div>
-              <div class="p-2.5 bg-sky-950/40 border border-sky-500/30 rounded-lg text-slate-300">
-                <strong class="text-sky-400">3. Menukar Teks Tanpa Variabel Ketiga:</strong><br>
-                Gunakan fungsi bawaan <code>swap(teksA, teksB);</code>! Eksekusi seketika menukar isi memori tanpa variabel penampung sementara.
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -1999,67 +1894,35 @@ cout &lt;&lt; mamalia.anjing.at(1); // Karakter 'n'</pre>
         </p>
       </div>
 
-      <!-- KOTAK ANALOGI SANTAI PEMULA: BIKIN PROGRAM BISA MIKIR -->
-      <div class="bg-gradient-to-r from-amber-950/40 to-orange-950/40 border border-amber-500/30 rounded-3xl p-6 shadow-sm">
-        <div class="flex items-center gap-2 mb-3">
-          <span class="text-xl">💡</span>
-          <h3 class="text-base font-bold text-amber-300">Analogi Santai untuk Pemula: Percabangan Itu Cara Komputer Memilih!</h3>
+      <!-- ANALOGI SANTAI PEMULA: CALLOUT BERSIH & RAMPING -->
+      <div class="border-l-4 border-amber-500/60 bg-slate-900/40 rounded-r-2xl p-5 my-6 space-y-3">
+        <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
+          <span>💡</span>
+          <span>Analogi Santai: Percabangan Itu Cara Komputer Mengambil Keputusan!</span>
         </div>
-        <p class="text-xs text-slate-300 leading-relaxed mb-4">
-          Tanpa percabangan, program cuma kayak robot buta yang jalan lurus dari atas ke bawah. Dengan percabangan, program punya otak buat nanya: <em>"Syaratnya terpenuhi nggak?"</em>:
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Tanpa percabangan, program hanya berjalan lurus dari atas ke bawah seperti robot buta. Dengan percabangan, program memiliki logika untuk mengevaluasi syarat:
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-          
-          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="font-bold text-amber-400 font-mono text-xs block mb-1">1. if Tunggal (Satu Aksi)</span>
-              <p class="text-slate-300 text-[11px] leading-relaxed">
-                <strong>Analogi Palang Kereta:</strong> Cuma bereaksi kalau kereta beneran lewat (kondisi TRUE). Kalau nggak ada kereta (FALSE), palang diam saja dan mobil lewat seperti biasa tanpa aksi khusus.
-              </p>
-            </div>
-            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-amber-300 border border-slate-850">
-              if (hujan) bawaPayung();
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs text-slate-300 pt-1">
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-amber-400 font-mono block">1. if Tunggal</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5"><strong>Palang Kereta:</strong> Cuma bereaksi kalau kereta beneran lewat (TRUE). Kalau tidak (FALSE), mobil jalan biasa tanpa aksi.</span>
           </div>
-
-          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="font-bold text-sky-400 font-mono text-xs block mb-1">2. if - else (Dua Arah)</span>
-              <p class="text-slate-300 text-[11px] leading-relaxed">
-                <strong>Analogi Lampu Merah:</strong> Pasti ada salah satu yang jalan! Kalau lampu hijau &rarr; maju. Selain itu (else / merah) &rarr; wajib berhenti. Nggak mungkin dua-duanya jalan bareng.
-              </p>
-            </div>
-            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-sky-300 border border-slate-850">
-              if (hijau) jalan(); else stop();
-            </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-sky-400 font-mono block">2. if - else (2 Arah)</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5"><strong>Lampu Merah:</strong> Pasti salah satu yang jalan! Hijau &rarr; maju, selain itu (merah) &rarr; berhenti. Tidak mungkin dua-duanya jalan.</span>
           </div>
-
-          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="font-bold text-emerald-400 font-mono text-xs block mb-1">3. if - else if (Banyak Rentang)</span>
-              <p class="text-slate-300 text-[11px] leading-relaxed">
-                <strong>Analogi Loket Masuk Dufan:</strong> Petugas cek dari atas ke bawah: &le;1m (tiket balita)? Kalau bukan &le;1.4m (tiket anak)? Kalau bukan &le;1.7m (tiket remaja)? Begitu cocok, langsung bayar &amp; selesai!
-              </p>
-            </div>
-            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-emerald-300 border border-slate-850">
-              if (u&lt;=1) .. else if (u&lt;=10) ..
-            </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-emerald-400 font-mono block">3. if - else if Majemuk</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5"><strong>Loket Dufan:</strong> Dicek urut: balita? anak? remaja? Begitu ada satu syarat yang cocok, langsung bayar & selesai!</span>
           </div>
-
-          <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 flex flex-col justify-between">
-            <div>
-              <span class="font-bold text-purple-400 font-mono text-xs block mb-1">4. switch - case (Pilihan Pasti)</span>
-              <p class="text-slate-300 text-[11px] leading-relaxed">
-                <strong>Analogi Vending Machine:</strong> Masukkan koin lalu pencet tombol nilai pasti: Tombol 'A' keluar Cola, 'B' keluar Susu. Pencet tombol lain sembarang &rarr; masuk tombol 'default' (uang balik)!
-              </p>
-            </div>
-            <div class="mt-3 p-2 bg-slate-950 rounded-lg font-mono text-[10px] text-purple-300 border border-slate-850">
-              switch(tombol) { case 'A': .. }
-            </div>
+          <div class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+            <span class="font-bold text-purple-400 font-mono block">4. switch - case</span>
+            <span class="text-slate-400 text-[11px] block mt-0.5"><strong>Vending Machine:</strong> Memilih tombol nilai bulat/karakter pasti. Tombol tidak terdaftar langsung jatuh ke <code>default</code>.</span>
           </div>
-
         </div>
       </div>
+
 
       <!-- INTERACTIVE TOOL 1: VISUALISATOR JALUR PERCABANGAN USIA (PRAKTIKUM 5.3) -->
       <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-xl">
@@ -2228,103 +2091,88 @@ cout &lt;&lt; mamalia.anjing.at(1); // Karakter 'n'</pre>
       </div>
 
       <!-- ================= BUKU SAKU TEORI & CATATAN LENGKAP ASDOS MODUL 5 ================= -->
-      <div class="bg-gradient-to-br from-slate-900 via-slate-850 to-amber-950/60 border border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-mono font-bold border border-amber-500/30">BUKU SAKU ASDOS</span>
-              <span class="text-xs text-slate-400 font-medium">Pegangan Khusus Adik-Adik Praktikan</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Control Flow, Fall-Through &amp; Logika Kasir</h3>
+      <div class="space-y-6 pt-4 border-t border-slate-800/80">
+        <div class="border-b border-slate-800/80 pb-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[11px] font-mono font-bold border border-amber-500/20">CATATAN ASDOS</span>
+            <span class="text-xs text-slate-400">Pegangan Belajar Teori Praktikan</span>
           </div>
-          <span class="text-xs text-slate-400 font-mono self-start sm:self-auto bg-slate-800/80 px-3 py-1 rounded-xl border border-slate-700">
-            Materi Ujian Responsi Modul 5
-          </span>
+          <h3 class="text-lg sm:text-xl font-extrabold text-white">Bedah Teori Mendalam: Control Flow, Fall-Through &amp; Logika Kasir</h3>
         </div>
 
         <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
           Percabangan adalah otak pengambil keputusan di program kalian. Simak rangkuman prinsip dasar kontrol alur yang wajib dikuasai sebelum menghadapi dosen penguji:
         </p>
 
-        <!-- Grid 4 Kartu Penjelasan Teori -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          
-          <!-- Kartu 1: Hirarki 4 Struktur Percabangan -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
-              <span>🔀</span>
-              <span>1. Hirarki 4 Struktur Percabangan C++</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Memilih jenis percabangan yang tepat sesuai kondisi kasus:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>if Tunggal:</strong> Tindakan opsional. Blok kurung kurawal cuma jalan kalau syarat bernilai TRUE. Kalau FALSE, dilewati begitu saja.</li>
-              <li><strong>if-else Ganda:</strong> Pilihan 2 arah yang saling meniadakan (*mutually exclusive*). Pasti salah satu dari kedua blok yang dieksekusi.</li>
-              <li><strong>if-else if Majemuk:</strong> Pengecekan berantai banyak rentang. Begitu ada satu syarat TRUE yang cocok, blok di bawahnya langsung diabaikan.</li>
-              <li><strong>switch-case:</strong> Menu pilihan berbasis nilai eksak (integer/char). Lebih bersih dan rapi daripada menulis belasan if bertingkat!</li>
-            </ul>
-          </div>
+        <!-- Sub-bab 5.1: Hirarki 4 Struktur Percabangan -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-amber-400 font-mono">5.1</span>
+            <span>Hirarki 4 Struktur Percabangan C++</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Pilihlah struktur percabangan yang tepat sesuai karakteristik masalah yang diselesaikan:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>if Tunggal:</strong> Tindakan opsional. Blok kurung kurawal hanya dieksekusi jika kondisi bernilai TRUE. Jika FALSE, program melewatinya begitu saja tanpa aksi alternatif.</li>
+            <li><strong>if-else Ganda:</strong> Pilihan dua arah yang saling meniadakan (*mutually exclusive*). Pasti salah satu blok yang akan dieksekusi oleh compiler.</li>
+            <li><strong>if-else if Majemuk:</strong> Pengecekan berantai banyak rentang. Begitu ada satu syarat TRUE yang cocok, blok di bawahnya langsung diabaikan.</li>
+            <li><strong>switch-case:</strong> Menu pilihan berbasis nilai diskrit (integer/char). Jauh lebih rapi dan cepat daripada menulis belasan rantai if-else yang bertumpuk.</li>
+          </ul>
+        </div>
 
-          <!-- Kartu 2: Bahaya Terjun Bebas (Fall-Through) & break -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-rose-400 font-bold text-sm">
-              <span>⚠️</span>
-              <span>2. Bahaya Fall-Through Switch &amp; Peran Kata Kunci <code>break;</code></span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Di dalam <code>switch</code>, label <code>case</code> sebenarnya hanyalah penanda alamat lompatan kode (*jump target*):
-            </p>
-            <div class="space-y-2 text-xs text-slate-300">
-              <div class="p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg">
-                <strong class="text-rose-400 font-mono block">Apa itu Fall-Through?</strong>
-                Jika kalian lupa mengetik <code>break;</code> di akhir suatu case, eksekusi program akan <strong>terjun bebas mengeksekusi semua case di bawahnya</strong> meskipun nilainya tidak cocok sama sekali!
-              </div>
-              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 font-mono text-[11px] text-amber-300">
-                switch(grade) {<br>&nbsp;&nbsp;case 'A': cout &lt;&lt; "Istimewa"; break; // Wajib break!<br>&nbsp;&nbsp;default: cout &lt;&lt; "Tidak Valid";<br>}
-              </div>
-            </div>
-          </div>
+        <!-- Sub-bab 5.2: Fall-Through & break -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-amber-400 font-mono">5.2</span>
+            <span>Bahaya Terjun Bebas (Fall-Through) &amp; Peran Kata Kunci <code>break;</code></span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Di dalam <code>switch</code>, label <code>case</code> sebenarnya hanyalah penanda alamat lompatan kode (*jump target*):
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li>Jika kalian lupa mengetik <code>break;</code> di akhir suatu case, eksekusi program akan <strong>terjun bebas mengeksekusi semua baris case di bawahnya</strong> meskipun nilainya sama sekali tidak cocok!</li>
+            <li>Kata kunci <code>break;</code> berfungsi sebagai dinding rem darurat yang memaksa program segera melompat keluar dari blok kurung kurawal switch.</li>
+          </ul>
+        </div>
 
-          <!-- Kartu 3: Bedah Logika Kasir Toko Pakaian (Praktikum 5.5) -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-              <span>🛍️</span>
-              <span>3. Bedah Logika Program Kasir Diskon Bertingkat</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Alur matematis pembuatan aplikasi kasir yang benar:
-            </p>
-            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>Rentang Diskon:</strong> Belanja &ge; Rp 500.000 (diskon 20%), &ge; Rp 250.000 (diskon 10%), &ge; Rp 100.000 (diskon 5%), di bawah itu 0%.</li>
-              <li><strong>Rumus Potongan:</strong> <code>Besar Diskon = Total Belanja * Persentase Diskon;</code></li>
-              <li><strong>Rumus Bayar:</strong> <code>Total Bayar = Total Belanja - Besar Diskon;</code></li>
-              <li><strong>Uang Kembalian:</strong> <code>Kembalian = Uang Diberikan - Total Bayar;</code> (Jika uang kurang, tolak transaksi).</li>
-            </ul>
-          </div>
+        <!-- Sub-bab 5.3: Logika Kasir Toko Pakaian -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-bold text-white flex items-center gap-2">
+            <span class="text-amber-400 font-mono">5.3</span>
+            <span>Bedah Logika Program Kasir Diskon Bertingkat (Praktikum 5.5)</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
+            Alur perhitungan matematis aplikasi kasir toko pakaian yang benar:
+          </p>
+          <ul class="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside pl-6">
+            <li><strong>Evaluasi Mandiri:</strong> Diskon belanja baju (&gt; Rp 100.000 diskon 20%) dan celana (&gt; Rp 70.000 diskon 25%) dievaluasi secara terpisah menggunakan dua blok <code>if</code> independen.</li>
+            <li><strong>Rumus Potongan:</strong> <code>Besar Diskon = Subtotal Belanja * Persentase Diskon;</code></li>
+            <li><strong>Rumus Total Bayar:</strong> <code>Total Akhir = Subtotal Baju + Subtotal Celana - Total Diskon;</code></li>
+            <li><strong>Validasi Uang:</strong> <code>Kembalian = Uang Diberikan - Total Akhir;</code> (Jika uang bayar kurang, transaksi wajib ditolak oleh program).</li>
+          </ul>
+        </div>
 
-          <!-- Kartu 4: ⚠️ Titik Koma Beracun & Pertanyaan Responsi -->
-          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-sky-400 font-bold text-sm">
-              <span>🎯</span>
-              <span>4. Titik Koma Beracun &amp; Kisi-Kisi Responsi Dosen</span>
+        <!-- Callout 5.4: ⚠️ Catatan Kritis & Jebakan Batman -->
+        <div class="border-l-4 border-amber-500/70 bg-amber-500/5 rounded-r-2xl p-4 sm:p-5 my-4 space-y-2">
+          <div class="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+            <span>⚠️</span>
+            <span>Catatan Kritis: 3 Jebakan Batman Pemula &amp; Kisi-Kisi Responsi Modul 5</span>
+          </div>
+          <div class="space-y-2 text-xs sm:text-sm text-slate-300 pl-6">
+            <div>
+              <strong class="text-amber-300">1. Titik Koma Beracun Setelah 'if':</strong><br>
+              Jangan pernah menulis <code>if (nilai &gt;= 75);</code> dengan titik koma di belakang kurung! Titik koma tersebut langsung mengakhiri pernyataan if sebagai baris kosong, sehingga blok kode di bawahnya SELALU dieksekusi apapun nilainya!
             </div>
-            <div class="space-y-2 text-xs">
-              <div class="p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg text-slate-300">
-                <strong class="text-rose-400">1. Titik Koma Beracun Setelah 'if':</strong><br>
-                Jangan pernah menulis <code>if (nilai &gt;= 75);</code> dengan titik koma di belakang kurung! Titik koma tersebut langsung mematikan if, akibatnya blok di bawahnya SELALU dicetak!
-              </div>
-              <div class="p-2.5 bg-amber-950/40 border border-amber-500/30 rounded-lg text-slate-300">
-                <strong class="text-amber-400">2. Urutan Rentang Pada 'else if':</strong><br>
-                Uji selalu dari rentang terbesar/paling ketat lebih dulu (&ge; 500rb, baru &ge; 250rb, baru &ge; 100rb). Jika kalian balik dari yang kecil, angka 600rb akan salah masuk ke diskon terkecil!
-              </div>
-              <div class="p-2.5 bg-sky-950/40 border border-sky-500/30 rounded-lg text-slate-300">
-                <strong class="text-sky-400">3. Pertanyaan Dosen: "Bisakah switch memakai float / string?"</strong><br>
-                Jawab: <strong>TIDAK BISA di C++ standar!</strong> <code>switch</code> hanya menerima tipe data bilangan bulat diskrit (<code>int</code>, <code>char</code>, <code>enum</code>). Jika butuh rentang koma, wajib pakai <code>if-else if</code>.
-              </div>
+            <div>
+              <strong class="text-amber-300">2. Urutan Rentang Pada 'else if':</strong><br>
+              Uji selalu dari rentang paling ketat atau terbesar lebih dulu (&ge; 500rb, baru &ge; 250rb, baru &ge; 100rb). Jika kalian menguji dari rentang terkecil, pembeli belanja 600rb akan keliru mendapatkan diskon terendah!
+            </div>
+            <div>
+              <strong class="text-amber-300">3. Pertanyaan Dosen: "Bisakah switch memakai float atau string?"</strong><br>
+              Jawab dengan tegas: <strong>TIDAK BISA di C++ standar!</strong> <code>switch</code> hanya menerima tipe data bilangan bulat diskrit (<code>int</code>, <code>char</code>, <code>enum</code>). Jika butuh rentang desimal/pecahan, wajib menggunakan <code>if-else if</code>.
             </div>
           </div>
-
         </div>
       </div>
 

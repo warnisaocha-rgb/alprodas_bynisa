@@ -140,6 +140,18 @@ html.theme-pink-sorbet .bg-gradient-to-br.from-slate-900 {
   border: 2px solid #FFCAD6 !important;
 }
 
+/* Academic Reader Callouts in Pink & Sorbet */
+html.theme-pink-sorbet .bg-slate-900\/40 {
+  background-color: #FFF0F5 !important;
+  border-color: #FFCAD6 !important;
+}
+
+html.theme-pink-sorbet .bg-amber-500\/5 {
+  background-color: #FFFBEB !important;
+  border-color: #FCD34D !important;
+}
+
+
 /* ========================================================
    CANVAS ANIMATOR STYLING ("Bioskop Simulasi")
    ======================================================== */

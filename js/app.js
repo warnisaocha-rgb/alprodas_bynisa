@@ -125,32 +125,22 @@ const App = {
     let html = "";
     ALPRO_DATA.modules.forEach(mod => {
       html += `
-        <div class="bg-slate-800/80 border border-slate-700 hover:border-sky-500/50 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10 flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">
-                Praktikum ${mod.number}
-              </span>
-              <span class="text-xs text-slate-500 font-mono">${mod.badge}</span>
+        <div onclick="App.switchTab('tab-${mod.id}')" class="p-4 sm:p-5 rounded-2xl bg-slate-900/40 hover:bg-slate-800/60 border border-slate-800/80 hover:border-sky-500/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer group">
+          <div class="flex items-start md:items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-slate-800/90 border border-slate-700/80 flex items-center justify-center font-mono font-bold text-sky-400 text-sm shrink-0 group-hover:bg-sky-500 group-hover:text-slate-950 transition-colors">
+              ${mod.number}
             </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">
-              ${mod.title}
-            </h3>
-            <p class="text-slate-400 text-xs mt-2 leading-relaxed">
-              ${mod.summary}
-            </p>
-            <div class="mt-4 pt-4 border-t border-slate-700/60">
-              <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Capaian Utama:</div>
-              <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-                ${mod.objectives.slice(0, 3).map(o => `<li class="truncate">${o}</li>`).join('')}
-              </ul>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-sky-400 transition-colors">${mod.title}</h3>
+                <span class="text-[10px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/80">${mod.badge}</span>
+              </div>
+              <p class="text-slate-400 text-xs mt-1 leading-relaxed max-w-2xl">${mod.summary}</p>
             </div>
           </div>
-          <div class="mt-6">
-            <button onclick="App.switchTab('tab-${mod.id}')" class="w-full py-2.5 px-4 bg-slate-700/60 hover:bg-sky-500 hover:text-slate-900 text-slate-200 text-xs font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-2">
-              <span>Buka Modul ${mod.number}</span>
-              <span>&rarr;</span>
-            </button>
+          <div class="flex items-center gap-2 shrink-0 self-end md:self-auto text-xs font-semibold text-slate-400 group-hover:text-sky-400 transition-colors">
+            <span>Pelajari Modul</span>
+            <span>&rarr;</span>
           </div>
         </div>
       `;
