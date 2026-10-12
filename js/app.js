@@ -17,6 +17,7 @@ const App = {
     this.renderModule1Content();
     this.renderModule2Content();
     this.renderModule3Content();
+    this.renderModule4Content();
     this.renderFlowchartContent();
 
     // Inisialisasi sub-sistem interaktif
@@ -26,6 +27,8 @@ const App = {
       Visualizers.initModul2Bitwise();
       Visualizers.initModul2Logic();
       Visualizers.initModul3StructUnion();
+      Visualizers.initModul3DifferentTypesUnion();
+      Visualizers.initModul4StringLab();
     }
 
     if (typeof Simulator !== "undefined") {
@@ -233,6 +236,49 @@ const App = {
       `;
     });
     compTableBody.innerHTML = html;
+  },
+
+  renderModule4Content: function() {
+    const compTableBody = document.getElementById("mod4-comp-table-body");
+    const methodsContainer = document.getElementById("mod4-methods-container");
+    const mod4 = ALPRO_DATA.modules[3];
+    if (!mod4) return;
+
+    if (compTableBody && mod4.theory.comparisonTable) {
+      let html = "";
+      mod4.theory.comparisonTable.forEach(row => {
+        html += `
+          <tr class="border-b border-slate-700/60 hover:bg-slate-800/40 transition-colors">
+            <td class="p-3 text-xs font-semibold text-slate-200">${row.feature}</td>
+            <td class="p-3 text-xs text-rose-300 bg-rose-950/10 font-mono">${row.cStyle}</td>
+            <td class="p-3 text-xs text-emerald-300 bg-emerald-950/10 font-mono">${row.cppStyle}</td>
+          </tr>
+        `;
+      });
+      compTableBody.innerHTML = html;
+    }
+
+    if (methodsContainer && mod4.theory.stringMethodsCatalog) {
+      let mHtml = "";
+      mod4.theory.stringMethodsCatalog.forEach(m => {
+        mHtml += `
+          <div class="bg-slate-800/80 border border-slate-700 hover:border-emerald-500/50 rounded-2xl p-4 transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-lg font-mono font-bold text-xs">
+                ${m.method}
+              </span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              ${m.desc}
+            </p>
+            <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 font-mono text-[11px] text-amber-300 flex items-center justify-between">
+              <code>${m.example}</code>
+            </div>
+          </div>
+        `;
+      });
+      methodsContainer.innerHTML = mHtml;
+    }
   },
 
   renderFlowchartContent: function() {

@@ -7,11 +7,11 @@
 
 const ALPRO_DATA = {
   meta: {
-    title: "ALPRO-LAB: Pembelajaran Alpro C++ Modul 1 - 3",
+    title: "ALPRO-LAB: Pembelajaran Alpro C++ Modul 1 - 4",
     subtitle: "Media Belajar Teori & Sintaks Interaktif Khusus Praktikan Alprodas",
     author: "Asisten Dosen Alprodas UNM",
-    pedoman: "Laporan Praktikum 1, 2, dan 3 (Warnisyah Armin - Teknik Komputer UNM)",
-    version: "2.0 - Interactive Edition"
+    pedoman: "Laporan Praktikum 1, 2, 3, dan 4 (Warnisyah Armin - Teknik Komputer UNM)",
+    version: "2.5 - Extended String & Struct Edition"
   },
 
   modules: [
@@ -499,8 +499,59 @@ int main() {
 Presiden Indonesia Ke-7 : Joko Widodo`
         },
         {
+          id: "case-3-4",
+          title: "Studi Kasus 4: Union dengan Berbeda Tipe Data (char, int, float)",
+          description: "Membuktikan fenomena Union saat menggunakan tipe data yang berbeda: ukuran memori hanya mengambil member terbesar (4 byte) dan data baru menimpa data lama.",
+          code: `#include <iostream>
+using namespace std;
+
+// Union serbaguna dengan 3 tipe data berbeda
+union DataSerbaguna {
+    char huruf;         // 1 Byte
+    int angkaBulat;     // 4 Byte
+    float angkaKoma;    // 4 Byte
+};
+
+int main() {
+    DataSerbaguna kotak;
+
+    cout << "=== DEMO UNION DENGAN TIPE DATA BERBEDA ===" << endl;
+    cout << "Ukuran char        : " << sizeof(kotak.huruf) << " byte" << endl;
+    cout << "Ukuran int         : " << sizeof(kotak.angkaBulat) << " byte" << endl;
+    cout << "Ukuran float       : " << sizeof(kotak.angkaKoma) << " byte" << endl;
+    cout << "Total Ukuran Union : " << sizeof(kotak) << " byte (Hanya sebesar yang terbesar!)" << endl << endl;
+
+    // Tahap 1: Mengisi huruf 'A'
+    kotak.huruf = 'A';
+    cout << "[1] Isi huruf       : " << kotak.huruf << " (VALID)" << endl;
+
+    // Tahap 2: Mengisi angka bulat 100 -> menimpa huruf!
+    kotak.angkaBulat = 100;
+    cout << "[2] Isi angkaBulat  : " << kotak.angkaBulat << " (VALID)" << endl;
+    cout << "    Isi huruf lama  : " << kotak.huruf << " (TERTIMPA kode ASCII 100 = 'd')" << endl;
+
+    // Tahap 3: Mengisi angka koma 3.14 -> menimpa angka bulat!
+    kotak.angkaKoma = 3.14f;
+    cout << "[3] Isi angkaKoma   : " << kotak.angkaKoma << " (VALID)" << endl;
+    cout << "    Isi angkaBulat  : " << kotak.angkaBulat << " (RUSAK bit terbagi)" << endl;
+
+    return 0;
+}`,
+          expectedOutput: `=== DEMO UNION DENGAN TIPE DATA BERBEDA ===
+Ukuran char        : 1 byte
+Ukuran int         : 4 byte
+Ukuran float       : 4 byte
+Total Ukuran Union : 4 byte (Hanya sebesar yang terbesar!)
+
+[1] Isi huruf       : A (VALID)
+[2] Isi angkaBulat  : 100 (VALID)
+    Isi huruf lama  : d (TERTIMPA kode ASCII 100 = 'd')
+[3] Isi angkaKoma   : 3.14 (VALID)
+    Isi angkaBulat  : 1078530011 (RUSAK bit terbagi)`
+        },
+        {
           id: "case-3-5",
-          title: "Studi Kasus 4: Typedef & Struct Volume Balok (Praktikum 3.5)",
+          title: "Studi Kasus 5: Typedef & Struct Volume Balok (Praktikum 3.5)",
           description: "Mengkombinasikan typedef angkaPecahan/kata dengan struct balok untuk menghitung volume 3 balok.",
           code: `#include <iostream>
 #include <string>
@@ -553,6 +604,177 @@ Volume : 0 cm^3
 ===== Si Hijau =====
 Panjang: 2, Lebar: 1.5, Tinggi: 1
 Volume : 3 cm^3`
+        }
+      ]
+    },
+
+    {
+      id: "modul-4",
+      number: 4,
+      title: "Tipe Data String & Pustaka <string>",
+      badge: "Manipulasi Teks C++",
+      icon: "type",
+      color: "emerald",
+      summary: "Pelajari perbedaan mendasar C-String (char[]) vs C++ std::string, membaca input berspasi dengan cin.get(), serta 10 fungsi sakti pustaka <string> seperti .length(), .replace(), .find(), swap(), dan .at()!",
+      objectives: [
+        "Memahami dan mengimplementasikan penggunaan tipe data string gaya C (C-String / array of char) dan gaya C++ (std::string)",
+        "Memahami perbedaan cara membaca input string: cin >> (hanya satu kata) vs cin.get() (membaca kalimat berspasi)",
+        "Menguasai dan mempraktikkan fungsi-fungsi bawaan pustaka <string>: .length(), .size(), .at(), .replace(), .clear(), swap(), .find(), .empty(), dan .substr()",
+        "Mampu mengombinasikan tipe bentukan struct dengan anggota bertipe data string dan pengaksesan karakter spesifiknya (Praktikum 4.4)"
+      ],
+      theory: {
+        intro: `Dalam pemrograman C++, <strong>String</strong> adalah kumpulan atau deretan karakter yang digunakan untuk merepresentasikan data teks. Berdasarkan Laporan Praktikum 4 (Warnisyah Armin), C++ mendukung dua pendekatan string: <strong>String Gaya Bahasa C (C-style string)</strong> yang berupa larik karakter berukuran tetap diakhiri karakter null (<code>\\0</code>), dan <strong>String Gaya Bahasa C++ (std::string)</strong> yang berbasis kelas objek modern dengan alokasi memori dinamis otomatis.`,
+        analogy: `Bayangkan C-String seperti <em>papan nama kayu berukuran tetap</em> (misal 50 slot). Jika nama terlalu panjang maka papannya patah, dan jika ada spasi maka pembacaan cin >> langsung berhenti di kata pertama. Sedangkan std::string seperti <em>pita ketik elastis pintar</em> yang otomatis memanjang atau memendek di memori RAM, serta memiliki tombol-tombol pintar seperti <code>.length()</code> untuk mengukur panjang huruf, <code>.at()</code> untuk mengambil huruf tertentu, <code>.replace()</code> untuk mengganti kata, dan <code>.find()</code> untuk melacak kata kunci!`,
+        cVsCppTable: [
+          { feature: "Definisi & Tipe Data", cStyle: "Array karakter bertipe char (char nama[50];)", cppStyle: "Objek dari kelas string standar (#include <string>)" },
+          { feature: "Sintaks Deklarasi", cStyle: "char str[50] = \"Teks\";", cppStyle: "string str = \"Teks\";" },
+          { feature: "Kecepatan Akses", cStyle: "Sangat cepat, langsung di memori statis", cppStyle: "Sangat efisien dengan sedikit overhead class OOP" },
+          { feature: "Array Decay", cStyle: "Rentan terjadi degradasi pointer (array decay)", cppStyle: "Aman, terbungkus rapi dalam enkapsulasi objek" },
+          { feature: "Alokasi Memori", cStyle: "Statis (ukuran kapasitas tetap sejak awal)", cppStyle: "Dinamis saat runtime (otomatis reallocate)" },
+          { feature: "Manipulasi Teks", cStyle: "Membutuhkan fungsi manual dari <cstring>", cppStyle: "Menyediakan method bawaan (.length(), .replace(), dll.)" },
+          { feature: "Dukungan Operator", cStyle: "Tidak mendukung operator C++ (+, ==, =)", cppStyle: "Mendukung operator + (gabung), == (banding), = (isi)" }
+        ],
+        stringMethodsCatalog: [
+          { method: ".length() atau .size()", desc: "Mengembalikan jumlah total karakter yang ada dalam string.", example: "str.length(); // \"Halo\" -> 4" },
+          { method: ".at(index)", desc: "Mengakses karakter pada posisi indeks tertentu dengan pengecekan batas aman (out of bounds check).", example: "str.at(1); // \"Nisa\" -> 'i'" },
+          { method: ".replace(pos, len, str_baru)", desc: "Mengganti sebanyak 'len' karakter mulai dari posisi 'pos' dengan teks baru.", example: "str.replace(0, 4, \"Hai\");" },
+          { method: ".clear()", desc: "Menghapus dan mengosongkan seluruh isi string hingga panjangnya menjadi 0.", example: "str.clear(); // str jadi \"\"" },
+          { method: "swap(str1, str2)", desc: "Menukar isi dua variabel string secara instan tanpa perlu variabel perantara ketiga.", example: "swap(s1, s2);" },
+          { method: ".find(kataKunci)", desc: "Mencari posisi kemunculan pertama substring. Menghasilkan indeks posisi atau string::npos jika tidak ditemukan.", example: "str.find(\"UNM\");" },
+          { method: ".empty()", desc: "Mengecek apakah string kosong. Mengembalikan nilai true (1) jika kosong, atau false (0) jika berisi.", example: "str.empty(); // true/false" },
+          { method: ".substr(pos, len)", desc: "Memotong dan mengambil cuplikan substring sepanjang 'len' karakter mulai dari posisi 'pos'.", example: "str.substr(0, 4);" },
+          { method: "Operator + / .append()", desc: "Menyambung (menggabungkan / konkatenasi) dua string menjadi satu kalimat utuh.", example: "str1 + \" \" + str2;" },
+          { method: "cin.get(str, size)", desc: "Membaca teks C-String dari keyboard termasuk spasi hingga batas kapasitas ukuran 'size'.", example: "cin.get(nama, 50);" }
+        ]
+      },
+      cases: [
+        {
+          id: "case-4-1",
+          title: "Studi Kasus 1: Input C-String Satu Kata cin >> (Praktikum 4.1)",
+          description: "Membaca input string gaya C menggunakan cin >>. Perhatikan bahwa input akan terpotong jika ada spasi!",
+          code: `#include <iostream>
+using namespace std;
+
+int main() {
+    char namaPanggilan[50];
+
+    cout << "Masukkan nama panggilan anda: ";
+    cin >> namaPanggilan; // Hanya membaca kata pertama!
+
+    cout << "Anda memasukkan nama: " << namaPanggilan << endl;
+
+    return 0;
+}`,
+          expectedOutput: `Masukkan nama panggilan anda: Nisa
+Anda memasukkan nama: Nisa`
+        },
+        {
+          id: "case-4-2",
+          title: "Studi Kasus 2: Input C-String Berspasi cin.get() (Praktikum 4.2)",
+          description: "Membaca nama lengkap ber-spasi menggunakan cin.get(namaLengkap, 50) sehingga spasi tidak memotong teks.",
+          code: `#include <iostream>
+using namespace std;
+
+int main() {
+    char namaLengkap[50];
+
+    cout << "Masukkan nama lengkap anda: ";
+    cin.get(namaLengkap, 50); // Membaca teks utuh termasuk spasi!
+
+    cout << "Anda memasukkan: " << namaLengkap << endl;
+
+    return 0;
+}`,
+          expectedOutput: `Masukkan nama lengkap anda: Warnisyah Armin
+Anda memasukkan: Warnisyah Armin`
+        },
+        {
+          id: "case-4-3",
+          title: "Studi Kasus 3: Manipulasi Lengkap Pustaka <string> (Praktikum 4.3)",
+          description: "Mendemonstrasikan fungsi .length(), .clear(), .replace(), swap(), dan .find() pada objek C++ string.",
+          code: `#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string teks = "Halo, dunia! Selamat datang.";
+
+    // 1. Menghitung panjang karakter dengan .length()
+    cout << "Panjang string: " << teks.length() << " karakter" << endl;
+
+    // 2. Mengosongkan string dengan .clear()
+    teks.clear();
+    cout << "String setelah dihapus: " << teks << endl;
+
+    // 3. Mengganti kata dengan .replace()
+    teks = "Ini adalah contoh penggunaan replace.";
+    teks.replace(11, 8, "sebuah"); // Ganti 8 karakter di indeks 11
+    cout << "String setelah diganti: " << teks << endl;
+
+    // 4. Menukar isi dua string dengan swap()
+    string str1 = "String Pertama";
+    string str2 = "String Kedua";
+    swap(str1, str2);
+    cout << "Setelah swap - Str1: " << str1 << " | Str2: " << str2 << endl;
+
+    // 5. Mencari posisi kata kunci dengan .find()
+    string kataKunci = "adalah";
+    size_t pos = teks.find(kataKunci);
+    if (pos != string::npos) {
+        cout << "Kata kunci '" << kataKunci << "' ditemukan di indeks ke-" << pos << endl;
+    }
+
+    return 0;
+}`,
+          expectedOutput: `Panjang string: 28 karakter
+String setelah dihapus: 
+String setelah diganti: Ini adalah sebuah penggunaan replace.
+Setelah swap - Str1: String Kedua | Str2: String Pertama
+Kata kunci 'adalah' ditemukan di indeks ke-4`
+        },
+        {
+          id: "case-4-4",
+          title: "Studi Kasus 4: Struct Hewan & Akses Karakter .at() (Praktikum 4.4)",
+          description: "Mengkombinasikan struct namaHewan dengan member string, lalu mengambil karakter spesifik menggunakan method .at(index) dan .length().",
+          code: `#include <iostream>
+#include <string>
+using namespace std;
+
+// Struct berisi member string
+struct namaHewan {
+    string anjing = "Anjing";
+    string kucing = "Kucing";
+    string macan = "Macan";
+} mamalia;
+
+int main() {
+    cout << "Nama hewan ke-1 : " << mamalia.anjing << endl;
+    cout << "Panjang karakter: " << mamalia.anjing.length() << " karakter" << endl;
+    cout << "Karakter kedua  : " << mamalia.anjing.at(1) << " (indeks 1)" << endl;
+    cout << endl;
+
+    cout << "Nama hewan ke-2 : " << mamalia.kucing << endl;
+    cout << "Panjang karakter: " << mamalia.kucing.length() << " karakter" << endl;
+    cout << "Karakter kedua  : " << mamalia.kucing.at(1) << " (indeks 1)" << endl;
+    cout << endl;
+
+    cout << "Nama hewan ke-3 : " << mamalia.macan << endl;
+    cout << "Panjang karakter: " << mamalia.macan.length() << " karakter" << endl;
+    cout << "Karakter kedua  : " << mamalia.macan.at(1) << " (indeks 1)" << endl;
+
+    return 0;
+}`,
+          expectedOutput: `Nama hewan ke-1 : Anjing
+Panjang karakter: 6 karakter
+Karakter kedua  : n (indeks 1)
+
+Nama hewan ke-2 : Kucing
+Panjang karakter: 6 karakter
+Karakter kedua  : u (indeks 1)
+
+Nama hewan ke-3 : Macan
+Panjang karakter: 5 karakter
+Karakter kedua  : a (indeks 1)`
         }
       ]
     }

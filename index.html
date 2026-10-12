@@ -72,7 +72,10 @@
             2. Operator & Bitwise
           </button>
           <button data-target-tab="tab-modul-3" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 border border-transparent hover:text-white hover:bg-slate-800 transition-all">
-            3. Struct & Union
+            3. Tipe Bentukan
+          </button>
+          <button data-target-tab="tab-modul-4" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 border border-transparent hover:text-white hover:bg-slate-800 transition-all">
+            4. String &amp; Fungsi
           </button>
           <button data-target-tab="tab-playground" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 border border-transparent hover:text-white hover:bg-slate-800 transition-all">
             💻 Playground
@@ -105,6 +108,7 @@
         <button data-target-tab="tab-modul-1" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 1</button>
         <button data-target-tab="tab-modul-2" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 2</button>
         <button data-target-tab="tab-modul-3" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 3</button>
+        <button data-target-tab="tab-modul-4" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Modul 4</button>
         <button data-target-tab="tab-playground" class="px-2.5 py-1 rounded text-slate-400 shrink-0 font-medium">Playground</button>
         <button data-target-tab="tab-flowchart" class="px-2.5 py-1 rounded text-sky-300 bg-sky-500/10 shrink-0 font-medium">📐 Flowchart</button>
       </div>
@@ -152,21 +156,21 @@
         <div class="flex items-center justify-between mb-6">
           <div>
             <h2 class="text-xl font-bold text-white">Modul Pembelajaran Praktikum</h2>
-            <p class="text-xs text-slate-400">Kurikulum resmi terintegrasi dengan Laporan Praktikum 1 - 3 UNM</p>
+            <p class="text-xs text-slate-400">Kurikulum resmi terintegrasi dengan Laporan Praktikum 1 - 4 UNM</p>
           </div>
-          <span class="text-xs font-mono text-slate-500">3 Modul Inti</span>
+          <span class="text-xs font-mono text-slate-500">4 Modul Inti</span>
         </div>
-        <div id="home-modules-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="home-modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Populated by App.renderModuleOverview() -->
         </div>
       </div>
 
       <!-- Quick Feature Highlights -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 pt-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 pt-4">
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-cinema')">
           <div class="text-2xl mb-2">🎬</div>
           <h4 class="font-bold text-sm text-white">Bioskop Animasi</h4>
-          <p class="text-xs text-slate-400 mt-1">Animasi visual ramah pemula: perbedaan tipe data, brankas operator penugasan, dan arsitektur Struct vs Union.</p>
+          <p class="text-xs text-slate-400 mt-1">Animasi visual ramah pemula: tipe data, brankas operator penugasan, dan arsitektur Struct vs Union.</p>
         </div>
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-flowchart')">
           <div class="text-2xl mb-2">📐</div>
@@ -176,7 +180,7 @@
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-uts')">
           <div class="text-2xl mb-2">📝</div>
           <h4 class="font-bold text-sm text-white">UTS Live Coding</h4>
-          <p class="text-xs text-slate-400 mt-1">Latihan ujian mengisi titik-titik kode program gabungan Laprak 1-3 lengkap dengan timer.</p>
+          <p class="text-xs text-slate-400 mt-1">Latihan ujian mengisi titik-titik kode program gabungan Laprak 1-4 lengkap dengan timer.</p>
         </div>
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-2')">
           <div class="text-2xl mb-2">⚡</div>
@@ -185,8 +189,13 @@
         </div>
         <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-3')">
           <div class="text-2xl mb-2">🧩</div>
-          <h4 class="font-bold text-sm text-white">Struct vs Union</h4>
-          <p class="text-xs text-slate-400 mt-1">Pahami kenapa nilai Union tertimpa (shared memory) sedangkan Struct memori terpisah (Praktikum 3.2).</p>
+          <h4 class="font-bold text-sm text-white">4 Pilar Tipe Bentukan</h4>
+          <p class="text-xs text-slate-400 mt-1">Struct memori mandiri, Union shared memory, Enum indeks mulai 0, dan Typedef nama alias.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer" onclick="App.switchTab('tab-modul-4')">
+          <div class="text-2xl mb-2">🔤</div>
+          <h4 class="font-bold text-sm text-white">Laboratorium String</h4>
+          <p class="text-xs text-slate-400 mt-1">Eksplorasi method .length(), .at(), .replace(), .find(), swap(), dan perbandingan cin &gt;&gt; vs cin.get().</p>
         </div>
       </div>
 
@@ -719,11 +728,102 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
         </div>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Tipe Data Bentukan: Struct, Union, Enum, Typedef</h2>
         <p class="text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
-          Mengapa tipe data bentukan diciptakan? Pelajari bagaimana <strong>Struct</strong> membungkus banyak variabel ke dalam kapling memori mandiri, dan bandingkan dengan fenomena <strong>Union</strong> yang berbagi satu alamat memori (shared memory)!
+          Mengapa tipe data bentukan diciptakan? C++ menyediakan 4 pilar konstruksi tipe data kustom: <strong>Struct</strong> untuk membungkus banyak variabel ke dalam kapling memori mandiri, <strong>Union</strong> yang menghemat RAM dengan memori bersama, <strong>Enum</strong> untuk daftar konstanta berurutan mulai dari 0, dan <strong>Typedef</strong> untuk menciptakan alias nama tipe data yang ramah dibaca!
         </p>
       </div>
 
-      <!-- INTERACTIVE TOOL: STRUCT VS UNION MEMORY VISUALIZER (KUNCI LAPRAK 3.2!) -->
+      <!-- 4 PILAR UTAMA TIPE DATA BENTUKAN -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-lg">🏛️</span>
+          <h3 class="text-base font-bold text-white">4 Pilar Fondasi Tipe Data Bentukan (Kunci Responsi)</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Pilar 1: STRUCT -->
+          <div class="bg-slate-800/80 border border-purple-500/30 rounded-2xl p-5 hover:border-purple-500/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-purple-500/20 text-purple-300">1. STRUCT</span>
+                <span class="text-xs text-slate-400 font-mono">Structure</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mb-2">Kapling Memori Terpisah</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Membungkus berbagai variabel bertipe data sama maupun berbeda ke dalam satu wadah entitas. <strong>Setiap member memiliki alamat memori sendiri</strong>, sehingga nilai-nilai tidak saling mengganggu.
+              </p>
+              <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 font-mono text-[11px] text-purple-300">
+                <code>struct Mhs {<br>&nbsp;&nbsp;string nama;<br>&nbsp;&nbsp;int nim;<br>};</code>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-700/60 text-[11px] text-slate-400">
+              📌 <strong>Total Ukuran:</strong> Penjumlahan seluruh ukuran member (+ padding alinyemen RAM).
+            </div>
+          </div>
+
+          <!-- Pilar 2: UNION -->
+          <div class="bg-slate-800/80 border border-amber-500/30 rounded-2xl p-5 hover:border-amber-500/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-amber-500/20 text-amber-300">2. UNION</span>
+                <span class="text-xs text-slate-400 font-mono">Shared RAM</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mb-2">Satu Alamat Bersama (Overwrite)</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Seluruh member <strong>berbagi satu alamat fisik memori yang sama persis</strong>. Dirancang untuk menghemat memori. Nilai member yang terakhir kali diisi akan <strong>menimpa (overwrite)</strong> nilai member lainnya!
+              </p>
+              <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 font-mono text-[11px] text-amber-300">
+                <code>union Nilai {<br>&nbsp;&nbsp;float angka;<br>&nbsp;&nbsp;char huruf;<br>};</code>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-700/60 text-[11px] text-slate-400">
+              📌 <strong>Total Ukuran:</strong> Hanya sebesar ukuran <em>member terbesar</em> saja (misal float = 4 B).
+            </div>
+          </div>
+
+          <!-- Pilar 3: ENUM -->
+          <div class="bg-slate-850 border border-emerald-500/30 rounded-2xl p-5 hover:border-emerald-500/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-500/20 text-emerald-300">3. ENUM</span>
+                <span class="text-xs text-slate-400 font-mono">Enumeration</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mb-2">Konstanta Integer Mulai 0</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Mendefinisikan kumpulan nama simbolis yang mewakili konstanta bilangan bulat. <strong>Secara default nilainya dimulai dari indeks 0</strong> lalu bertambah +1 untuk setiap item berikutnya.
+              </p>
+              <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 font-mono text-[11px] text-emerald-300">
+                <code>enum Presiden {<br>&nbsp;&nbsp;Soekarno, // 0<br>&nbsp;&nbsp;Soeharto, // 1<br>&nbsp;&nbsp;Habibie&nbsp;&nbsp;&nbsp;// 2<br>};</code>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-700/60 text-[11px] text-slate-400">
+              📌 <strong>Kunci Praktikum 3.3:</strong> Urutan ke-n didapat dengan <code>namaPresiden + 1</code>.
+            </div>
+          </div>
+
+          <!-- Pilar 4: TYPEDEF -->
+          <div class="bg-slate-850 border border-sky-500/30 rounded-2xl p-5 hover:border-sky-500/70 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-sky-500/20 text-sky-300">4. TYPEDEF</span>
+                <span class="text-xs text-slate-400 font-mono">Type Definition</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mb-2">Alias Nama Baru Tipe Data</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Memberikan nama panggilan (alias) baru pada tipe data yang sudah ada, membuat kode program lebih mudah dipahami manusia dan mempersingkat sintaks deklarasi struct.
+              </p>
+              <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 font-mono text-[11px] text-sky-300">
+                <code>typedef float angkaPecahan;<br>typedef string kata;<br>angkaPecahan p = 10.5;</code>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-700/60 text-[11px] text-slate-400">
+              📌 <strong>Kunci Praktikum 3.5:</strong> Membantu penulisan rumus geometri balok jadi rapi.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- INTERACTIVE TOOL 1: STRUCT VS UNION MEMORY VISUALIZER (KUNCI LAPRAK 3.2!) -->
       <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-slate-700 rounded-3xl p-6 md:p-8 shadow-xl">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
@@ -775,6 +875,34 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
         </div>
       </div>
 
+      <!-- INTERACTIVE TOOL 2: UNION DENGAN TIPE DATA BERBEDA (KASUS 3.4) -->
+      <div class="bg-gradient-to-br from-slate-900 to-amber-950/20 border border-amber-500/30 rounded-3xl p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl">⚠️</span>
+              <h3 class="text-lg font-bold text-white">Simulator Fenomena Overwrite Union (Beda Tipe Data)</h3>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">Uji bagaimana satu kotak memori 4-byte diperlakukan saat diisi oleh <code>char (1 B)</code>, <code>int (4 B)</code>, dan <code>float (4 B)</code> bergantian!</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="btn-union-char" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 shadow-md">
+              1. Isi char 'A'
+            </button>
+            <button id="btn-union-int" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">
+              2. Isi int 100
+            </button>
+            <button id="btn-union-float" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700">
+              3. Isi float 3.14f
+            </button>
+          </div>
+        </div>
+
+        <div id="union-diff-display" class="mt-4">
+          <!-- Rendered by Visualizers.initModul3DifferentTypesUnion() -->
+        </div>
+      </div>
+
       <!-- Tabel Komparasi Head-to-Head Struct vs Union -->
       <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6">
         <h3 class="text-base font-bold text-white mb-2 flex items-center gap-2">
@@ -798,39 +926,486 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
         </div>
       </div>
 
-      <!-- Studi Kasus Praktikum 3 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Kasus 3.1: Paket Internet -->
-        <div class="bg-slate-850 border border-slate-800 rounded-2xl p-6 space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">Praktikum 3.1</span>
-            <button onclick="Simulator.loadCase('case-3-1'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Simulator &rarr;</button>
-          </div>
-          <h4 class="font-bold text-white text-base">Struct Paket Internet "Begadang"</h4>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Menyimpan kumpulan atribut paket kuota (nama_paket string, kouta_telpon int, kouta_internet int) dalam satu objek <code>begadang</code>.
-          </p>
-          <pre class="bg-slate-950 p-3 rounded-lg text-xs font-mono text-purple-300">struct paket_internet {
+      <!-- Studi Kasus Praktikum 3 (5 Studi Kasus Lengkap) -->
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>📚</span>
+            <span>Katalog 5 Studi Kasus Modul 3 (Resmi Laporan Praktikum UNM)</span>
+          </h3>
+          <span class="text-xs text-slate-400 font-mono">Kasus 3.1 s.d. 3.5</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          
+          <!-- Kasus 3.1: Paket Internet -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">Praktikum 3.1</span>
+                <button onclick="Simulator.loadCase('case-3-1'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Struct Paket Internet "Begadang"</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Menyimpan atribut paket kuota (nama string, telpon int, kuota int) dalam memori terpisah objek <code>begadang</code>.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-purple-300 mt-2">struct paket_internet {
     string nama_paket;
     int kouta_telpon;
     int kouta_internet;
 } begadang;</pre>
-        </div>
-
-        <!-- Kasus 3.3: Enum Presiden RI -->
-        <div class="bg-slate-850 border border-slate-800 rounded-2xl p-6 space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">Praktikum 3.3</span>
-            <button onclick="Simulator.loadCase('case-3-3'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Simulator &rarr;</button>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Tiga variabel disimpan di 3 blok memori mandiri.
+            </div>
           </div>
-          <h4 class="font-bold text-white text-base">Enum Urutan Presiden RI</h4>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Enum mengindeks otomatis mulai dari 0 (Soekarno=0, Habibie=2, Jokowi=6). Untuk menampilkan urutan presiden tinggal ditambah 1: <code>presiden + 1</code>.
-          </p>
-          <pre class="bg-slate-950 p-3 rounded-lg text-xs font-mono text-amber-300">enum namaPresiden {
+
+          <!-- Kasus 3.2: Union Nilai Raport -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Praktikum 3.2</span>
+                <button onclick="Simulator.loadCase('case-3-2'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Union Nilai Raport Siswa</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Tiga member float (pengetahuan, sikap, psikomotorik) berbagi 4 byte. Nilai pengetahuan 85.5 menimpa nilai lainnya!
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-amber-300 mt-2">union nilaiRaport {
+    float pengetahuan;
+    float sikap;
+    float psikomotorik;
+} budi;</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: <code>sizeof(budi)</code> tetap 4 byte saja.
+            </div>
+          </div>
+
+          <!-- Kasus 3.3: Enum Presiden RI -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Praktikum 3.3</span>
+                <button onclick="Simulator.loadCase('case-3-3'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Enum Urutan Presiden RI</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Enum mengindeks otomatis dari 0 (Soekarno=0, Habibie=2, Jokowi=6). Ditambah 1 untuk urutan kepresidenan (Ke-1, Ke-3, dst.).
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-emerald-300 mt-2">enum namaPresiden {
     Soekarno, Soeharto, Habibie,
     Megawati, Gusdur, SBY, Jokowi
 };</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Konstanta integer berlabel nama mulai dari 0.
+            </div>
+          </div>
+
+          <!-- Kasus 3.4: Union Beda Tipe Data -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Praktikum 3.4</span>
+                <button onclick="Simulator.loadCase('case-3-4'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Union Beda Tipe Data (char, int, float)</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Satu wadah menampung <code>char (1 B)</code>, <code>int (4 B)</code>, dan <code>float (4 B)</code>. Total ukuran union adalah 4 byte. Mengisi int 100 menimpa huruf jadi 'd'!
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-amber-300 mt-2">union DataCampur {
+    char huruf;
+    int angkaBulat;
+    float angkaKoma;
+} kotak;</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Shared memory menimpa interpretasi bit.
+            </div>
+          </div>
+
+          <!-- Kasus 3.5: Typedef Balok -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-sky-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded">Praktikum 3.5</span>
+                <button onclick="Simulator.loadCase('case-3-5'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Typedef &amp; Struct Volume Balok 3D</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mendefinisikan alias <code>angkaPecahan</code> untuk float dan <code>kata</code> untuk string, menghitung volume Si Merah, Si Kuning, dan Si Hijau.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-sky-300 mt-2">typedef float angkaPecahan;
+typedef string kata;
+
+struct balok {
+    kata nama;
+    angkaPecahan p, l, t;
+};</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Kode lebih intuitif dibaca oleh praktikan pemula.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- TAB 6.5: MODUL 4 (TIPE DATA STRING & FUNGSI PUSTAKA <string>) -->
+    <!-- ============================================================= -->
+    <section id="tab-modul-4" class="tab-content-section hidden space-y-10">
+      
+      <!-- Header Modul 4 -->
+      <div class="border-b border-slate-800 pb-6">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold">PRAKTIKUM 4</span>
+          <span class="text-xs text-slate-400 font-mono">Tipe Data Bentukan Bagian 2</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Tipe Data String &amp; Pustaka Bawaan &lt;string&gt;</h2>
+        <p class="text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
+          Mengapa tipe data string begitu istimewa di C++? Pahami perbedaan arsitektur klasik <strong>C-String (Array of Char)</strong> dengan <strong>C++ std::string</strong>, kuasai teknik input spasi menggunakan <code>cin.get()</code>, dan jelajahi fungsi bawaan seperti <code>.length()</code>, <code>.at()</code>, <code>.replace()</code>, <code>.find()</code>, hingga <code>swap()</code>!
+        </p>
+      </div>
+
+      <!-- INTERACTIVE TOOL: LABORATORIUM FUNGSI PUSTAKA STRING -->
+      <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-emerald-500/30 rounded-3xl p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🔤</span>
+              <h3 class="text-lg font-bold text-white">Laboratorium Real-Time Fungsi Pustaka String C++</h3>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">Ketikkan teks di bawah ini dan uji langsung bagaimana fungsi-fungsi <code>&lt;string&gt;</code> bekerja seketika!</p>
+          </div>
+          <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-mono font-bold">
+            #include &lt;string&gt;
+          </span>
+        </div>
+
+        <!-- Input Teks Utama -->
+        <div class="mb-6">
+          <label class="block text-xs font-semibold text-slate-300 mb-2 flex items-center justify-between">
+            <span>Kalimat / Teks String Uji (Variabel <code>string teks</code>):</span>
+            <span class="text-[11px] text-slate-400 font-normal">Edit teks ini secara bebas!</span>
+          </label>
+          <input type="text" id="str-lab-input" value="Halo, dunia! Selamat datang." class="w-full bg-slate-950 border border-slate-700 focus:border-emerald-500 rounded-xl p-3.5 text-white font-mono text-sm shadow-inner transition-colors">
+        </div>
+
+        <!-- Parameter Uji -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 bg-slate-950/70 p-4 rounded-2xl border border-slate-800">
+          
+          <!-- Uji .at(index) -->
+          <div>
+            <label class="block text-xs text-slate-400 mb-1 font-mono">Uji .at(index): Indeks Ke-</label>
+            <input type="number" id="str-lab-at-idx" value="1" min="0" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white font-mono text-xs focus:border-emerald-500">
+            <span class="text-[10px] text-slate-500 mt-1 block">Mulai dari 0 (Karakter pertama = indeks 0)</span>
+          </div>
+
+          <!-- Uji .find(keyword) -->
+          <div>
+            <label class="block text-xs text-slate-400 mb-1 font-mono">Uji .find(kata): Kata Kunci</label>
+            <input type="text" id="str-lab-find-kw" value="dunia" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white font-mono text-xs focus:border-emerald-500">
+            <span class="text-[10px] text-slate-500 mt-1 block">Mencari posisi indeks pertama kemunculan</span>
+          </div>
+
+          <!-- Uji .replace(pos, len, baru) -->
+          <div>
+            <label class="block text-xs text-slate-400 mb-1 font-mono">Uji .replace(pos, len, baru):</label>
+            <div class="grid grid-cols-3 gap-1.5">
+              <input type="number" id="str-lab-repl-start" value="6" min="0" title="Posisi mulai" placeholder="Pos" class="bg-slate-900 border border-slate-700 rounded p-1.5 text-white font-mono text-xs text-center">
+              <input type="number" id="str-lab-repl-len" value="5" min="0" title="Panjang dihapus" placeholder="Len" class="bg-slate-900 border border-slate-700 rounded p-1.5 text-white font-mono text-xs text-center">
+              <input type="text" id="str-lab-repl-word" value="semua" title="Teks baru" placeholder="Kata baru" class="bg-slate-900 border border-slate-700 rounded p-1.5 text-white font-mono text-xs">
+            </div>
+            <span class="text-[10px] text-slate-500 mt-1 block">Ganti <em>len</em> karakter di <em>pos</em></span>
+          </div>
+
+        </div>
+
+        <!-- Output Real-Time Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          <!-- Card .length() -->
+          <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
+              <span>teks.length() / .size()</span>
+              <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">Panjang Total</span>
+            </div>
+            <div class="text-2xl font-extrabold font-mono text-emerald-400 mt-2">
+              <span id="str-res-length">0</span> <span class="text-xs font-normal text-slate-400 font-sans">karakter</span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+              Menghitung total karakter nyata tanpa memasukkan null terminator <code>\0</code>.
+            </p>
+          </div>
+
+          <!-- Card .at() -->
+          <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
+              <span>teks.at(index)</span>
+              <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">Akses Karakter</span>
+            </div>
+            <div id="str-res-at" class="text-sm font-bold font-mono text-emerald-400 mt-3 truncate">
+              -
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+              Lebih aman daripada <code>teks[index]</code> karena melempar exception bila indeks di luar batas.
+            </p>
+          </div>
+
+          <!-- Card .find() -->
+          <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
+              <span>teks.find(keyword)</span>
+              <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">Pencarian Substring</span>
+            </div>
+            <div id="str-res-find" class="text-sm font-bold font-mono text-emerald-400 mt-3 truncate">
+              -
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+              Jika tidak ditemukan, fungsi akan mengembalikan konstanta <code>string::npos</code>.
+            </p>
+          </div>
+
+          <!-- Card .empty() -->
+          <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
+              <span>teks.empty()</span>
+              <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">Cek Status Kosong</span>
+            </div>
+            <div id="str-res-empty" class="text-sm font-bold font-mono text-emerald-400 mt-3">
+              -
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+              Menghasilkan nilai boolean <code>true (1)</code> jika string kosong dan <code>false (0)</code> jika berisi.
+            </p>
+          </div>
+
+          <!-- Card .substr() -->
+          <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
+              <span>teks.substr(0, 10)</span>
+              <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">Potong Teks</span>
+            </div>
+            <div id="str-res-substr" class="text-xs font-bold font-mono text-emerald-300 mt-3 truncate bg-slate-950 p-1.5 rounded">
+              -
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+              Mengambil cuplikan substring sepanjang 10 karakter pertama mulai dari indeks 0.
+            </p>
+          </div>
+
+          <!-- Card .replace() -->
+          <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
+              <span>teks.replace(...)</span>
+              <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">Hasil Ganti</span>
+            </div>
+            <div id="str-res-replace" class="text-xs font-bold font-mono text-emerald-300 mt-3 truncate bg-slate-950 p-1.5 rounded">
+              -
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+              Pratinjau kalimat setelah kata pada rentang indeks yang dipilih diganti dengan kata baru.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PENEKANAN KHUSUS: FUNGSI .length() & TEKNIK INPUT SPASI -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Kartu 1: Kupas Tuntas .length() -->
+        <div class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">📏</span>
+            <h3 class="text-base font-bold text-white">Kupas Tuntas: Fungsi <code>.length()</code> &amp; <code>.size()</code></h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Di C++, fungsi <code>.length()</code> dan <code>.size()</code> adalah <strong>sinonim identik</strong> (menghasilkan angka yang persis sama). Keduanya merupakan method anggota dari kelas <code>std::string</code> yang bertugas menghitung jumlah byte/karakter aktif di dalam objek string.
+          </p>
+          <div class="space-y-2 text-xs">
+            <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-slate-300">
+              <strong class="text-emerald-400">1. Tanpa Menghitung Null-Terminator (\0):</strong><br>
+              Jika string berisi <code>"Nisa"</code>, maka <code>teks.length()</code> bernilai <strong>4</strong>. Karakter terminator pembatas akhir memori <code>\0</code> tidak ikut dihitung.
+            </div>
+            <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-slate-300">
+              <strong class="text-emerald-400">2. Mengapa Ada Dua Nama (.length &amp; .size)?</strong><br>
+              <code>.length()</code> diadopsi dari terminologi teks konvensional, sedangkan <code>.size()</code> disediakan agar konsisten dengan koleksi kontainer STL C++ lainnya (seperti <code>vector</code>, <code>list</code>, <code>map</code>).
+            </div>
+          </div>
+          <pre class="bg-slate-950 p-3 rounded-xl font-mono text-xs text-emerald-300">string nama = "Warnisyah Armin";
+cout &lt;&lt; "Panjang nama: " &lt;&lt; nama.length() &lt;&lt; " karakter"; // 15 karakter</pre>
+        </div>
+
+        <!-- Kartu 2: Dilema Input cin >> vs cin.get() vs getline() -->
+        <div class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">⌨️</span>
+            <h3 class="text-base font-bold text-white">Dilema Input Keyboard: Membaca Spasi (Laprak 4.1 vs 4.2)</h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Masalah paling sering dialami praktikan saat praktikum string adalah teks yang diinputkan <strong>terpotong</strong> saat menekan spasi! Berikut perbandingannya:
+          </p>
+          <div class="space-y-2.5 text-xs">
+            <div class="p-3 bg-rose-950/20 border border-rose-500/30 rounded-xl">
+              <div class="font-bold text-rose-300 font-mono">1. cin &gt;&gt; str; (Praktikum 4.1)</div>
+              <p class="text-slate-300 mt-1">Hanya membaca <strong>satu kata</strong>! Begitu ada karakter whitespace (spasi, tab, enter), pembacaan langsung berhenti. Contoh input "Warnisyah Armin" hanya menghasilkan "Warnisyah".</p>
+            </div>
+            <div class="p-3 bg-amber-950/20 border border-amber-500/30 rounded-xl">
+              <div class="font-bold text-amber-300 font-mono">2. cin.get(str, kapasitas); (Praktikum 4.2)</div>
+              <p class="text-slate-300 mt-1">Digunakan untuk <strong>C-String (char[])</strong>. Membaca kalimat utuh termasuk spasi hingga batas kapasitas memori yang ditentukan. Contoh: <code>cin.get(nama, 50);</code>.</p>
+            </div>
+            <div class="p-3 bg-emerald-950/20 border border-emerald-500/30 rounded-xl">
+              <div class="font-bold text-emerald-300 font-mono">3. getline(cin, str); (Standar Modern C++)</div>
+              <p class="text-slate-300 mt-1">Digunakan untuk <strong>std::string</strong>. Membaca satu baris penuh kalimat berspasi hingga praktikan menekan tombol Enter.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TABEL PERBANDINGAN: C-STRING VS C++ STRING -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6">
+        <h3 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+          <span>⚖️</span>
+          <span>Tabel Perbandingan: C-String (char[]) vs C++ std::string</span>
+        </h3>
+        <p class="text-xs text-slate-400 mb-4">7 Perbedaan fundamental yang sering ditanyakan asisten saat responsi praktikum:</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-700 text-[11px] uppercase tracking-wider text-slate-400 font-mono">
+                <th class="p-3">Aspek Perbandingan</th>
+                <th class="p-3 text-rose-400">C-String (char array)</th>
+                <th class="p-3 text-emerald-400">C++ std::string</th>
+              </tr>
+            </thead>
+            <tbody id="mod4-comp-table-body">
+              <!-- Populated by App.renderModule4Content() -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- KATALOG 10 FUNGSI PUSTAKA <string> BAWAAN -->
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <span>📖</span>
+              <span>Katalog 10 Metode / Fungsi Bawaan Pustaka &lt;string&gt;</span>
+            </h3>
+            <p class="text-xs text-slate-400">Fungsi esensial yang sering digunakan dalam manipulasi kata dan teks di C++</p>
+          </div>
+          <span class="text-xs text-slate-400 font-mono">10 Method STL</span>
+        </div>
+        <div id="mod4-methods-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Populated by App.renderModule4Content() -->
+        </div>
+      </div>
+
+      <!-- STUDI KASUS PRAKTIKUM 4 (4 KASUS RESMI UNM) -->
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>📚</span>
+            <span>Katalog 4 Studi Kasus Modul 4 (Resmi Laporan Praktikum UNM)</span>
+          </h3>
+          <span class="text-xs text-slate-400 font-mono">Kasus 4.1 s.d. 4.4</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Kasus 4.1: cin >> C-String -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Praktikum 4.1</span>
+                <button onclick="Simulator.loadCase('case-4-1'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Input C-String Satu Kata Menggunakan <code>cin &gt;&gt;</code></h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Membaca input teks nama panggilan ke dalam array <code>char namaPanggilan[50]</code>. Menunjukkan bagaimana spasi memotong sisa kalimat.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-emerald-300 mt-2">char namaPanggilan[50];
+cout &lt;&lt; "Masukkan nama panggilan: ";
+cin &gt;&gt; namaPanggilan; // Berhenti di spasi pertama!</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Teks terpotong jika ada spasi, kapasitas statis 50 byte.
+            </div>
+          </div>
+
+          <!-- Kasus 4.2: cin.get() Berspasi -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Praktikum 4.2</span>
+                <button onclick="Simulator.loadCase('case-4-2'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Input C-String Berspasi Menggunakan <code>cin.get()</code></h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Membaca nama lengkap ber-spasi seperti "Warnisyah Armin" tanpa terpotong dengan menentukan batas memori <code>cin.get(namaLengkap, 50)</code>.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-emerald-300 mt-2">char namaLengkap[50];
+cout &lt;&lt; "Masukkan nama lengkap: ";
+cin.get(namaLengkap, 50); // Membaca kalimat utuh!</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Membaca spasi dengan aman dalam batas alokasi buffer.
+            </div>
+          </div>
+
+          <!-- Kasus 4.3: Manipulasi Lengkap Pustaka <string> -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Praktikum 4.3</span>
+                <button onclick="Simulator.loadCase('case-4-3'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Manipulasi Lengkap Method Pustaka <code>&lt;string&gt;</code></h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mendemonstrasikan fungsi <code>.length()</code>, <code>.clear()</code>, <code>.replace()</code>, <code>swap()</code>, dan <code>.find()</code> pada objek string C++.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-emerald-300 mt-2">cout &lt;&lt; teks.length(); // Panjang karakter
+teks.clear();          // Hapus string
+teks.replace(11, 8, "sebuah"); // Ganti kata
+swap(str1, str2);      // Tukar isi variabel
+size_t pos = teks.find("adalah"); // Cari posisi</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Fleksibilitas tinggi pemrograman berorientasi objek di C++.
+            </div>
+          </div>
+
+          <!-- Kasus 4.4: Struct Hewan & .at() -->
+          <div class="bg-slate-850 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-5 space-y-3 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">Praktikum 4.4</span>
+                <button onclick="Simulator.loadCase('case-4-4'); App.switchTab('tab-playground')" class="text-xs text-sky-400 hover:underline">Uji di Terminal &rarr;</button>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-1">Struct Nama Hewan &amp; Akses Karakter <code>.at()</code></h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Mengkombinasikan struct <code>namaHewan</code> yang berisi member string <code>anjing</code>, <code>kucing</code>, <code>macan</code>, lalu mengambil panjang karakter dan karakter indeks ke-1 menggunakan <code>.at(1)</code>.
+              </p>
+              <pre class="bg-slate-950 p-2.5 rounded-lg text-[11px] font-mono text-emerald-300 mt-2">struct namaHewan {
+    string anjing = "Anjing";
+    string kucing = "Kucing";
+    string macan = "Macan";
+} mamalia;
+
+cout &lt;&lt; mamalia.anjing.length();
+cout &lt;&lt; mamalia.anjing.at(1); // Karakter 'n'</pre>
+            </div>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+              💡 Karakteristik: Integrasi Modul 3 (Struct) dengan Modul 4 (String).
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -848,7 +1423,7 @@ cout &lt;&lt; "Luas lingkaran adalah: " &lt;&lt; L &lt;&lt; " Cm" &lt;&lt; endl;
             <span>💻</span>
             <span>C++ Virtual Code Playground</span>
           </h2>
-          <p class="text-xs text-slate-400">Pilih kode dari Laporan Praktikum 1-3, sesuaikan variabelnya, dan lihat simulasi eksekusi terminalnya.</p>
+          <p class="text-xs text-slate-400">Pilih kode dari Laporan Praktikum 1-4, sesuaikan variabelnya, dan lihat simulasi eksekusi terminalnya.</p>
         </div>
         <div class="flex items-center gap-3">
           <select id="sim-case-selector" class="bg-slate-850 border border-slate-700 rounded-xl px-3 py-2 text-xs text-sky-400 font-mono font-bold max-w-xs truncate">

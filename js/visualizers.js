@@ -457,5 +457,164 @@ const Visualizers = {
     });
 
     render();
+  },
+
+  // ==========================================
+  // MODUL 3: UNION DENGAN TIPE DATA BERBEDA
+  // ==========================================
+  initModul3DifferentTypesUnion: function() {
+    const btnChar = document.getElementById("btn-union-char");
+    const btnInt = document.getElementById("btn-union-int");
+    const btnFloat = document.getElementById("btn-union-float");
+    const displayBox = document.getElementById("union-diff-display");
+    if (!displayBox) return;
+
+    let activeType = "char"; // "char", "int", "float"
+
+    const render = () => {
+      let charVal = "-";
+      let intVal = "-";
+      let floatVal = "-";
+      let statusExplain = "";
+
+      if (activeType === "char") {
+        charVal = "'A' (ASCII: 65)";
+        intVal = "65 (Membaca byte 1 dari 'A')";
+        floatVal = "9.1e-44 (Bit terinterpretasi sebagai float)";
+        statusExplain = "✅ Anda memasukkan <strong>huruf 'A'</strong>. Member <code>huruf</code> bernilai valid 'A'. Member <code>angkaBulat</code> membaca kode biner ASCII huruf A yaitu 65.";
+      } else if (activeType === "int") {
+        charVal = "'d' (ASCII 100 tertimpa!)";
+        intVal = "100 (VALID)";
+        floatVal = "1.4e-43 (Bit pecahan teracak)";
+        statusExplain = "⚠️ Anda memasukkan <strong>angkaBulat = 100</strong>. Huruf 'A' tadi tertimpa! Karena 100 adalah kode ASCII huruf 'd', maka <code>huruf</code> otomatis terbaca menjadi <strong>'d'</strong>!";
+      } else {
+        charVal = "Karakter kontrol/acak";
+        intVal = "1078530011 (Bit IEEE-754)";
+        floatVal = "3.14 (VALID)";
+        statusExplain = "⚠️ Anda memasukkan <strong>angkaKoma = 3.14f</strong>. Representasi biner pecahan IEEE 754 menimpa kotak memori. Jika <code>angkaBulat</code> dibaca sekarang, ia menghasilkan angka raksasa <strong>1078530011</strong>!";
+      }
+
+      // Update active button styles
+      if (btnChar && btnInt && btnFloat) {
+        btnChar.className = activeType === "char" ? "px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 shadow-md" : "px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700";
+        btnInt.className = activeType === "int" ? "px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 shadow-md" : "px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700";
+        btnFloat.className = activeType === "float" ? "px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 shadow-md" : "px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-slate-300 hover:bg-slate-700";
+      }
+
+      displayBox.innerHTML = `
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+          <div class="p-3 bg-slate-900 border ${activeType === 'char' ? 'border-amber-400 bg-amber-500/10' : 'border-slate-800'} rounded-xl text-center">
+            <span class="text-[11px] font-mono text-slate-400 block">Member char huruf (1 B)</span>
+            <div class="text-base font-bold font-mono text-amber-300 mt-1">${charVal}</div>
+          </div>
+          <div class="p-3 bg-slate-900 border ${activeType === 'int' ? 'border-amber-400 bg-amber-500/10' : 'border-slate-800'} rounded-xl text-center">
+            <span class="text-[11px] font-mono text-slate-400 block">Member int angkaBulat (4 B)</span>
+            <div class="text-base font-bold font-mono text-amber-300 mt-1">${intVal}</div>
+          </div>
+          <div class="p-3 bg-slate-900 border ${activeType === 'float' ? 'border-amber-400 bg-amber-500/10' : 'border-slate-800'} rounded-xl text-center">
+            <span class="text-[11px] font-mono text-slate-400 block">Member float angkaKoma (4 B)</span>
+            <div class="text-base font-bold font-mono text-amber-300 mt-1">${floatVal}</div>
+          </div>
+        </div>
+        <div class="p-3 bg-slate-850 border border-slate-700 rounded-xl text-xs text-slate-200 leading-relaxed">
+          ${statusExplain}
+        </div>
+      `;
+    };
+
+    if (btnChar) btnChar.addEventListener("click", () => { activeType = "char"; render(); });
+    if (btnInt) btnInt.addEventListener("click", () => { activeType = "int"; render(); });
+    if (btnFloat) btnFloat.addEventListener("click", () => { activeType = "float"; render(); });
+
+    render();
+  },
+
+  // ==========================================
+  // MODUL 4: STRING METHODS LABORATORY
+  // ==========================================
+  initModul4StringLab: function() {
+    const mainInput = document.getElementById("str-lab-input");
+    const atIndexInput = document.getElementById("str-lab-at-idx");
+    const findWordInput = document.getElementById("str-lab-find-kw");
+    const replStartInput = document.getElementById("str-lab-repl-start");
+    const replLenInput = document.getElementById("str-lab-repl-len");
+    const replWordInput = document.getElementById("str-lab-repl-word");
+
+    if (!mainInput) return;
+
+    const render = () => {
+      const text = mainInput.value;
+      const atIdx = parseInt(atIndexInput ? atIndexInput.value : 0) || 0;
+      const findKw = findWordInput ? findWordInput.value : "";
+      const replStart = parseInt(replStartInput ? replStartInput.value : 0) || 0;
+      const replLen = parseInt(replLenInput ? replLenInput.value : 0) || 0;
+      const replWord = replWordInput ? replWordInput.value : "";
+
+      // 1. Length
+      const lenEl = document.getElementById("str-res-length");
+      if (lenEl) lenEl.textContent = text.length;
+
+      // 2. Character at
+      const atEl = document.getElementById("str-res-at");
+      if (atEl) {
+        if (atIdx >= 0 && atIdx < text.length) {
+          atEl.textContent = `'${text.charAt(atIdx)}' (indeks ${atIdx})`;
+          atEl.className = "text-sm font-bold font-mono text-emerald-400";
+        } else {
+          atEl.textContent = "Out of Range!";
+          atEl.className = "text-xs font-bold font-mono text-rose-400";
+        }
+      }
+
+      // 3. Find
+      const findEl = document.getElementById("str-res-find");
+      if (findEl) {
+        if (findKw.trim() === "") {
+          findEl.textContent = "Masukkan kata kunci";
+          findEl.className = "text-xs font-mono text-slate-400";
+        } else {
+          const pos = text.indexOf(findKw);
+          if (pos !== -1) {
+            findEl.textContent = `Ditemukan di indeks ${pos}`;
+            findEl.className = "text-sm font-bold font-mono text-emerald-400";
+          } else {
+            findEl.textContent = "string::npos (Tidak Ada)";
+            findEl.className = "text-xs font-bold font-mono text-amber-400";
+          }
+        }
+      }
+
+      // 4. Empty
+      const emptyEl = document.getElementById("str-res-empty");
+      if (emptyEl) {
+        emptyEl.textContent = text.length === 0 ? "true (Kosong)" : "false (Ada isi)";
+        emptyEl.className = text.length === 0 ? "text-sm font-bold font-mono text-amber-400" : "text-sm font-bold font-mono text-emerald-400";
+      }
+
+      // 5. Substr preview
+      const subEl = document.getElementById("str-res-substr");
+      if (subEl) {
+        const sub = text.substring(0, Math.min(10, text.length));
+        subEl.textContent = `"${sub}"`;
+      }
+
+      // 6. Replace preview
+      const replEl = document.getElementById("str-res-replace");
+      if (replEl) {
+        if (replStart >= 0 && replStart <= text.length) {
+          const before = text.substring(0, replStart);
+          const after = text.substring(replStart + replLen);
+          replEl.textContent = `"${before}${replWord}${after}"`;
+        } else {
+          replEl.textContent = `"${text}"`;
+        }
+      }
+    };
+
+    [mainInput, atIndexInput, findWordInput, replStartInput, replLenInput, replWordInput].forEach(inp => {
+      if (inp) inp.addEventListener("input", render);
+    });
+
+    render();
   }
 };
