@@ -28,12 +28,28 @@ html.theme-pink-sorbet body {
 
 /* Header in Pink & Sorbet */
 html.theme-pink-sorbet header {
-  background-color: rgba(255, 245, 248, 0.95);
-  border-bottom: 2px solid #FFCAD6;
+  background-color: rgba(255, 245, 248, 0.98) !important;
+  border-bottom: 2px solid #FFCAD6 !important;
+  box-shadow: 0 4px 20px -2px rgba(244, 79, 131, 0.12) !important;
 }
 
 html.theme-pink-sorbet header .text-white {
   color: #881337 !important;
+}
+
+html.theme-pink-sorbet .nav-tier-2 {
+  background-color: rgba(255, 238, 244, 0.98) !important;
+  border-top-color: #FFCAD6 !important;
+  border-bottom-color: #EE9DBD !important;
+}
+
+html.theme-pink-sorbet .nav-tier-2 .border-slate-800\/80,
+html.theme-pink-sorbet .nav-tier-2 .border-slate-800\/90 {
+  border-color: #FFCAD6 !important;
+}
+
+html.theme-pink-sorbet .nav-tier-2 .text-slate-400 {
+  color: #9F5870 !important;
 }
 
 /* Surfaces and Cards */
@@ -161,6 +177,15 @@ html.theme-pink-sorbet ::-webkit-scrollbar-track {
 }
 html.theme-pink-sorbet ::-webkit-scrollbar-thumb {
   background: #EE9DBD;
+}
+
+/* No-scrollbar Utility (smooth hidden horizontal scroll) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
 /* ========================================================

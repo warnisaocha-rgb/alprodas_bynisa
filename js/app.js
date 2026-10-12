@@ -75,10 +75,14 @@ const App = {
     document.querySelectorAll("[data-target-tab]").forEach(btn => {
       const isTarget = btn.getAttribute("data-target-tab") === tabId;
       if (isTarget) {
-        btn.classList.add("bg-sky-500/10", "text-sky-400", "border-sky-500/30");
-        btn.classList.remove("text-slate-400", "border-transparent");
+        btn.classList.add("bg-sky-500/10", "text-sky-400", "border-sky-500/30", "font-bold");
+        btn.classList.remove("text-slate-400", "border-transparent", "font-medium");
+        // Ensure active pill is visible within scrollable nav
+        try {
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } catch (e) {}
       } else {
-        btn.classList.remove("bg-sky-500/10", "text-sky-400", "border-sky-500/30");
+        btn.classList.remove("bg-sky-500/10", "text-sky-400", "border-sky-500/30", "font-bold");
         btn.classList.add("text-slate-400", "border-transparent");
       }
     });
