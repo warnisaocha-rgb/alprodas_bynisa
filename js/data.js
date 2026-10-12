@@ -1562,8 +1562,626 @@ Token Akses   : 16
 Status Gudang : STOK AMAN
 
 Process returned 0 (0x0)   execution time : 0.022 s`
+    },
+
+    {
+      id: "uts-paket-f",
+      title: "Paket F: Registrasi Mahasiswa & Manipulasi String C++",
+      durationMinutes: 15,
+      scenario: "Biro Akademik UNM membutuhkan modul pendaftaran mahasiswa baru: membaca nama lengkap berspasi dengan aman, menghitung panjang karakter dengan fungsi bawaan, menukar jadwal kelas dengan swap(), dan mengecek karakter inisial dengan .at() (Modul 1 & Modul 4). Lengkapi titik-titik kode!",
+      coveredModules: "Modul 1 (Variabel & IO) + Modul 4 (String, .length(), .at(), swap(), getline())",
+      rawCode: `#include <iostream>
+#include <___BLANK_1___>
+using namespace std;
+
+int main() {
+    string namaLengkap = "Warnisyah Armin";
+    string kelasAsal = "PTI-A";
+    string kelasTujuan = "PTI-B";
+
+    // 1. Mengambil panjang karakter nama (Modul 4)
+    int panjangNama = namaLengkap.___BLANK_2___();
+
+    // 2. Mengambil karakter inisial indeks pertama (indeks 0) secara aman (Modul 4)
+    char inisial = namaLengkap.___BLANK_3___(0);
+
+    // 3. Menukar jadwal kelas antara kelasAsal dan kelasTujuan tanpa variabel ketiga (Modul 4)
+    ___BLANK_4___(kelasAsal, kelasTujuan);
+
+    // 4. Output hasil ke konsol (Modul 1)
+    cout << "===== REGISTRASI AKADEMIK UNM =====" << endl;
+    cout << "Nama Mahasiswa : " << namaLengkap << endl;
+    cout << "Panjang Nama   : " << panjangNama << " karakter" << endl;
+    cout << "Inisial Huruf  : " << inisial << endl;
+    cout << "Kelas Sekarang : " << kelasAsal << endl;
+
+    return ___BLANK_5___;
+}`,
+      blanks: [
+        {
+          id: "BLANK_1",
+          label: "Titik-titik 1",
+          hint: "Header pustaka standar untuk tipe data teks di C++ (Modul 4)",
+          answers: ["string", "string.h"],
+          explanation: "Header <string> wajib di-include untuk menggunakan objek kelas std::string dan metode-metodenya."
+        },
+        {
+          id: "BLANK_2",
+          label: "Titik-titik 2",
+          hint: "Fungsi bawaan string untuk menghitung jumlah karakter (Modul 4)",
+          answers: ["length", "size"],
+          explanation: "Fungsi .length() atau .size() menghitung jumlah karakter nyata dalam objek string tanpa menghitung null terminator."
+        },
+        {
+          id: "BLANK_3",
+          label: "Titik-titik 3",
+          hint: "Fungsi aman pengakses karakter berdasarkan indeks (Modul 4)",
+          answers: ["at", "at()"],
+          explanation: "Metode .at(0) mengakses karakter pada indeks tertentu dengan perlindungan bounds-checking."
+        },
+        {
+          id: "BLANK_4",
+          label: "Titik-titik 4",
+          hint: "Fungsi bawaan C++ untuk menukar isi dua variabel string seketika (Modul 4)",
+          answers: ["swap", "std::swap"],
+          explanation: "Fungsi swap(a, b) menukar isi dua string secara langsung dan efisien di memori."
+        },
+        {
+          id: "BLANK_5",
+          label: "Titik-titik 5",
+          hint: "Nilai integer status sukses keluaran fungsi main() (Modul 1)",
+          answers: ["0", "0;"],
+          explanation: "'return 0;' menandakan fungsi utama program berhasil diselesaikan tanpa kesalahan."
+        }
+      ],
+      expectedOutput: `===== REGISTRASI AKADEMIK UNM =====
+Nama Mahasiswa : Warnisyah Armin
+Panjang Nama   : 15 karakter
+Inisial Huruf  : W
+Kelas Sekarang : PTI-B
+
+Process returned 0 (0x0)   execution time : 0.016 s`
+    },
+
+    {
+      id: "uts-paket-g",
+      title: "Paket G: Konversi Mutu Nilai Kuliah & Switch-Case",
+      durationMinutes: 15,
+      scenario: "Sistem Informasi Akademik Jurusan Teknik Komputer UNM mengonversi nilai huruf mutu (A, B, C, D, E) menjadi bobot indeks prestasi angka dan predikat kelulusan menggunakan struktur switch-case serta kata kunci kendali break (Modul 3 & Modul 5). Lengkapi titik-titik kode!",
+      coveredModules: "Modul 3 (Tipe Data Karakter & Enum) + Modul 5 (Percabangan switch-case, break, default)",
+      rawCode: `#include <iostream>
+#include <string>
+using namespace std;
+
+// 1. Enum Semester Terindeks (Modul 3)
+enum Semester { GANJIL, GENAP };
+
+int main() {
+    char grade = 'A';
+    float bobot = 0.0f;
+    string predikat = "";
+
+    // 2. Evaluasi Nilai Mutu dengan Struktur Percabangan switch (Modul 5)
+    ___BLANK_1___ (grade) {
+        case 'A':
+            bobot = 4.0f;
+            predikat = "Istimewa (Sangat Memuaskan)";
+            ___BLANK_2___; // Mencegah fall-through terjun bebas!
+        case 'B':
+            bobot = 3.0f;
+            predikat = "Baik";
+            break;
+        case 'C':
+            bobot = 2.0f;
+            predikat = "Cukup";
+            break;
+        case 'D':
+            bobot = 1.0f;
+            predikat = "Kurang";
+            break;
+        ___BLANK_3___: // Label cadangan jika nilai huruf tidak terdaftar
+            bobot = 0.0f;
+            predikat = "Tidak Lulus / Tidak Valid";
+            break;
+    }
+
+    // 3. Operator Relasional (Modul 2): Cek status kelulusan (bobot >= 2.0)
+    bool isLulus = (bobot ___BLANK_4___ 2.0f);
+
+    cout << "===== KARTU HASIL STUDI TEKNIK KOMPUTER =====" << endl;
+    cout << "Nilai Huruf   : " << grade << endl;
+    cout << "Bobot Angka   : " << bobot << endl;
+    cout << "Predikat      : " << predikat << endl;
+    cout << "Status Lulus  : " << (isLulus ? "LULUS" : "MENGULANG") << ___BLANK_5___;
+
+    return 0;
+}`,
+      blanks: [
+        {
+          id: "BLANK_1",
+          label: "Titik-titik 1",
+          hint: "Keyword percabangan multi-arah berbasis nilai bulat/karakter diskrit (Modul 5)",
+          answers: ["switch", "SWITCH"],
+          explanation: "Struktur 'switch' digunakan untuk memilih salah satu dari banyak blok kode berdasarkan kecocokan nilai eksak."
+        },
+        {
+          id: "BLANK_2",
+          label: "Titik-titik 2",
+          hint: "Pernyataan penghenti lompatan agar tidak terjadi bahaya fall-through (Modul 5)",
+          answers: ["break", "break;"],
+          explanation: "'break;' memaksa program keluar dari kurung switch setelah suatu case terpenuhi, mencegah eksekusi case di bawahnya."
+        },
+        {
+          id: "BLANK_3",
+          label: "Titik-titik 3",
+          hint: "Label penampung dalam switch jika tidak ada case yang cocok (Modul 5)",
+          answers: ["default", "DEFAULT"],
+          explanation: "Label 'default:' dieksekusi apabila nilai variabel switch tidak sesuai dengan semua pilihan case yang ada."
+        },
+        {
+          id: "BLANK_4",
+          label: "Titik-titik 4",
+          hint: "Operator perbandingan lebih besar atau sama dengan (Modul 2)",
+          answers: [">=", "=>"],
+          explanation: "Operator '>=' menghasilkan true jika nilai di sebelah kiri lebih besar atau sama dengan nilai di sebelah kanan."
+        },
+        {
+          id: "BLANK_5",
+          label: "Titik-titik 5",
+          hint: "Manipulator output untuk pindah ke baris baru dan flush buffer (Modul 1)",
+          answers: ["endl", "endl;"],
+          explanation: "'endl' menyisipkan karakter baris baru ('\\n') dan mengosongkan buffer output stream."
+        }
+      ],
+      expectedOutput: `===== KARTU HASIL STUDI TEKNIK KOMPUTER =====
+Nilai Huruf   : A
+Bobot Angka   : 4
+Predikat      : Istimewa (Sangat Memuaskan)
+Status Lulus  : LULUS
+
+Process returned 0 (0x0)   execution time : 0.017 s`
+    },
+
+    {
+      id: "uts-paket-h",
+      title: "Paket H: Kasir Diskon Bertingkat Toko Busana UNM",
+      durationMinutes: 15,
+      scenario: "Toko Koperasi Mahasiswa UNM menerapkan diskon terpisah: Baju @Rp 60.000 diskon 20% jika subtotal baju > Rp 100.000, dan Celana @Rp 40.000 diskon 25% jika subtotal celana > Rp 70.000. Program menghitung total akhir yang harus dibayar pembeli (Praktikum 5.5 UNM & Modul 1-2). Lengkapi titik-titik kode!",
+      coveredModules: "Modul 1 (Variabel Integer & Double) + Modul 2 (Aritmatika) + Modul 5 (if Seleksi Kondisi Independen)",
+      rawCode: `#include <iostream>
+using namespace std;
+
+int main() {
+    int qtyBaju = 3;
+    int qtyCelana = 2;
+    int hargaBaju = 60000;
+    int hargaCelana = 40000;
+
+    // 1. Perkalian subtotal belanja (Modul 2)
+    int totalBaju = qtyBaju ___BLANK_1___ hargaBaju;     // 3 * 60000 = 180000
+    int totalCelana = qtyCelana * hargaCelana;  // 2 * 40000 = 80000
+
+    double diskonBaju = 0;
+    double diskonCelana = 0;
+
+    // 2. Evaluasi Diskon Baju: Syarat > Rp 100.000 diskon 20% (Laprak 5.5)
+    ___BLANK_2___ (totalBaju > 100000) {
+        diskonBaju = 0.20 * totalBaju; // Diskon 20%
+    }
+
+    // 3. Evaluasi Diskon Celana: Syarat > Rp 70.000 diskon 25% (Laprak 5.5)
+    if (totalCelana ___BLANK_3___ 70000) {
+        diskonCelana = 0.25 * totalCelana; // Diskon 25%
+    }
+
+    // 4. Hitung Total Pembayaran Akhir
+    double totalBayar = (totalBaju - diskonBaju) ___BLANK_4___ (totalCelana - diskonCelana);
+
+    cout << "===== STRUK KASIR TOKO BUSANA UNM =====" << endl;
+    cout << "Subtotal Baju   : Rp " << totalBaju << endl;
+    cout << "Diskon Baju     : Rp " << (long long)diskonBaju << endl;
+    cout << "Subtotal Celana : Rp " << totalCelana << endl;
+    cout << "Diskon Celana   : Rp " << (long long)diskonCelana << endl;
+    cout << "Total Bayar     : Rp " << (long long)totalBayar << endl;
+
+    return ___BLANK_5___;
+}`,
+      blanks: [
+        {
+          id: "BLANK_1",
+          label: "Titik-titik 1",
+          hint: "Operator perkalian matematika dalam C++ (Modul 2)",
+          answers: ["*", "x"],
+          explanation: "Simbol '*' adalah operator perkalian aritmatika standar di C++."
+        },
+        {
+          id: "BLANK_2",
+          label: "Titik-titik 2",
+          hint: "Keyword seleksi kondisi dasar di C++ (Modul 5)",
+          answers: ["if", "IF"],
+          explanation: "Pernyataan 'if' mengevaluasi apakah kondisi di dalam kurung bernilai benar (true)."
+        },
+        {
+          id: "BLANK_3",
+          label: "Titik-titik 3",
+          hint: "Operator relasional lebih besar dari (Modul 2)",
+          answers: [">", ">="],
+          explanation: "Operator '>' menguji apakah total belanja celana melampaui ambang batas Rp 70.000."
+        },
+        {
+          id: "BLANK_4",
+          label: "Titik-titik 4",
+          hint: "Operator penjumlahan aritmatika (Modul 2)",
+          answers: ["+", "+="],
+          explanation: "Tanda '+' menjumlahkan total bersih baju dengan total bersih celana."
+        },
+        {
+          id: "BLANK_5",
+          label: "Titik-titik 5",
+          hint: "Nilai return status sukses fungsi main (Modul 1)",
+          answers: ["0", "0;"],
+          explanation: "'return 0;' menandakan eksekusi program selesai secara sukses tanpa error."
+        }
+      ],
+      expectedOutput: `===== STRUK KASIR TOKO BUSANA UNM =====
+Subtotal Baju   : Rp 180000
+Diskon Baju     : Rp 36000
+Subtotal Celana : Rp 80000
+Diskon Celana   : Rp 20000
+Total Bayar     : Rp 204000
+
+Process returned 0 (0x0)   execution time : 0.019 s`
+    },
+
+    {
+      id: "uts-paket-i",
+      title: "Paket I: Validasi Usia & Rentang if-else if Majemuk",
+      durationMinutes: 15,
+      scenario: "Komisi Pemilihan Umum Mahasiswa UNM memverifikasi usia pemilih ke dalam 5 rentang klasifikasi usia berantai: Bayi (<=1), Anak-anak (<=10), Remaja (<=19), Dewasa (<=60), dan Lansia (>60 th) sesuai studi kasus Praktikum 5.3 Resmi UNM. Lengkapi titik-titik kode!",
+      coveredModules: "Modul 1 (Tipe Data Integer) + Modul 2 (Operator Relasional) + Modul 5 (if-else if Majemuk)",
+      rawCode: `#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int usia = 20;
+    string kategori = "";
+
+    // Evaluasi 5 Rentang Usia Berantai (Praktikum 5.3)
+    if (usia <= 1) {
+        kategori = "Bayi";
+    } ___BLANK_1___ (usia <= 10) {
+        kategori = "Anak-anak";
+    } else if (usia ___BLANK_2___ 19) {
+        kategori = "Remaja";
+    } else if (usia <= 60) {
+        kategori = "Dewasa";
+    } ___BLANK_3___ {
+        kategori = "Lansia";
+    }
+
+    // Operator Relasional (Modul 2): Syarat berhak memilih dalam pemilu adalah usia >= 17 tahun
+    bool berhakMemilih = (usia ___BLANK_4___ 17);
+
+    cout << "===== KLASIFIKASI USIA PEMILU MAHASISWA =====" << endl;
+    cout << "Usia Terdata   : " << usia << " tahun" << endl;
+    cout << "Kategori Usia  : " << kategori << endl;
+    cout << "Hak Suara      : " << (berhakMemilih ? "BERHAK MEMILIH" : "BELUM CUKUP UMUR") << ___BLANK_5___;
+
+    return 0;
+}`,
+      blanks: [
+        {
+          id: "BLANK_1",
+          label: "Titik-titik 1",
+          hint: "Struktur lanjutan if untuk menguji cabang kondisi berikutnya (Modul 5)",
+          answers: ["else if", "elseif"],
+          explanation: "'else if' digunakan untuk memeriksa kondisi alternatif jika kondisi sebelumnya bernilai false."
+        },
+        {
+          id: "BLANK_2",
+          label: "Titik-titik 2",
+          hint: "Operator relasional kurang dari atau sama dengan (Modul 2)",
+          answers: ["<=", "=<"],
+          explanation: "Operator '<=' mengevaluasi batas atas rentang umur remaja hingga 19 tahun."
+        },
+        {
+          id: "BLANK_3",
+          label: "Titik-titik 3",
+          hint: "Cabang penutup terakhir jika semua rentang sebelumnya false (Modul 5)",
+          answers: ["else", "ELSE"],
+          explanation: "Blok 'else' menangkap semua nilai usia yang tidak memenuhi syarat di atasnya (> 60 tahun)."
+        },
+        {
+          id: "BLANK_4",
+          label: "Titik-titik 4",
+          hint: "Operator relasional lebih besar atau sama dengan (Modul 2)",
+          answers: [">=", "=>"],
+          explanation: "Operator '>=' memastikan pemilih berumur minimal 17 tahun ke atas."
+        },
+        {
+          id: "BLANK_5",
+          label: "Titik-titik 5",
+          hint: "Manipulator pindah baris output (Modul 1)",
+          answers: ["endl", "endl;"],
+          explanation: "'endl' mengakhiri baris tampilan konsol dan memindahkan kursor ke baris berikutnya."
+        }
+      ],
+      expectedOutput: `===== KLASIFIKASI USIA PEMILU MAHASISWA =====
+Usia Terdata   : 20 tahun
+Kategori Usia  : Dewasa
+Hak Suara      : BERHAK MEMILIH
+
+Process returned 0 (0x0)   execution time : 0.018 s`
+    },
+
+    {
+      id: "uts-paket-j",
+      title: "Paket J: Sanitasi Teks & Deteksi Kata Terlarang",
+      durationMinutes: 15,
+      scenario: "Laboratorium Komputasi Awan UNM membangun filter sensor kata untuk komentar forum diskusi mahasiswa: mencari posisi kata terlarang menggunakan method .find(), mengecek konstanta string::npos, dan menyensor kata tersebut dengan method .replace() (Modul 3 & Modul 4). Lengkapi titik-titik kode!",
+      coveredModules: "Modul 1 (Tipe Data & IO) + Modul 4 (Pustaka String, .find(), .replace(), string::npos)",
+      rawCode: `#include <iostream>
+#include <string>
+using namespace std;
+
+// 1. Struct Rekap Moderasi Pesan (Modul 3)
+struct LaporanSensor {
+    string idKomentar;
+    int jumlahKataSensor;
+};
+
+int main() {
+    string pesan = "Program ini buruk sekali dan tidak rapi";
+    string kataTerlarang = "buruk";
+
+    // 2. Mencari indeks kemunculan kata terlarang (Modul 4)
+    size_t posisi = pesan.___BLANK_1___(kataTerlarang);
+
+    // 3. Konstanta C++ string yang menandakan substring tidak ditemukan (Modul 4)
+    if (posisi != string::___BLANK_2___) {
+        // 4. Mengganti kata terlarang dengan tanda sensor "***" (Modul 4)
+        pesan.___BLANK_3___(posisi, kataTerlarang.length(), "***");
+    }
+
+    // 5. Cek apakah string pesan kosong (Modul 4)
+    bool statusKosong = pesan.___BLANK_4___();
+
+    LaporanSensor rep;
+    rep.idKomentar = "CMT-101";
+    rep.jumlahKataSensor = 1;
+
+    cout << "===== SISTEM SENSOR FORUM MAHASISWA =====" << endl;
+    cout << "ID Komentar : " << rep.___BLANK_5___ << endl;
+    cout << "Hasil Teks  : " << pesan << endl;
+    cout << "Pesan Kosong: " << (statusKosong ? "YA" : "TIDAK") << endl;
+
+    return 0;
+}`,
+      blanks: [
+        {
+          id: "BLANK_1",
+          label: "Titik-titik 1",
+          hint: "Method string untuk mencari posisi pertama kemunculan substring (Modul 4)",
+          answers: ["find", "find()"],
+          explanation: "Metode .find(keyword) mengembalikan indeks posisi karakter pertama dari substring yang dicari."
+        },
+        {
+          id: "BLANK_2",
+          label: "Titik-titik 2",
+          hint: "Konstanta penanda 'tidak ditemukan' milik kelas std::string (Modul 4)",
+          answers: ["npos", "NPOS"],
+          explanation: "'string::npos' adalah konstanta statis berukuran maksimum yang merepresentasikan kondisi 'No Position' / tidak ditemukan."
+        },
+        {
+          id: "BLANK_3",
+          label: "Titik-titik 3",
+          hint: "Method string untuk mengganti sebagian teks dengan kata baru (Modul 4)",
+          answers: ["replace", "replace()"],
+          explanation: "Metode .replace(pos, len, string_baru) mengganti sejumlah karakter di posisi tertentu dengan kata baru."
+        },
+        {
+          id: "BLANK_4",
+          label: "Titik-titik 4",
+          hint: "Method string untuk memeriksa apakah teks kosong tanpa karakter (Modul 4)",
+          answers: ["empty", "empty()"],
+          explanation: "Metode .empty() mengembalikan nilai boolean true jika panjang string adalah 0."
+        },
+        {
+          id: "BLANK_5",
+          label: "Titik-titik 5",
+          hint: "Nama anggota member struct LaporanSensor yang menyimpan ID komentar (Modul 3)",
+          answers: ["idKomentar", "id_komentar"],
+          explanation: "Member dalam deklarasi struct LaporanSensor adalah 'idKomentar'."
+        }
+      ],
+      expectedOutput: `===== SISTEM SENSOR FORUM MAHASISWA =====
+ID Komentar : CMT-101
+Hasil Teks  : Program ini *** sekali dan tidak rapi
+Pesan Kosong: TIDAK
+
+Process returned 0 (0x0)   execution time : 0.020 s`
+    },
+
+    {
+      id: "uts-paket-k",
+      title: "Paket K: Sistem Keamanan IoT & Bitwise Masking",
+      durationMinutes: 15,
+      scenario: "Laboratorium Jaringan & IoT UNM membaca 8-bit register sensor keamanan gedung: Bit 0 (Pintu), Bit 1 (Jendela), Bit 2 (Sensor Asap). Lakukan bitwise AND untuk mengekstrak status sensor asap dan evaluasi percabangan alarm darurat (Modul 2 & Modul 5). Lengkapi titik-titik kode!",
+      coveredModules: "Modul 1 (Tipe Data Unsigned Char) + Modul 2 (Bitwise AND &, OR |, Compound |=) + Modul 5 (if-else Status Darurat)",
+      rawCode: `#include <iostream>
+using namespace std;
+
+int main() {
+    // Register status awal: 0b00000101 (Pintu & Sensor Asap Aktif) = desimal 5
+    unsigned char registerStatus = 5;
+
+    // Masker bit untuk memeriksa sensor asap pada Bit-2 (2^2 = 4 biner: 00000100)
+    unsigned char MASK_ASAP = 4;
+
+    // 1. Bitwise AND (Modul 2): Isolasi hanya bit sensor asap
+    unsigned char cekAsap = registerStatus ___BLANK_1___ MASK_ASAP;
+
+    string statusBahaya = "";
+
+    // 2. Percabangan if-else untuk status darurat (Modul 5)
+    ___BLANK_2___ (cekAsap != 0) {
+        statusBahaya = "DARURAT ASAP TERDETEKSI";
+        // 3. Menyalakan Bit-7 Sirine Alarm (nilai 128) menggunakan Bitwise OR (Modul 2)
+        registerStatus = registerStatus ___BLANK_3___ 128;
+    } else {
+        statusBahaya = "KONDISI AMAN";
+    }
+
+    // 4. Operator compound assignment pergeseran bit shift left (Modul 2)
+    unsigned int timerDetik = 1;
+    timerDetik ___BLANK_4___ 3; // 1 << 3 setara 1 * 8 = 8 detik
+
+    cout << "===== SISTEM KEAMANAN IoT GEDUNG LAB UNM =====" << endl;
+    cout << "Status Deteksi : " << statusBahaya << endl;
+    cout << "Register Akhir : " << (int)registerStatus << endl;
+    cout << "Durasi Alarm   : " << timerDetik << " detik" << endl;
+
+    return ___BLANK_5___;
+}`,
+      blanks: [
+        {
+          id: "BLANK_1",
+          label: "Titik-titik 1",
+          hint: "Operator bitwise AND untuk masking bit tertentu (Modul 2)",
+          answers: ["&", "and"],
+          explanation: "Operator '&' (bitwise AND) melakukan operasi logika DAN pada setiap pasangan bit individual."
+        },
+        {
+          id: "BLANK_2",
+          label: "Titik-titik 2",
+          hint: "Keyword percabangan kondisi C++ (Modul 5)",
+          answers: ["if", "IF"],
+          explanation: "Keyword 'if' digunakan untuk memeriksa apakah hasil masking sensor asap bernilai tidak sama dengan 0 (aktif)."
+        },
+        {
+          id: "BLANK_3",
+          label: "Titik-titik 3",
+          hint: "Operator bitwise OR untuk menyalakan/mengaktifkan bit tertentu (Modul 2)",
+          answers: ["|", "or"],
+          explanation: "Operator '|' (bitwise OR) digunakan untuk menyalakan bit tertentu tanpa mematikan bit lainnya."
+        },
+        {
+          id: "BLANK_4",
+          label: "Titik-titik 4",
+          hint: "Operator compound assignment geser bit ke kiri (bitwise shift left compound, Modul 2)",
+          answers: ["<<=", "<< ="],
+          explanation: "Operator '<<=' menggeser bit ke kiri dan langsung menugaskan hasilnya ke variabel tersebut (mengalikan dengan 2^N)."
+        },
+        {
+          id: "BLANK_5",
+          label: "Titik-titik 5",
+          hint: "Status kode keluaran sukses program main (Modul 1)",
+          answers: ["0", "0;"],
+          explanation: "'return 0;' mengembalikan kode status 0 yang berarti program berjalan lancar."
+        }
+      ],
+      expectedOutput: `===== SISTEM KEAMANAN IoT GEDUNG LAB UNM =====
+Status Deteksi : DARURAT ASAP TERDETEKSI
+Register Akhir : 133
+Durasi Alarm   : 8 detik
+
+Process returned 0 (0x0)   execution time : 0.021 s`
+    },
+
+    {
+      id: "uts-paket-l",
+      title: "Paket L: Skrining Medis Pasien Klinik UNM",
+      durationMinutes: 15,
+      scenario: "Klinik Kesehatan Mahasiswa UNM mencatat pemeriksaan fisik pasien: mengunci ambang batas demam dengan konstanta const, menyimpan atribut pasien ke dalam struct, dan mendiagnosa status kesehatan dengan if-else ganda serta operator ternary (Modul 1, 2, 3, 5). Lengkapi titik-titik kode!",
+      coveredModules: "Modul 1 (Konstanta const & Float) + Modul 2 (Ternary & Logika) + Modul 3 (Struct Pasien) + Modul 5 (if-else Ganda)",
+      rawCode: `#include <iostream>
+#include <string>
+using namespace std;
+
+// 1. Deklarasi Konstanta Ambang Batas Demam (Modul 1)
+___BLANK_1___ float BATAS_DEMAM = 37.5f;
+
+// 2. Deklarasi Tipe Data Bentukan Struct Pasien (Modul 3)
+struct PasienKlinik {
+    string namaPasien;
+    float suhuBadan;
+    int denyutNadi;
+};
+
+int main() {
+    PasienKlinik p;
+    p.namaPasien = "Andi Reski";
+    p.suhuBadan = 38.2f;
+    p.denyutNadi = 95;
+
+    string statusKesehatan = "";
+
+    // 3. Seleksi Kondisi if-else Ganda (Modul 5)
+    if (p.suhuBadan ___BLANK_2___ BATAS_DEMAM) {
+        statusKesehatan = "Pasien Mengalami Demam";
+    } ___BLANK_3___ {
+        statusKesehatan = "Suhu Tubuh Normal";
+    }
+
+    // 4. Operator Ternary (Modul 2): Rekomendasi tindakan medis
+    string rekomendasi = (p.suhuBadan >= 38.0f) ___BLANK_4___ "Beri Parasetamol & Kompres" : "Banyak Minum Air Putih";
+
+    cout << "===== KLINIK KESEHATAN MAHASISWA UNM =====" << endl;
+    cout << "Nama Pasien    : " << p.___BLANK_5___ << endl;
+    cout << "Suhu Tubuh     : " << p.suhuBadan << " C" << endl;
+    cout << "Status Klinis  : " << statusKesehatan << endl;
+    cout << "Rekomendasi    : " << rekomendasi << endl;
+
+    return 0;
+}`,
+      blanks: [
+        {
+          id: "BLANK_1",
+          label: "Titik-titik 1",
+          hint: "Keyword untuk mendefinisikan variabel konstan/tetap yang nilainya read-only (Modul 1)",
+          answers: ["const", "CONST"],
+          explanation: "Keyword 'const' mengunci nilai variabel agar tidak dapat dimodifikasi oleh baris program lain."
+        },
+        {
+          id: "BLANK_2",
+          label: "Titik-titik 2",
+          hint: "Operator perbandingan lebih besar atau sama dengan (Modul 2)",
+          answers: [">=", "=>"],
+          explanation: "Operator '>=' memeriksa apakah suhu pasien telah mencapai atau melampaui batas 37.5 derajat celcius."
+        },
+        {
+          id: "BLANK_3",
+          label: "Titik-titik 3",
+          hint: "Keyword cabang cadangan pada percabangan if (Modul 5)",
+          answers: ["else", "ELSE"],
+          explanation: "Blok 'else' dieksekusi saat kondisi if bernilai false (suhu di bawah batas demam)."
+        },
+        {
+          id: "BLANK_4",
+          label: "Titik-titik 4",
+          hint: "Simbol penanda pertanyaan pada operator ternary ? : (Modul 2)",
+          answers: ["?", "? "],
+          explanation: "Tanda tanya '?' memisahkan kondisi dengan nilai keluaran jika kondisi bernilai true."
+        },
+        {
+          id: "BLANK_5",
+          label: "Titik-titik 5",
+          hint: "Nama anggota member struct PasienKlinik yang menyimpan nama (Modul 3)",
+          answers: ["namaPasien", "nama_pasien"],
+          explanation: "Akses member struct menggunakan operator titik diikuti nama member yaitu 'namaPasien'."
+        }
+      ],
+      expectedOutput: `===== KLINIK KESEHATAN MAHASISWA UNM =====
+Nama Pasien    : Andi Reski
+Suhu Tubuh     : 38.2 C
+Status Klinis  : Pasien Mengalami Demam
+Rekomendasi    : Beri Parasetamol & Kompres
+
+Process returned 0 (0x0)   execution time : 0.017 s`
     }
   ],
+
 
   // ========================================================
   // STORYBOARD VIDEO SIMULASI ANIMASI ORANG AWAM
